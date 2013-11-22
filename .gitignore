@@ -1,2 +1,5 @@
 index-perso.html
 index_perso.html
+node_modules
+.tmp
+.sass-cache
