@@ -56,16 +56,22 @@ var initGUIScene = function () {
 	var PLAYER_COLOR_COLOR1 = COLOR1_BTN_COLOR
 	var im = new InputManager()
 	im.setPlayerObject(Player)
-	var redBtn = Crafty.e('2D, DOM, Color, Mouse, Keyboard')
+	var redBtn = Crafty.e('2D, DOM, Color, Mouse, Keyboard, Text')
 		.attr(COLOR1_BTN_INIT_ATTRIBUTES)
 		.color(COLOR1_BTN_COLOR)
+		.text(COLOR1_BTN_KEY)
+		.textFont({ size: BTN_H*0.75 + "px", weight: 'bold' })
+		.unselectable()
 	redBtn.bind('KeyDown', keyDownFor(COLOR1_BTN_KEY, im));
 	redBtn.bind('DoubleClick', askBindingForButton(redBtn, im));
 	redBtn.gameColor = COLOR1_BTN_COLOR
 
-	var blueBtn = Crafty.e('2D, DOM, Color, Mouse, Keyboard')
+	var blueBtn = Crafty.e('2D, DOM, Color, Mouse, Keyboard, Text')
 		.attr(COLOR2_BTN_INIT_ATTRIBUTES)
 		.color(COLOR2_BTN_COLOR)
+		.text(COLOR2_BTN_KEY)
+		.textFont({ size: BTN_H*0.75 + "px", weight: 'bold' })
+		.unselectable()
 	blueBtn.bind('KeyDown', keyDownFor(COLOR2_BTN_KEY, im));
 	blueBtn.bind('DoubleClick', askBindingForButton(blueBtn, im));
 	blueBtn.gameColor = COLOR2_BTN_COLOR
@@ -94,6 +100,7 @@ var askBindingForButton = function (btnEntity, im) {
 		} while (!Crafty.keys[key]);
 		btnEntity.unbind('KeyDown')
 		btnEntity.bind('KeyDown', keyDownFor(key, im))
+		btnEntity.text(key.toUpperCase())
 	}
 }
 
