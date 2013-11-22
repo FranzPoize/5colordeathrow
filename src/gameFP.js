@@ -6,7 +6,7 @@ window.onload = function() {
 
 		Crafty.e('2D, Canvas, Color, MoveTo, Collision ,WiredHitBox')
 			.attr({x:0,y:0,h:40,w:40})
-			.color(color.five);
+			.color(color.five)
 			.collision(new Crafty.polygon([0,0],[45,0],[45,45],[0,45]));
 
 		Crafty.e('2D, Canvas, Color, Enemy, Collision ,WiredHitBox')
