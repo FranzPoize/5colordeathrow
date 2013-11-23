@@ -14,7 +14,7 @@ Crafty.c('PlayerCollision',{
 					enemy.available = true;
 				},500);
 				enemy.available = false;
-				enemy.resolveCollision(true);
+				enemy.resolveCollision(true,this);
 			} else {
 				Crafty.trigger('CollisionOtherColor', {'enemy': enemy})
 				score.text(+score.text()+enemy.getScore(false));
@@ -23,7 +23,7 @@ Crafty.c('PlayerCollision',{
 				},500);
 				enemy.available = false;
 
-				enemy.resolveCollision(false);
+				enemy.resolveCollision(false,this);
 			}
 		}
 	},
