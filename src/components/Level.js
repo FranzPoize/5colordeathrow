@@ -14,7 +14,7 @@ Crafty.c('Level', {
 			var self = this;
 
 			Crafty.e('2D, DOM, Color, Text, TweenQueue')
-				.attr({alpha: 1, x: Crafty.DOM.window.width /2 - 30, y: Crafty.DOM.window.height /2 - 30, w: 200, h: 100})
+				.attr({alpha: 1, x: Crafty.stage.elem.scrollWidth /2 - 30, y: Crafty.stage.elem.scrollHeight /2 - 30, w: 200, h: 100})
 				.text('3')
 				.textColor('#ffffff')
 				.textFont({ size: '100px', weight: 'bold'})

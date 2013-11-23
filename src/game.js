@@ -1,12 +1,12 @@
 'use strict';
 
 window.onload = function() {
-	Crafty.init(document.getElementById('game'));
+	Crafty.init(1250,600,document.getElementById('game'));
 	var levelToLoad;
 
 	Crafty.scene('logoGameJam',function() {
 		var logo = Crafty.e('2D, DOM, Image, Delay,Mouse')
-			.attr({x:Crafty.DOM.window.width/2-140,y:Crafty.DOM.window.height/2-150})
+			.attr({x:Crafty.stage.elem.scrollWidth/2-140,y:Crafty.stage.elem.scrollHeight/2-150})
 			.image('assets/logo_gdp.png')
 			.delay(function() {
 				Crafty.scene('menu');
@@ -19,11 +19,11 @@ window.onload = function() {
 
 	Crafty.scene('menu',function() {
 		Crafty.e('2D, DOM, Image')
-			.attr({x:Crafty.DOM.window.width/2-310,y:Crafty.DOM.window.height/2-320})
+			.attr({x:Crafty.stage.elem.scrollWidth/2-310,y:Crafty.stage.elem.scrollHeight/2-320})
 			.image('assets/menus/title.png');
 		
 		var btn = Crafty.e('2D, DOM, Image, Mouse')
-			.attr({x:Crafty.DOM.window.width/2-172,y:Crafty.DOM.window.height/2+230})
+			.attr({x:Crafty.stage.elem.scrollWidth/2-172,y:Crafty.stage.elem.scrollHeight/2+230})
 			.image('assets/menus/press_start.png')
 			.css({cursor:'pointer'});
 		
@@ -44,7 +44,7 @@ window.onload = function() {
 			.image('assets/menus/title_very_small.png');
 		
 		Crafty.e('2D,DOM,Text,Color')
-			.attr({x: Crafty.DOM.window.width / 2 - 250, y: 120, h:lvlHeight, w:500})
+			.attr({x: Crafty.stage.elem.scrollWidth / 2 - 250, y: 120, h:lvlHeight, w:500})
 			.text("Level Select")
 			.textColor("#000")
 			.textFont({ size: '42px' })
@@ -53,7 +53,7 @@ window.onload = function() {
 		_.each(window.levels,function(level,name) {
 			// Cadre
 			var lvlBtn = Crafty.e('2D,DOM,Color,Mouse')
-				.attr({x: Crafty.DOM.window.width / 2 + ( index % nLevelsPerLine - 2 ) * (lvlWidth + nSpace) - lvlWidth / 2
+				.attr({x: Crafty.stage.elem.scrollWidth / 2 + ( index % nLevelsPerLine - 2 ) * (lvlWidth + nSpace) - lvlWidth / 2
 					, y: 160 + parseInt(index / nLevelsPerLine) * (lvlHeight + nSpace), h:lvlHeight, w:lvlWidth})
 				.color('#fff')
 				.css({cursor:'pointer'})
@@ -63,7 +63,7 @@ window.onload = function() {
 			
 			// Level Name
 			Crafty.e('2D,DOM,Text,Color')
-				.attr({x: Crafty.DOM.window.width / 2 + ( index % nLevelsPerLine - 2 ) * (lvlWidth + nSpace) - lvlWidth / 2
+				.attr({x: Crafty.stage.elem.scrollWidth / 2 + ( index % nLevelsPerLine - 2 ) * (lvlWidth + nSpace) - lvlWidth / 2
 					, y: 182 + parseInt(index / nLevelsPerLine) * (lvlHeight + nSpace), h:lvlHeight, w:lvlWidth})
 				.text(level.name)
 				.textColor(window.getColor(parseInt(index%nLevelsPerLine)))
@@ -72,7 +72,7 @@ window.onload = function() {
 			
 			// Level Duration
 			Crafty.e('2D,DOM,Text,Color')
-				.attr({x: Crafty.DOM.window.width / 2 + ( index % nLevelsPerLine - 2 ) * (lvlWidth + nSpace) - lvlWidth / 2
+				.attr({x: Crafty.stage.elem.scrollWidth / 2 + ( index % nLevelsPerLine - 2 ) * (lvlWidth + nSpace) - lvlWidth / 2
 					, y: 240 + parseInt(index / nLevelsPerLine) * (lvlHeight + nSpace), h:lvlHeight, w:lvlWidth})
 				.text(window.getLevelDurationText(level.duration))
 				.textColor("#000")
@@ -81,7 +81,7 @@ window.onload = function() {
 			
 			// Level Score
 			Crafty.e('2D,DOM,Text,Color')
-				.attr({x: Crafty.DOM.window.width / 2 + ( index % nLevelsPerLine - 2 ) * (lvlWidth + nSpace) - lvlWidth / 2
+				.attr({x: Crafty.stage.elem.scrollWidth / 2 + ( index % nLevelsPerLine - 2 ) * (lvlWidth + nSpace) - lvlWidth / 2
 					, y: 270 + parseInt(index / nLevelsPerLine) * (lvlHeight + nSpace), h:lvlHeight, w:lvlWidth})
 				.text(window.getScoreText(level.score))
 				.textColor("#000")
@@ -106,24 +106,31 @@ window.onload = function() {
 		initGUIScene();
 
 		var playArea = Crafty.e('2D, DOM, Color, PlayArea')
-			.attr({x:0,y:0,w:Crafty.DOM.window.width,h:Crafty.DOM.window.height-87})
+			.attr({x:0,y:0,w:Crafty.stage.elem.scrollWidth,h:Crafty.stage.elem.scrollHeight-87})
 			.color('#000');
 
 		playArea._element.draggable = false;
 
 		Crafty.e('2D, DOM, Image, MoveTo,PlayerCollision,Player')
 			.attr({x:0,y:0,h:40,w:40})
-			.playerColor(window.color.five,'orange')
+			.playerColor(window.color.one,'red')
 			.collision(new Crafty.polygon([0,0],[40,0],[40,40],[0,40]));
 
 		Crafty.e('Score')
-			.attr({x: Crafty.DOM.window.width-200,y:Crafty.DOM.window.height-80,h:50,w:50})
+			.attr({x: Crafty.stage.elem.scrollWidth-650,y:Crafty.stage.elem.scrollHeight-80,h:50,w:400})
 			.text('0')
 			.textColor('#f00')
+			.css({'text-align':'right'})
+			.textFont({ size: '40px', weight: 'bold','font-family':'NoColor'});
+
+		Crafty.e('Multiplier')
+			.attr({x: Crafty.stage.elem.scrollWidth-800,y:Crafty.stage.elem.scrollHeight-40,h:50,w:400})
+			.textColor('#f00')
+			.css({'text-align':'right'})
 			.textFont({ size: '40px', weight: 'bold','font-family':'NoColor'});
 
 		Crafty.e('Timer, 2D, DOM, Text')
-			.attr({x: Crafty.DOM.window.width - 200, y:Crafty.DOM.window.height-45,h:50,w:50})
+			.attr({x: Crafty.stage.elem.scrollWidth - 200, y:Crafty.stage.elem.scrollHeight-80,h:50,w:50})
 			.text( levelToLoad.duration + 's' )
 			.textColor('#f00')
 			.textFont({ size: '40px', weight: 'bold' })

@@ -13,7 +13,7 @@ Crafty.bind('SceneChange', function (data) {
 		return
 	};
 	var progressBar = Crafty.e("2D, DOM, ProgressBar")
-	.attr({ x: Crafty.DOM.window.width-400, y : Crafty.DOM.window.height - 35, w: 300, h: 25})
+	.attr({ x: Crafty.stage.elem.scrollWidth-400, y : Crafty.stage.elem.scrollHeight - 35, w: 300, h: 25})
 	.progressBar(PROGRESS_BAR_MAX_VALUE_AND_BOOST_THRESHOLD, false, "blue", ["green", "magenta", "white", "cyan", "red", "orange", "gray"])
 	.updateBarProgress(0);
 
