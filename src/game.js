@@ -135,20 +135,20 @@ window.onload = function() {
 			.color('#fff');
 		
 		Crafty.e('Score')
-			.attr({x: Crafty.stage.elem.scrollWidth-650,y:Crafty.stage.elem.scrollHeight-50,z:10000,h:50,w:400})
+			.attr({x: Crafty.stage.elem.scrollWidth-900,y:Crafty.stage.elem.scrollHeight-50,z:10000,h:50,w:400})
 			.text('0')
 			.textColor('#000000')
-			.css({'text-align':'right'})
+			.css({'text-align':'center'})
 			.textFont({ size: '40px', weight: 'bold'});
 
 		Crafty.e('Multiplier')
-			.attr({x: Crafty.stage.elem.scrollWidth-800,y:Crafty.stage.elem.scrollHeight-50,z:10000,h:50,w:400})
+			.attr({x: Crafty.stage.elem.scrollWidth-400,y:Crafty.stage.elem.scrollHeight-50,z:10000,h:50,w:400})
 			.textColor('#000000')
 			.css({'text-align':'right'})
 			.textFont({ size: '40px', weight: 'bold'});
 
 		Crafty.e('Timer, 2D, DOM, Text')
-			.attr({x: Crafty.stage.elem.scrollWidth - 200, y:Crafty.stage.elem.scrollHeight-50,z:10000,h:50,w:50})
+			.attr({x: Crafty.stage.elem.scrollWidth - 500, y:Crafty.stage.elem.scrollHeight-50,z:10000,h:50,w:50})
 			.text( levelToLoad.duration + 's' )
 			.textColor('#000000')
 			.textFont({ size: '40px', weight: 'bold'})
