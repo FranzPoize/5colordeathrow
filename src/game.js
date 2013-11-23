@@ -14,7 +14,7 @@ window.onload = function() {
 
 		logo.bind('Click',function() {
 			Crafty.scene('menu');
-		})
+		});
 	});
 
 	Crafty.scene('menu',function() {
@@ -29,7 +29,7 @@ window.onload = function() {
 
 		btn.bind('Click', function() {
 			Crafty.scene('chooseLevel');
-		})
+		});
 	});
 
 	Crafty.scene('chooseLevel',function() {
@@ -77,11 +77,25 @@ window.onload = function() {
 			.textColor('#f00')
 			.textFont({ size: '40px', weight: 'bold' });
 
+		Crafty.e('Timer, 2D, DOM, Text')
+			.attr({x: Crafty.DOM.window.width - 200, y:Crafty.DOM.window.height-45,h:50,w:50})
+			.text( levelToLoad.duration + 's' )
+			.textColor('#f00')
+			.textFont({ size: '40px', weight: 'bold' })
+			.bind('TimeLeft', function( timeLeft ) {
+				this.text( timeLeft + 's' );
+			})
+			.firstFrame = Crafty.frame();
+
 		Crafty.e('Level')
-			.level( levelToLoad );
+			.level( levelToLoad )
+			.bind('LevelEnd', function() {
+				Crafty.scene('chooseLevel');
+			});
 
 		Crafty.e('FrameKeeper');
 	});
 
-	Crafty.scene('logoGameJam');
+	//Crafty.scene('logoGameJam');
+	Crafty.scene('chooseLevel'); // Wow! Please!
 };

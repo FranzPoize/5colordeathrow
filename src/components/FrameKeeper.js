@@ -5,7 +5,6 @@ Crafty.c('FrameKeeper', {
 		this.requires('Keyboard');
 
 		this.bind('KeyDown', function( e ) {
-			console.log( e.keyCode );
 
 			switch( e.keyCode ) {
 			// "p"

@@ -3,7 +3,7 @@ window.levels = {};
 
 window.levels.level1 = {
 	name:'lvl 1',
-	length: 120,
+	duration: 120,
 	events: {
 		0: [{
 			type: 'shape',

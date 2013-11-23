@@ -9,7 +9,7 @@ Crafty.c('TweenQueue', {
 			if ( propName === 'queued' ) {
 				// resolve currentTween
 				if ( this._currentTween && typeof this._currentTween.callback === 'function' ) {
-					this._currentTween.callback();
+					this._currentTween.callback.apply( this );
 					this._currentTween = undefined;
 				}
 
@@ -42,8 +42,8 @@ Crafty.c('TweenQueue', {
 			if ( typeof lastTween.callback === 'function' ) {
 				_callback = lastTween.callback;
 				lastTween.callback = function() {
-					_callback();
-					callback();
+					_callback.apply( this );
+					callback.apply( this );
 				};
 			} else {
 				lastTween.callback = callback;
