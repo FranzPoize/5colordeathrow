@@ -100,5 +100,3 @@ var askBindingForButton = function (btnEntity, im) {
 		btnEntity.text(key.toUpperCase())
 	}
 }
-
-Crafty.bind("Load", initGUI)

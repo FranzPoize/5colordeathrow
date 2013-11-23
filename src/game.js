@@ -16,16 +16,16 @@ window.onload = function() {
 			.color(color.three)
 			.collision(new Crafty.polygon([0,0],[40,0],[40,40],[0,40]));
 
-		Crafty.e('2D, DOM, Color, NormalEnemy, Collision,WiredHitBox')
+		Crafty.e('2D, DOM, Color, ComboEnemy, Collision,WiredHitBox')
 			.attr({x:200,y:200,h:40,w:40})
 			.color(color.five)
 			.collision(new Crafty.polygon([0,0],[40,0],[40,40],[0,40]));
 
 		Crafty.e('Score')
-			.attr({x:100,y:200,h:50,w:50})
+			.attr({x:100,y:Crafty.DOM.window.height-45,h:50,w:50})
 			.text(0)
 			.textColor('#f00')
-			.textFont({ size: '20px', weight: 'bold' });
+			.textFont({ size: '40px', weight: 'bold' });
 	});
 
 	Crafty.scene('game');
