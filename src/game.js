@@ -137,7 +137,6 @@ window.onload = function() {
 			.textColor('#f00')
 			.textFont({ size: '30px', weight: 'bold' ,'family':'No Color'})
 			.bind('TimeLeft', function( data ) {
-				console.log(data)
 				this.text(data.timeleft.toFixed(2) + 's' );
 			})
 			.firstFrame = Crafty.frame();
