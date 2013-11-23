@@ -7,6 +7,7 @@ Crafty.c('Dot', {
 			w: 20,
 			h: 20
 		});
+		this.appearsProgressively = true;
 	},
 	dot: function() {
 		return this;
