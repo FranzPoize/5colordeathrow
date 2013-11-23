@@ -14,7 +14,7 @@ Crafty.bind('SceneChange', function (data) {
 	};
 	var progressBar = Crafty.e("2D, DOM, ProgressBar")
 	.attr({
-		x: Crafty.stage.elem.scrollWidth-400,
+		x: Crafty.stage.elem.scrollWidth-370,
 		y : Crafty.stage.elem.scrollHeight - 35,
 		w: 300,
 		h: 25,
