@@ -16,6 +16,10 @@ Crafty.c('NormalEnemy',{
 	resolveCollision: function(positive) {
 		if (positive)
 			this.destroy();
+	},
+
+	collide: function () {
+		return this
 	}
 });
 
@@ -36,6 +40,10 @@ Crafty.c('DotEnemy',{
 
 	resolveCollision: function(positive) {
 		this.destroy();
+	},
+
+	collide: function () {
+		return this
 	}
 });
 
@@ -51,18 +59,21 @@ Crafty.c('ComboEnemy',{
 	getScore: function(positive) {
 		var score;
 		if(positive) {
-			this.replenish = false;
 			score = Math.floor(window.ScoreValues.normal.posScore*this.ratio);
-			this.ratio = 0.9 * this.ratio;
-
-			var replenish = this.delay(function() {
-				this.replenish = true;
-			},1000);
 		} else {
 			score =  window.ScoreValues.normal.negScore;
 		}
 
 		return score;
+	},
+
+	collide: function () {
+		this.ratio = 0.9 * this.ratio
+		this.replenish = false;
+		this.delay(function() {
+			this.replenish = true;
+		}, 1000);
+		return this
 	},
 
 	replenishRatio: function() {
