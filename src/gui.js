@@ -101,4 +101,3 @@ var askBindingForButton = function (btnEntity, im) {
 	}
 }
 
-Crafty.bind("Load", initGUI)
