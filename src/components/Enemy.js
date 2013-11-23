@@ -28,6 +28,9 @@ Crafty.c('Enemy', {
 			case 'Translation':
 				this.addComponent('Translation').translation(data.behavior.orient);
 				break;
+			case 'Follower':
+				this.addComponent('Follower')
+				break;
 			}
 		});
 

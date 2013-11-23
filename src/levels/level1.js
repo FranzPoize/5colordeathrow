@@ -2,8 +2,9 @@
 window.levels = {};
 
 window.levels.level1 = {
-	name:'lvl 1',
-	duration: 120,
+	name:'#01',
+	duration: 120, 
+	score: 1337, 
 	events: {
 		0: [{
 			type: 'shape',
@@ -16,6 +17,18 @@ window.levels.level1 = {
 			behavior: {
 				type:'Translation',
 				orient:'vert'
+			}
+		}],
+		20: [{
+			type: 'shape',
+			color: 'five',
+			lifespan: 20,
+			coords: [150,120],
+			width: 30,
+			height: 150,
+			scoreType:'NormalEnemy',
+			behavior: {
+				type:'Follower'
 			}
 		}],
 		5: [{
