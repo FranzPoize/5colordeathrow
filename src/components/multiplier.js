@@ -5,6 +5,6 @@ Crafty.c('Multiplier',{
 		this.text('x 1');
 	},
 	updateMultiplier: function() {
-		this.text('x '+Crafty('ProgressBar').getLoopedTimes()+1);
+		this.text('x '+(Crafty('ProgressBar').getLoopedTimes()+1));
 	}
 });
