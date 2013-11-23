@@ -18,6 +18,18 @@ window.levels.level1 = {
 				orient:'vert'
 			}
 		}],
+		20: [{
+			type: 'shape',
+			color: 'five',
+			lifespan: 20,
+			coords: [150,120],
+			width: 30,
+			height: 150,
+			scoreType:'NormalEnemy',
+			behavior: {
+				type:'Follower'
+			}
+		}],
 		5: [{
 			type: 'dot',
 			color: 'two',
