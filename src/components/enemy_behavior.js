@@ -56,3 +56,39 @@ Crafty.c('Follower', {
 		console.log([this.x, this.y])
 	}
 })
+
+Crafty.c('RandomTranslation', {
+	baseVelocity:2,
+
+	init: function() {
+		this.bind('EnterFrame',this.updatePos);
+		this.lastVelocityChange = new Date().getTime()
+		this.dx = 1
+		this.dy = 1
+	},
+
+	randomTranslation: function(velocityX, velocityY) {
+		this.velocityX = velocityX || this.baseVelocity;
+		this.velocityY = velocityY || this.baseVelocity;
+	},
+
+	updatePos: function() {
+		if (this.y < 0 || this.y + this.h > Crafty('PlayArea').h) {
+			this.velocityY = -this.velocityY;
+		}
+
+		if (this.x < 0 || this.x + this.w > Crafty('PlayArea').w) {
+			this.velocityX = -this.velocityX;
+		}
+		var now = new Date().getTime()
+		// Change the velocity of this object to a new random one
+		// every half a second
+		if (now - this.lastVelocityChange > 500) {
+			this.dx = Math.random()
+			this.dy = Math.random()
+			this.lastVelocityChange = now
+		};
+		this.x += this.velocityX * this.dx;
+		this.y += this.velocityY * this.dy;
+	}
+});
