@@ -17,7 +17,7 @@ var BTN_H = 77,
 	BTN_W = 77;
 
 var colorInit = {
-	redBtn: {
+	red: {
 		w:BTN_W,
 		h:BTN_H,
 		color:color.one,
@@ -25,7 +25,7 @@ var colorInit = {
 		x:50,
 		y:5
 	},
-	blueBtn: {
+	yellow: {
 		w:BTN_W,
 		h:BTN_H,
 		color:color.two,
@@ -33,7 +33,7 @@ var colorInit = {
 		x:50+BTN_W+50,
 		y:5
 	},
-	greenBtn: {
+	blue: {
 		w:BTN_W,
 		h:BTN_H,
 		color:color.three,
@@ -41,7 +41,7 @@ var colorInit = {
 		x:50+2*(BTN_W+50),
 		y:5
 	},
-	yellowBtn: {
+	green: {
 		w:BTN_W,
 		h:BTN_H,
 		color:color.four,
@@ -49,7 +49,7 @@ var colorInit = {
 		x:50+3*(BTN_W+50),
 		y:5
 	},
-	orangeBtn: {
+	orange: {
 		w:BTN_W,
 		h:BTN_H,
 		color:color.five,
@@ -63,24 +63,34 @@ var initGUIScene = function () {
 	l("initGUIScene start")
 	var im = new InputManager()
 
-	_.each(colorInit,function(button) {
-		var btn = Crafty.e('2D, DOM, Color, Mouse, Keyboard, Text')
+	_.each(colorInit,function(button,name) {
+		var btn = Crafty.e('2D, DOM, Image, Mouse, Keyboard, Text, ColorButton')
 				.attr({x:button.x,y:Crafty.DOM.window.height-button.h-button.y,h:button.h,w:button.w})
-				.color(button.color)
+				.image('assets/hud/'+name+'_input_01.PNG')
 				.text(button.key)
 				.textFont({ size: BTN_H*0.75+ "px", weight: 'bold' })
 				.unselectable()
-		btn.bind('KeyDown', keyDownFor(button.key, im));
+		btn.bind('KeyDown', keyDownFor(button.key, im ,name));
 		btn.bind('DoubleClick', askBindingForButton(btn, im));
-		btn.gameColor = button.color
+		btn.gameColor = button.color;
+		btn.defaultIcon = function() {
+			btn.image('assets/hud/'+name+'_input_01.PNG');
+		}
 	});
 	l("initGUIScene end")
 };
 
-var keyDownFor = function (key, im) {
+var keyDownFor = function (key, im,name) {
 	return function (e) {
+		var buttons = Crafty('ColorButton');
+
+		buttons.each(function() {
+			this.defaultIcon();
+		});
+
 		if (e.key == Crafty.keys[key]) {
-			im.setPlayerColor(this.gameColor)
+			im.setPlayerColor(this.gameColor);
+			this.image('assets/hud/'+name+'_input_02.PNG');
 		}
 		return false
 	}
