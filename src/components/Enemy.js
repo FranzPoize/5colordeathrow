@@ -41,19 +41,22 @@ Crafty.c('Enemy', {
 			}];
 
 		if ( this.appearsProgressively ) {
-			queue = queue.concat([{
+			queue = [{
 				alpha: 0,
 				duration: 15
 			}, {
-				alpha: 1,
+				alpha: 0.7,
 				duration: 15
 			}, {
 				alpha: 0,
 				duration: 15
 			}, {
-				alpha: 1,
+				alpha: 0.7,
 				duration: 15
-			}]);
+			}, {
+				alpha: 0,
+				duration: 15
+			}].concat( queue );
 		}
 
 		this.queue(queue, function() {

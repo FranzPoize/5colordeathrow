@@ -18,10 +18,12 @@ Crafty.bind('SceneChange', function (data) {
 	.updateBarProgress(0);
 
 	Crafty.bind('CollisionSameColor', function (data) {
-		progressBar.updateBarProgress(progressBar.currentProgress() + data.enemy.getScore(true))
+		var currP = progressBar.currentProgress()
+		progressBar.updateBarProgress(currP + data.enemy.getScore(true))
 	})
 
 	Crafty.bind('CollisionOtherColor', function (data) {
-		progressBar.updateBarProgress(progressBar.currentProgress() - data.enemy.getScore(true))
+		var currP = progressBar.currentProgress()
+		progressBar.updateBarProgress(Math.abs(progressBar.currentProgress()) - data.enemy.getScore(true))
 	})
 });
