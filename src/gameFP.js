@@ -9,12 +9,12 @@ window.onload = function() {
 			.color(color.five)
 			.collision(new Crafty.polygon([0,0],[40,0],[40,40],[0,40]));
 
-		Crafty.e('2D, Canvas, Color, Enemy, Collision,WiredHitBox')
+		Crafty.e('2D, Canvas, Color, NormalEnemy, Collision,WiredHitBox')
 			.attr({x:100,y:100,h:40,w:40})
 			.color(color.three)
 			.collision(new Crafty.polygon([0,0],[40,0],[40,40],[0,40]));
 
-		Crafty.e('2D, Canvas, Color, Enemy, Collision,WiredHitBox')
+		Crafty.e('2D, Canvas, Color, NormalEnemy, Collision,WiredHitBox')
 			.attr({x:200,y:200,h:40,w:40})
 			.color(color.five)
 			.collision(new Crafty.polygon([0,0],[40,0],[40,40],[0,40]));
