@@ -4,6 +4,21 @@ window.onload = function() {
 	Crafty.init(1250,600,document.getElementById('game'));
 	var levelToLoad;
 
+	Crafty.audio.add('chrono','assets/sfx/sfx_chrono.ogg');
+	Crafty.audio.add('bgm_title','assets/sfx/bgm_title_select.ogg');
+	Crafty.audio.add('neg_contact','assets/sfx/sfx_contact_negatif.ogg');
+	Crafty.audio.add('pos_contact','assets/sfx/sfx_contact_positif.ogg');
+	Crafty.audio.add('dot_explo01','assets/sfx/sfx_dot_explo01.ogg');
+	Crafty.audio.add('dot_explo02','assets/sfx/sfx_dot_explo02.ogg');
+	Crafty.audio.add('finish','assets/sfx/sfx_finish.ogg');
+	Crafty.audio.add('multiplier_down','assets/sfx/sfx_multipl_down.ogg');
+	Crafty.audio.add('multiplier_up','assets/sfx/sfx_multipl_up.ogg');
+	Crafty.audio.add('multiplier_up_full','assets/sfx/sfx_multipl_up_full.ogg');
+	Crafty.audio.add('player_bounce','assets/sfx/sfx_player_bounce.ogg');
+	Crafty.audio.add('select01','assets/sfx/sfx_select01.ogg');
+	Crafty.audio.add('select02','assets/sfx/sfx_select02.ogg');
+	Crafty.audio.add('select03','assets/sfx/sfx_select03.ogg');
+
 	Crafty.scene('logoGameJam',function() {
 		var logo = Crafty.e('2D, DOM, Image, Delay,Mouse')
 			.attr({x:Crafty.stage.elem.scrollWidth/2-140,y:Crafty.stage.elem.scrollHeight/2-150})
@@ -11,8 +26,10 @@ window.onload = function() {
 			.delay(function() {
 				Crafty.scene('menu');
 			},5000);
+		Crafty.audio.play('bgm_title');
 
 		logo.bind('Click',function() {
+			Crafty.audio.play('select01',1);
 			Crafty.scene('menu');
 		});
 	});
@@ -28,6 +45,7 @@ window.onload = function() {
 			.css({cursor:'pointer'});
 		
 		btn.bind('Click', function() {
+			Crafty.audio.play('select01',1);
 			Crafty.scene('chooseLevel');
 		});
 	});
@@ -93,6 +111,7 @@ window.onload = function() {
 			
 			// Button
 			lvlBtn.bind('Click',function() {
+				Crafty.audio.play('select01',1);
 				levelToLoad = window.levels[name];
 				Crafty.scene('game');
 			});
@@ -105,6 +124,7 @@ window.onload = function() {
 	var PLAYER_W = 40
 
 	Crafty.scene('game',function() {
+		Crafty.audio.remove('bgm_title');
 		var color = window.color;
 
 		Crafty.background('#fff');
@@ -160,6 +180,7 @@ window.onload = function() {
 		Crafty.e('Level')
 			.level( levelToLoad )
 			.bind('LevelEnd', function() {
+				Crafty.audio.play('finish',1);
 				Crafty.scene('chooseLevel');
 			});
 

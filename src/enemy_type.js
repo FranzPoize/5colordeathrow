@@ -25,13 +25,15 @@ Crafty.c('NormalEnemy',{
 						Math.random()*20)
 			}
 			this.destroy();
+			Crafty.audio.play('pos_contact',1);
 		}
 		if (!positive) {
 			var effect = Crafty.e('BadEffect')
 				.badEffect(this.colorName);
 
 			effect.remove();
-		}
+			Crafty.audio.play('neg_contact',1);
+		} 
 	},
 
 	collide: function () {
@@ -80,6 +82,9 @@ Crafty.c('DotEnemy',{
 				.badEffect(this.colorName);
 
 			effect.remove();
+			Crafty.audio.play('neg_contact',1);
+		} else {
+			Crafty.audio.play('pos_contact',1);
 		}
 		this.destroy();
 	},
@@ -139,6 +144,9 @@ Crafty.c('ComboEnemy',{
 				.badEffect(this.colorName);
 
 			effect.remove();
+			Crafty.audio.play('neg_contact',1);
+		} else {
+			Crafty.audio.play('pos_contact',1);
 		}
 	}
 });

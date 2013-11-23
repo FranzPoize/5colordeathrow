@@ -12,7 +12,7 @@ Crafty.c('Level', {
 		this.bind('LevelIgnite', function() {//console.log('LevelIgnite');
 			this.unbind('EnterFrame');
 			var self = this;
-
+			Crafty.audio.play('chrono',1);
 			Crafty.e('2D, DOM, Color, Text, TweenQueue')
 				.attr({alpha: 1, x: Crafty.stage.elem.scrollWidth /2 - 30, y: Crafty.stage.elem.scrollHeight /2 - 30, w: 200, h: 100})
 				.text('3')
@@ -24,6 +24,7 @@ Crafty.c('Level', {
 					callback: function() {
 						this.text('2')
 							.attr({alpha: 1});
+						Crafty.audio.play('chrono',1);
 					}
 				}, {
 					alpha: 0,
@@ -31,6 +32,7 @@ Crafty.c('Level', {
 					callback: function() {
 						this.text('1')
 							.attr({alpha: 1});
+						Crafty.audio.play('chrono',1);
 					}
 				}, {
 					alpha: 0,
