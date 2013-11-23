@@ -14,8 +14,18 @@ Crafty.c('NormalEnemy',{
 	},
 
 	resolveCollision: function(positive) {
-		if (positive)
+		if (positive) {
+			for (var i = 0;i< 15;i++) {
+				Crafty.e('Particle')
+					.particle(Math.random()*Math.PI*2,
+						3+Math.random()*7,
+						this.enemyColorValue,
+						this.x+this.w/2,
+						this.y+this.h/2,
+						Math.random()*20)
+			}
 			this.destroy();
+		}
 	},
 
 	collide: function () {

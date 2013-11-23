@@ -2,11 +2,12 @@
 
 Crafty.c('Enemy', {
 	init: function() {
-		this.requires('2D, DOM, Color, TweenQueue');
+		this.requires('2D, DOM, Image, TweenQueue');
 		this._element.draggable = false;
 	},
 	enemy: function( data ) {
 		var self = this;
+		this.enemyColorValue = window.color[data.color];
 
 		this.attr({
 				alpha: 0,
@@ -14,7 +15,7 @@ Crafty.c('Enemy', {
 				y: data.coords[1]
 			})
 
-			.color( window.color[ data.color ] )
+			.image( window.enemyColorAsset[ data.type ][data.color],window.enemyColorAsset[ data.type ].repeat )
 
 			// type specific init
 			[data.type]( data )
@@ -26,6 +27,9 @@ Crafty.c('Enemy', {
 			switch(data.behavior.type) {
 			case 'Translation':
 				this.addComponent('Translation').translation(data.behavior.orient);
+				break;
+			case 'Follower':
+				this.addComponent('Follower')
 				break;
 			}
 		});
