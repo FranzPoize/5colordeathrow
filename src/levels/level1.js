@@ -2,8 +2,9 @@
 window.levels = {};
 
 window.levels.level1 = {
-	name:'lvl 1',
-	duration: 120,
+	name:'#01',
+	duration: 120, 
+	score: 1337, 
 	events: {
 		0: [{
 			type: 'shape',
