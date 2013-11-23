@@ -16,11 +16,11 @@ window.level1 = {
 			'type': 'dot',
 			'color': 'two',
 			'lifespan': 20,
-			'coords': [11,12],
+			'coords': [200,120],
 			'scoreType':'ComboEnemy'
 		}, {
 			'type': 'dot',
-			'color': 'two',
+			'color': 'three',
 			'lifespan': 20,
 			'coords': [11,12],
 			'scoreType':'NormalEnemy'

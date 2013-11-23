@@ -30,8 +30,7 @@ Crafty.c('Level', {
 					var componentName = enemyData.type.replace(/^./, function( $0 ) { return $0.toUpperCase(); });
 
 					Crafty.e( componentName )
-						.enemy( enemyData )
-						[enemyData.type]( enemyData );
+						.enemy( enemyData );
 				});
 			}
 		});
