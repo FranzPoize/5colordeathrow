@@ -4,10 +4,12 @@ window.level1 = {
 	'length': 120,
 	'events': {
 		'0': [{
-			'type': 'dot',
-			'color': 'one',
+			'type': 'shape',
+			'color': 'five',
 			'lifespan': 20,
 			'coords': [150,120],
+			width: 30,
+			height: 150,
 			'scoreType':'NormalEnemy'
 		}],
 		'5': [{

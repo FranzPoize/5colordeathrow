@@ -33,6 +33,8 @@ window.onload = function() {
 
 		Crafty.e('Level')
 			.level( window.level1 );
+
+		Crafty.e('FrameKeeper');
 	});
 
 	Crafty.scene('game');
