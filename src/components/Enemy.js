@@ -9,7 +9,11 @@ Crafty.c('Enemy', {
 				x: data.coords[0],
 				y: data.coords[1]
 			})
-			.color( window.color[ data.color ] );
-		this.requires(data.scoreType);
+
+			.color( window.color[ data.color ] )
+
+			.requires(data.scoreType);
+
+		return this;
 	}
 });

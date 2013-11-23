@@ -28,9 +28,11 @@
 
 				if ( currentEvent !== undefined ) {
 					currentEvent.forEach(function( enemyData ) {
-						console.log('pop', ellapsedSeconds);
-						Crafty.e(enemyData.type.replace(/^./, function( $0 ) { return $0.toUpperCase(); }))
-							.enemy( enemyData );
+						var componentName = enemyData.type.replace(/^./, function( $0 ) { return $0.toUpperCase(); });
+
+						Crafty.e( componentName )
+							.enemy( enemyData )
+							[enemyData.type]( enemyData );
 					});
 				}
 			});
