@@ -9,7 +9,7 @@ Crafty.c('PlayerCollision',{
 				Crafty.trigger('CollisionSameColor', {'enemy': enemy})
 				var progressBar = Crafty('ProgressBar')
 				var currP = Crafty('ProgressBar').currentProgress()
-				score.text(+score.text()+enemy.getScore(true) * (currP+1));
+				score.text(Math.ceil(score.text()+enemy.getScore(true) * (currP+1)));
 				enemy.delay(function() {
 					enemy.available = true;
 				},500);
@@ -17,7 +17,7 @@ Crafty.c('PlayerCollision',{
 				enemy.resolveCollision(true,this);
 			} else {
 				Crafty.trigger('CollisionOtherColor', {'enemy': enemy})
-				score.text(+score.text()+enemy.getScore(false));
+				score.text(Math.ceil(+score.text()+enemy.getScore(false)));
 				enemy.delay(function() {
 					enemy.available = true;
 				},500);
