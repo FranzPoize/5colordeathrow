@@ -99,4 +99,6 @@ var askBindingForButton = function (btnEntity, im) {
 		btnEntity.bind('KeyDown', keyDownFor(key, im))
 		btnEntity.text(key.toUpperCase())
 	}
+
 }
+
