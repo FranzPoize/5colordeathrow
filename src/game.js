@@ -122,11 +122,11 @@ window.onload = function() {
 		
 		console.log(h/2 - PLAYER_H/2)
 
-		Crafty.e('2D, DOM, Image, MoveTo,PlayerCollision,Player')
+		var player = Crafty.e('2D, DOM, Image, MoveTo,PlayerCollision,Player')
 			.attr({x: w/2 - PLAYER_W/2, y: h/2 - PLAYER_H/2, h:PLAYER_H, w:PLAYER_W})
 			.playerColor(window.color.one,'red')
 			.collision(new Crafty.polygon([0,0],[40,0],[40,40],[0,40]));
-
+		player.canMove = false // So that it does not move during the countdown
 		Crafty.e('Score')
 			.attr({x: Crafty.stage.elem.scrollWidth-850,y:Crafty.stage.elem.scrollHeight-40,h:50,w:400})
 			.text('0')
