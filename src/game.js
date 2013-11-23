@@ -170,7 +170,7 @@ window.onload = function() {
 			.unselectable()
 			.text( levelToLoad.duration + 's' )
 			.textColor('#000000')
-			.textFont({ size: '40px', weight: 'bold', family:'No Color'})
+			.textFont({ size: '40px', weight: 'bold'})
 			.bind('TimeLeft', function( data ) {
 				this.text(data.timeleft.toFixed(2) + 's' );
 			})
