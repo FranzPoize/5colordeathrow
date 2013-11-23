@@ -79,7 +79,6 @@ Crafty.c('Follower', {
 		if (this.speed > FOLLOWER_MAX_SPEED) {
 			this.speed = FOLLOWER_MAX_SPEED
 		};
-		console.log([this.x, this.y])
 	}
 })
 
