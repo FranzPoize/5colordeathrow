@@ -31,6 +31,12 @@ Crafty.c('Enemy', {
 			case 'Follower':
 				this.addComponent('Follower')
 				break;
+			case 'RandomTranslation':
+				this.addComponent('RandomTranslation').randomTranslation(
+					data.behavior.velocityX,
+					data.behavior.velocityY
+				);
+				break;
 			}
 		});
 
