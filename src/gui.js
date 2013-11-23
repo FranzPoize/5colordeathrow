@@ -13,8 +13,8 @@ var l = function (a) {
 	};
 };
 
-var BTN_H = 77,
-	BTN_W = 77;
+var BTN_H = 38,
+	BTN_W = 38;
 
 var colorInit = {
 	red: {
@@ -22,7 +22,7 @@ var colorInit = {
 		h:BTN_H,
 		color:color.one,
 		key:'E',
-		x:50,
+		x:10,
 		y:5
 	},
 	yellow: {
@@ -30,7 +30,7 @@ var colorInit = {
 		h:BTN_H,
 		color:color.two,
 		key:'R',
-		x:50+BTN_W+50,
+		x:10+BTN_W+10,
 		y:5
 	},
 	blue: {
@@ -38,7 +38,7 @@ var colorInit = {
 		h:BTN_H,
 		color:color.three,
 		key:'T',
-		x:50+2*(BTN_W+50),
+		x:10+2*(BTN_W+10),
 		y:5
 	},
 	green: {
@@ -46,7 +46,7 @@ var colorInit = {
 		h:BTN_H,
 		color:color.four,
 		key:'Y',
-		x:50+3*(BTN_W+50),
+		x:10+3*(BTN_W+10),
 		y:5
 	},
 	orange: {
@@ -54,7 +54,7 @@ var colorInit = {
 		h:BTN_H,
 		color:color.five,
 		key:'SPACE',
-		x:50+4*(BTN_W+50),
+		x:10+4*(BTN_W+10),
 		y:5
 	}
 }

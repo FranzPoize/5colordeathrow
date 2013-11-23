@@ -104,12 +104,12 @@ window.onload = function() {
 	Crafty.scene('game',function() {
 		var color = window.color;
 
-		Crafty.background('#999');
+		Crafty.background('#fff');
 
 		initGUIScene();
 
 		var playArea = Crafty.e('2D, DOM, Color, PlayArea')
-			.attr({x:0,y:0,w:Crafty.stage.elem.scrollWidth,h:Crafty.stage.elem.scrollHeight-87})
+			.attr({x:0,y:0,w:Crafty.stage.elem.scrollWidth,h:Crafty.stage.elem.scrollHeight-48})
 			.color('#000');
 
 		playArea._element.draggable = false;
@@ -124,19 +124,19 @@ window.onload = function() {
 			.text('0')
 			.textColor('#f00')
 			.css({'text-align':'right'})
-			.textFont({ size: '40px', weight: 'bold','font-family':'NoColor'});
+			.textFont({ size: '40px', weight: 'bold','family':'No Color'});
 
 		Crafty.e('Multiplier')
 			.attr({x: Crafty.stage.elem.scrollWidth-800,y:Crafty.stage.elem.scrollHeight-40,h:50,w:400})
 			.textColor('#f00')
 			.css({'text-align':'right'})
-			.textFont({ size: '40px', weight: 'bold','font-family':'NoColor'});
+			.textFont({ size: '40px', weight: 'bold','family':'No Color'});
 
 		Crafty.e('Timer, 2D, DOM, Text')
 			.attr({x: Crafty.stage.elem.scrollWidth - 200, y:Crafty.stage.elem.scrollHeight-80,h:50,w:50})
 			.text( levelToLoad.duration + 's' )
 			.textColor('#f00')
-			.textFont({ size: '40px', weight: 'bold' })
+			.textFont({ size: '40px', weight: 'bold','family':'No Color'})
 			.bind('TimeLeft', function( timeLeft ) {
 				this.text( timeLeft + 's' );
 			})
