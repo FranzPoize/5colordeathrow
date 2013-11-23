@@ -2,6 +2,56 @@
 
 window.onload = function() {
 	Crafty.init(document.getElementById('game'));
+	var levelToLoad;
+
+	Crafty.scene('logoGameJam',function() {
+		var logo = Crafty.e('2D, DOM, Image, Delay,Mouse')
+			.attr({x:Crafty.DOM.window.width/2-140,y:Crafty.DOM.window.height/2-150})
+			.image('assets/logo_gdp.png')
+			.delay(function() {
+				Crafty.scene('menu');
+			},5000);
+
+		logo.bind('Click',function() {
+			Crafty.scene('menu');
+		})
+	});
+
+	Crafty.scene('menu',function() {
+		Crafty.e('2D, DOM, Image')
+			.attr({x:Crafty.DOM.window.width/2-310,y:Crafty.DOM.window.height/2-320})
+			.image('assets/menus/title.png');
+
+		var btn = Crafty.e('2D, DOM, Image, Mouse')
+			.attr({x:Crafty.DOM.window.width/2-172,y:Crafty.DOM.window.height/2+230})
+			.image('assets/menus/press_start.png')
+			.css({cursor:'pointer'});
+
+		btn.bind('Click', function() {
+			Crafty.scene('chooseLevel');
+		})
+	});
+
+	Crafty.scene('chooseLevel',function() {
+		var index = 0,
+			lvlWidth = 100,
+			lvlHeight = 100;
+
+		_.each(window.levels,function(level,name) {
+			var lvlBtn = Crafty.e('2D,DOM,Text,Color,Mouse')
+				.attr({x:10+index*(lvlWidth+10),y:10+index%5*(lvlHeight+10),h:lvlHeight,w:lvlWidth})
+				.text(level.name)
+				.color('#000')
+				.textColor('#ffffff')
+				.css({cursor:'pointer'});
+			index++;
+
+			lvlBtn.bind('Click',function() {
+				levelToLoad = window.levels[name];
+				Crafty.scene('game');
+			});
+		});
+	});
 
 	Crafty.scene('game',function() {
 		var color = window.color;
@@ -10,18 +60,14 @@ window.onload = function() {
 
 		initGUIScene();
 
+		var playArea = Crafty.e('2D, DOM, Color, PlayArea')
+			.attr({x:0,y:0,w:Crafty.DOM.window.width,h:Crafty.DOM.window.height-87})
+			.color('#000');
+
+		playArea._element.draggable = false;
+
 		Crafty.e('2D, DOM, Color, MoveTo, WiredHitBox,PlayerCollision,Player')
 			.attr({x:0,y:0,h:40,w:40})
-			.color(color.five)
-			.collision(new Crafty.polygon([0,0],[40,0],[40,40],[0,40]));
-
-		Crafty.e('2D, DOM, Color, NormalEnemy, Collision,WiredHitBox')
-			.attr({x:100,y:100,h:40,w:40})
-			.color(color.three)
-			.collision(new Crafty.polygon([0,0],[40,0],[40,40],[0,40]));
-
-		Crafty.e('2D, DOM, Color, ComboEnemy, Collision,WiredHitBox')
-			.attr({x:200,y:200,h:40,w:40})
 			.color(color.five)
 			.collision(new Crafty.polygon([0,0],[40,0],[40,40],[0,40]));
 
@@ -32,10 +78,10 @@ window.onload = function() {
 			.textFont({ size: '40px', weight: 'bold' });
 
 		Crafty.e('Level')
-			.level( window.level1 );
+			.level( levelToLoad );
 
 		Crafty.e('FrameKeeper');
 	});
 
-	Crafty.scene('game');
+	Crafty.scene('logoGameJam');
 };

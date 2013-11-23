@@ -19,6 +19,26 @@ Crafty.c('NormalEnemy',{
 	}
 });
 
+Crafty.c('DotEnemy',{
+	init: function() {
+		this.requires('Enemy');
+		this.requires('Delay');
+		this.available = true;
+	},
+
+	getScore: function(positive) {
+		if(positive) {
+			return window.ScoreValues.normal.posScore;
+		} else {
+			return window.ScoreValues.normal.negScore;
+		}
+	},
+
+	resolveCollision: function(positive) {
+		this.destroy();
+	}
+});
+
 Crafty.c('ComboEnemy',{
 	init: function() {
 		this.requires('Enemy, Delay');

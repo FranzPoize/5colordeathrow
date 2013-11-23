@@ -3,6 +3,7 @@
 Crafty.c('Enemy', {
 	init: function() {
 		this.requires('2D, DOM, Color, TweenQueue');
+		this._element.draggable = false;
 	},
 	enemy: function( data ) {
 		var self = this;
@@ -22,6 +23,11 @@ Crafty.c('Enemy', {
 
 		this.bind('Appeared', function() {
 			self.requires(data.scoreType);
+			switch(data.behavior.type) {
+			case 'Translation':
+				this.addComponent('Translation').translation(data.behavior.orient);
+				break;
+			}
 		});
 
 		return this;
