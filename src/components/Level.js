@@ -88,6 +88,9 @@ Crafty.c('Level', {
 		});
 
 		this.bind('LevelLand', function() {
+			window.highscores[this.data.id] = parseInt(Crafty('Score').text());
+			sessionStorage.setItem("highscores", JSON.stringify(window.highscores));
+			
 			this.unbind('EnterFrame')
 				.trigger('LevelEnd');
 		});
