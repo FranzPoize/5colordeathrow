@@ -38,6 +38,7 @@ Crafty.c('Level', {
 					callback: function() {
 						this.text('Fire!')
 							.attr({alpha: 1});
+						Crafty('Player').canMove = true
 					}
 				}, {
 					alpha: 0,
