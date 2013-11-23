@@ -10,8 +10,8 @@ window.levels.level1 = {
 			color: 'one',
 			lifespan: 20,
 			coords: [0,0],
-			width: 2000,
-			height: 3,
+			width: 1250,
+			height: 10,
 			scoreType:'ComboEnemy',
 			behavior: {
 				type:'Translation',
@@ -22,16 +22,16 @@ window.levels.level1 = {
 			type: 'dot',
 			color: 'three',
 			lifespan: 20,
-			coords: [1000,700],
-			scoreType:'NormalEnemy',
+			coords: [1000,400],
+			scoreType:'DotEnemy',
 			behavior: {}
 		},{
 			type: 'shape',
 			color: 'two',
 			lifespan: 20,
 			coords: [0,0],
-			width: 3,
-			height: 1000,
+			width: 10,
+			height: 600,
 			scoreType:'ComboEnemy',
 			behavior: {
 				type:'Translation',
@@ -42,8 +42,8 @@ window.levels.level1 = {
 			color: 'two',
 			lifespan: 20,
 			coords: [500,0],
-			width: 3,
-			height: 1000,
+			width: 10,
+			height: 600,
 			scoreType:'ComboEnemy',
 			behavior: {
 				type:'Translation',
@@ -54,22 +54,22 @@ window.levels.level1 = {
 			color: 'two',
 			lifespan: 20,
 			coords: [110,120],
-			scoreType:'NormalEnemy',
+			scoreType:'DotEnemy',
 			behavior: {}
 		},{
 			type: 'dot',
 			color: 'one',
 			lifespan: 20,
-			coords: [1200,100],
-			scoreType:'NormalEnemy',
+			coords: [1100,100],
+			scoreType:'DotEnemy',
 			behavior: {}
 		},{
 			type: 'shape',
 			color: 'two',
 			lifespan: 20,
 			coords: [1000,0],
-			width: 3,
-			height: 1000,
+			width: 10,
+			height: 600,
 			scoreType:'ComboEnemy',
 			behavior: {
 				type:'Translation',
@@ -79,38 +79,38 @@ window.levels.level1 = {
 			type: 'dot',
 			color: 'three',
 			lifespan: 20,
-			coords: [100,600],
-			scoreType:'NormalEnemy',
+			coords: [100,400],
+			scoreType:'DotEnemy',
 			behavior: {}
 		}],
 		15: [{
 			type: 'dot',
 			color: 'three',
 			lifespan: 20,
-			coords: [700,500],
-			scoreType:'NormalEnemy',
+			coords: [700,200],
+			scoreType:'DotEnemy',
 			behavior: {}
 		},{
 			type: 'dot',
 			color: 'one',
 			lifespan: 20,
-			coords: [1100,800],
-			scoreType:'NormalEnemy',
+			coords: [900,400],
+			scoreType:'DotEnemy',
 			behavior: {}
 		},{
 			type: 'dot',
 			color: 'two',
 			lifespan: 20,
-			coords: [200,600],
-			scoreType:'NormalEnemy',
+			coords: [200,300],
+			scoreType:'DotEnemy',
 			behavior: {}
 		},{
 			type: 'shape',
 			color: 'three',
 			lifespan: 20,
-			coords: [0,700],
-			width: 2000,
-			height: 3,
+			coords: [0,100],
+			width: 1250,
+			height: 10,
 			scoreType:'ComboEnemy',
 			behavior: {
 				type:'Translation',
@@ -119,29 +119,29 @@ window.levels.level1 = {
 			type: 'dot',
 			color: 'one',
 			lifespan: 20,
-			coords: [1100,600],
-			scoreType:'NormalEnemy',
+			coords: [1000,200],
+			scoreType:'DotEnemy',
 			behavior: {}
 		},{
 			type: 'dot',
 			color: 'two',
 			lifespan: 20,
-			coords: [1000,200],
-			scoreType:'NormalEnemy',
+			coords: [400,200],
+			scoreType:'DotEnemy',
 			behavior: {}
 		},{
 			type: 'dot',
 			color: 'one',
 			lifespan: 20,
 			coords: [200,200],
-			scoreType:'NormalEnemy',
+			scoreType:'DotEnemy',
 			behavior: {}
 		},{
 			type: 'dot',
 			color: 'three',
 			lifespan: 20,
 			coords: [300,300],
-			scoreType:'NormalEnemy',
+			scoreType:'DotEnemy',
 			behavior: {}
 		},{
 			type: 'shape',
@@ -149,7 +149,7 @@ window.levels.level1 = {
 			lifespan: 20,
 			coords: [500,0],
 			width: 200,
-			height: 600,
+			height: 400,
 			scoreType:'ComboEnemy',
 			behavior: {}
 		}]
