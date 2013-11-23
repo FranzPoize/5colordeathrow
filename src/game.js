@@ -101,6 +101,9 @@ window.onload = function() {
 		});
 	});
 
+	var PLAYER_H = 40
+	var PLAYER_W = 40
+
 	Crafty.scene('game',function() {
 		var color = window.color;
 
@@ -114,8 +117,13 @@ window.onload = function() {
 
 		playArea._element.draggable = false;
 
+		var w = Crafty('PlayArea').w,
+			h = Crafty('PlayArea').h
+		
+		console.log(h/2 - PLAYER_H/2)
+
 		Crafty.e('2D, DOM, Image, MoveTo,PlayerCollision,Player')
-			.attr({x:0,y:0,h:40,w:40})
+			.attr({x: w/2 - PLAYER_W/2, y: h/2 - PLAYER_H/2, h:PLAYER_H, w:PLAYER_W})
 			.playerColor(window.color.one,'red')
 			.collision(new Crafty.polygon([0,0],[40,0],[40,40],[0,40]));
 
