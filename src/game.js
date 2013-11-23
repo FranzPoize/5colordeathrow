@@ -136,9 +136,10 @@ window.onload = function() {
 			.attr({x: Crafty.stage.elem.scrollWidth - 200, y:Crafty.stage.elem.scrollHeight-80,h:50,w:50})
 			.text( levelToLoad.duration + 's' )
 			.textColor('#f00')
-			.textFont({ size: '40px', weight: 'bold','family':'No Color'})
-			.bind('TimeLeft', function( timeLeft ) {
-				this.text( timeLeft + 's' );
+			.textFont({ size: '40px', weight: 'bold' ,'family':'No Color'})
+			.bind('TimeLeft', function( data ) {
+				console.log(data)
+				this.text(data.timeleft + 's' );
 			})
 			.firstFrame = Crafty.frame();
 
