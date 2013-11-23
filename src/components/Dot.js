@@ -7,5 +7,6 @@ Crafty.c('Dot', {
 			w: 20,
 			h: 20
 		});
-	}
+	},
+	dot: function() {}
 });
