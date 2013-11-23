@@ -92,6 +92,15 @@ Crafty.c('ComboEnemy',{
 		}
 	},
 
-	resolveCollision: function(positive) {
+	resolveCollision: function(positive,player) {
+		for (var i = 0;i< 5;i++) {
+			Crafty.e('Particle')
+				.particle(Math.random()*Math.PI*2,
+					3+Math.random()*7,
+					this.enemyColorValue,
+					player.x+player.w/2,
+					player.y+player.h/2,
+					Math.random()*20)
+		}
 	}
 });
