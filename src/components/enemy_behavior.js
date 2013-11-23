@@ -36,7 +36,7 @@ Crafty.c('Follower', {
 	updatePos: function () {
 		console.log("HEYHOHOHO updatePos")
 		player = Crafty('Player')
-		if (player.color() == this.color()) {
+		if (player.playerColorValue == this.enemyColorValue) {
 			return
 		}
 		var dx = (player.x - this.x)
