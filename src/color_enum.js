@@ -1,9 +1,9 @@
 'use strict';
 
 window.color = {
-	one: '#f00',
-	two: '#ff0',
-	three: '#00f',
-	four: '#0f0',
-	five: '#f39200'
+	one: '#ff0000',
+	two: '#fffc00',
+	three: '#00e4ff',
+	four: '#00ff0c',
+	five: '#ff9c00'
 };

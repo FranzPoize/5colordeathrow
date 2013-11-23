@@ -13,49 +13,49 @@ var l = function (a) {
 	};
 };
 
-var BTN_H = 100,
-	BTN_W = 100;
+var BTN_H = 77,
+	BTN_W = 77;
 
 var colorInit = {
 	redBtn: {
-		w:100,
-		h:100,
+		w:BTN_W,
+		h:BTN_H,
 		color:color.one,
 		key:'E',
 		x:50,
-		y:10
+		y:5
 	},
 	blueBtn: {
-		w:100,
-		h:100,
+		w:BTN_W,
+		h:BTN_H,
 		color:color.two,
 		key:'R',
 		x:50+BTN_W+50,
-		y:10
+		y:5
 	},
 	greenBtn: {
-		w:100,
-		h:100,
+		w:BTN_W,
+		h:BTN_H,
 		color:color.three,
 		key:'T',
 		x:50+2*(BTN_W+50),
-		y:10
+		y:5
 	},
 	yellowBtn: {
-		w:100,
-		h:100,
+		w:BTN_W,
+		h:BTN_H,
 		color:color.four,
 		key:'Y',
 		x:50+3*(BTN_W+50),
-		y:10
+		y:5
 	},
 	orangeBtn: {
-		w:100,
-		h:100,
+		w:BTN_W,
+		h:BTN_H,
 		color:color.five,
 		key:'SPACE',
 		x:50+4*(BTN_W+50),
-		y:10
+		y:5
 	}
 }
 
@@ -65,7 +65,7 @@ var initGUIScene = function () {
 
 	_.each(colorInit,function(button) {
 		var btn = Crafty.e('2D, DOM, Color, Mouse, Keyboard, Text')
-				.attr({x:button.x,y:button.y,h:button.h,w:button.w})
+				.attr({x:button.x,y:Crafty.DOM.window.height-button.h-button.y,h:button.h,w:button.w})
 				.color(button.color)
 				.text(button.key)
 				.textFont({ size: BTN_H*0.75+ "px", weight: 'bold' })
