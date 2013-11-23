@@ -14,7 +14,7 @@ window.onload = function() {
 
 		logo.bind('Click',function() {
 			Crafty.scene('menu');
-		})
+		});
 	});
 
 	Crafty.scene('menu',function() {
@@ -29,7 +29,7 @@ window.onload = function() {
 
 		btn.bind('Click', function() {
 			Crafty.scene('chooseLevel');
-		})
+		});
 	});
 
 	Crafty.scene('chooseLevel',function() {
@@ -66,22 +66,36 @@ window.onload = function() {
 
 		playArea._element.draggable = false;
 
-		Crafty.e('2D, DOM, Color, MoveTo, WiredHitBox,PlayerCollision,Player')
+		Crafty.e('2D, DOM, Image, MoveTo, WiredHitBox,PlayerCollision,Player')
 			.attr({x:0,y:0,h:40,w:40})
-			.color(color.five)
+			.playerColor(window.color.five,'orange')
 			.collision(new Crafty.polygon([0,0],[40,0],[40,40],[0,40]));
 
 		Crafty.e('Score')
-			.attr({x:100,y:Crafty.DOM.window.height-45,h:50,w:50})
+			.attr({x: Crafty.DOM.window.width-200,y:Crafty.DOM.window.height-80,h:50,w:50})
 			.text('0')
 			.textColor('#f00')
-			.textFont({ size: '40px', weight: 'bold' });
+			.textFont({ size: '40px', weight: 'bold','font-family':'NoColor'});
+
+		Crafty.e('Timer, 2D, DOM, Text')
+			.attr({x: Crafty.DOM.window.width - 200, y:Crafty.DOM.window.height-45,h:50,w:50})
+			.text( levelToLoad.duration + 's' )
+			.textColor('#f00')
+			.textFont({ size: '40px', weight: 'bold' })
+			.bind('TimeLeft', function( timeLeft ) {
+				this.text( timeLeft + 's' );
+			})
+			.firstFrame = Crafty.frame();
 
 		Crafty.e('Level')
-			.level( levelToLoad );
+			.level( levelToLoad )
+			.bind('LevelEnd', function() {
+				Crafty.scene('chooseLevel');
+			});
 
 		Crafty.e('FrameKeeper');
 	});
 
-	Crafty.scene('logoGameJam');
+	//Crafty.scene('logoGameJam');
+	Crafty.scene('chooseLevel'); // Wow! Please!
 };

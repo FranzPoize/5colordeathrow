@@ -3,8 +3,8 @@
 var InputManager = function () {
 };
 
-InputManager.prototype.setPlayerColor = function (color) {
-	Crafty('Player').color(color)
+InputManager.prototype.setPlayerColor = function (color,name) {
+	Crafty('Player').playerColor(color,name);
 };
 
 var l = function (a) {
@@ -77,20 +77,17 @@ var initGUIScene = function () {
 			btn.image('assets/hud/'+name+'_input_01.PNG');
 		}
 	});
+	Crafty('ColorButton').trigger('KeyDown',{key:'E'});
 	l("initGUIScene end")
 };
 
 var keyDownFor = function (key, im,name) {
 	return function (e) {
-		var buttons = Crafty('ColorButton');
-
-		buttons.each(function() {
-			this.defaultIcon();
-		});
-
 		if (e.key == Crafty.keys[key]) {
-			im.setPlayerColor(this.gameColor);
+			im.setPlayerColor(this.gameColor,name);
 			this.image('assets/hud/'+name+'_input_02.PNG');
+		} else {
+			this.defaultIcon();
 		}
 		return false
 	}

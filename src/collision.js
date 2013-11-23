@@ -5,7 +5,7 @@ Crafty.c('PlayerCollision',{
 			enemy = event[0].obj;
 		if (enemy.available) {
 			enemy.collide()
-			if (enemy.color() == this.color()) {
+			if (enemy.enemyColorValue == this.playerColorValue) {
 				Crafty.trigger('CollisionSameColor', {'enemy': enemy})
 				var progressBar = Crafty('ProgressBar')
 				var currP = Crafty('ProgressBar').currentProgress()
