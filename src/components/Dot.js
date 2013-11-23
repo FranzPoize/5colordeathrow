@@ -8,5 +8,7 @@ Crafty.c('Dot', {
 			h: 20
 		});
 	},
-	dot: function() {}
+	dot: function() {
+		return this;
+	}
 });

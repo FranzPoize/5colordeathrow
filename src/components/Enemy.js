@@ -3,6 +3,7 @@
 Crafty.c('Enemy', {
 	init: function() {
 		this.requires('2D, DOM, Color');
+		this._element.draggable = false;
 	},
 	enemy: function( data ) {
 		this.attr({

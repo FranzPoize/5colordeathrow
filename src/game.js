@@ -44,6 +44,7 @@ window.onload = function() {
 				.color('#000')
 				.textColor('#ffffff')
 				.css({cursor:'pointer'});
+			index++;
 
 			lvlBtn.bind('Click',function() {
 				levelToLoad = window.levels[name];

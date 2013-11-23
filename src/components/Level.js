@@ -29,9 +29,15 @@ Crafty.c('Level', {
 				currentEvent.forEach(function( enemyData ) {
 					var componentName = enemyData.type.replace(/^./, function( $0 ) { return $0.toUpperCase(); });
 
-					Crafty.e( componentName )
+					var enemy = Crafty.e( componentName )
 						.enemy( enemyData )
 						[enemyData.type]( enemyData );
+						
+					switch(enemyData.behavior.type) {
+						case 'Translation':
+							enemy.addComponent('Translation').translation(enemyData.behavior.orient);
+							break;
+					}
 				});
 			}
 		});

@@ -9,5 +9,6 @@ Crafty.c('Shape', {
 			w: data.width,
 			h: data.height
 		});
+		return this;
 	}
 });
