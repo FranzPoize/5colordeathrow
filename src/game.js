@@ -21,35 +21,75 @@ window.onload = function() {
 		Crafty.e('2D, DOM, Image')
 			.attr({x:Crafty.DOM.window.width/2-310,y:Crafty.DOM.window.height/2-320})
 			.image('assets/menus/title.png');
-
+		
 		var btn = Crafty.e('2D, DOM, Image, Mouse')
 			.attr({x:Crafty.DOM.window.width/2-172,y:Crafty.DOM.window.height/2+230})
 			.image('assets/menus/press_start.png')
 			.css({cursor:'pointer'});
-
+		
 		btn.bind('Click', function() {
 			Crafty.scene('chooseLevel');
 		})
 	});
-
+	
 	Crafty.scene('chooseLevel',function() {
 		var index = 0,
-			lvlWidth = 100,
-			lvlHeight = 100;
-
+			lvlWidth = 180,
+			lvlHeight = 140,
+			nLevelsPerLine = 5,
+			nSpace = 10;
+		
+		Crafty.e('2D, DOM, Image')
+			.attr({x:0, y:0})
+			.image('assets/menus/title_very_small.png');
+			
+		Crafty.e('2D,DOM,Text,Color')
+			.attr({x: Crafty.DOM.window.width / 2 - 250, y: 120, h:lvlHeight, w:500})
+			.text("Level Select")
+			.textColor("#000")
+			.textFont({ size: '42px' })
+			.css({"text-align": "center"});
+		
 		_.each(window.levels,function(level,name) {
-			var lvlBtn = Crafty.e('2D,DOM,Text,Color,Mouse')
-				.attr({x:10+index*(lvlWidth+10),y:10+index%5*(lvlHeight+10),h:lvlHeight,w:lvlWidth})
+			var lvlBtn = Crafty.e('2D,DOM,Color,Mouse')
+				.attr({x: Crafty.DOM.window.width / 2 + ( index % nLevelsPerLine - 2 ) * (lvlWidth + nSpace) - lvlWidth / 2
+					, y: 160 + parseInt(index / nLevelsPerLine) * (lvlHeight + nSpace), h:lvlHeight, w:lvlWidth})
+				.color('#fff')
+				.css({cursor:'pointer'})
+				.css({"border-width":"2px"})
+				.css({"border-color":"#000"})
+				.css({"border-style":"solid"});
+			
+			Crafty.e('2D,DOM,Text,Color')
+				.attr({x: Crafty.DOM.window.width / 2 + ( index % nLevelsPerLine - 2 ) * (lvlWidth + nSpace) - lvlWidth / 2
+					, y: 182 + parseInt(index / nLevelsPerLine) * (lvlHeight + nSpace), h:lvlHeight, w:lvlWidth})
 				.text(level.name)
-				.color('#000')
-				.textColor('#ffffff')
-				.css({cursor:'pointer'});
-			index++;
-
+				.textColor(window.getColor(parseInt(index%nLevelsPerLine)))
+				.textFont({ size: '42px' })
+				.css({"text-align": "right"});
+			
+			Crafty.e('2D,DOM,Text,Color')
+				.attr({x: Crafty.DOM.window.width / 2 + ( index % nLevelsPerLine - 2 ) * (lvlWidth + nSpace) - lvlWidth / 2
+					, y: 240 + parseInt(index / nLevelsPerLine) * (lvlHeight + nSpace), h:lvlHeight, w:lvlWidth})
+				.text(window.getLevelDurationText(level.length))
+				.textColor("#000")
+				.textFont({ size: '36px' })
+				.css({"text-align": "center"});
+			
+			Crafty.e('2D,DOM,Text,Color')
+				.attr({x: Crafty.DOM.window.width / 2 + ( index % nLevelsPerLine - 2 ) * (lvlWidth + nSpace) - lvlWidth / 2
+					, y: 270 + parseInt(index / nLevelsPerLine) * (lvlHeight + nSpace), h:lvlHeight, w:lvlWidth})
+				.text(window.getScoreText(level.score))
+				.textColor("#000")
+				.textFont({ size: '20px' })
+				.css({"text-align": "center"});
+			
 			lvlBtn.bind('Click',function() {
 				levelToLoad = window.levels[name];
 				Crafty.scene('game');
 			});
+			
+			index++;
 		});
 	});
 
