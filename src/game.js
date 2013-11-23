@@ -102,7 +102,7 @@ window.onload = function() {
 					, y: 290 + parseInt(index / nLevelsPerLine) * (lvlHeight + nSpace), h:lvlHeight, w:lvlWidth})
 				.unselectable()
 				.text(window.getScoreText(window.highscores[index+1]))
-				.textColor("#000")
+				.textColor( level.score > window.highscores[index+1] ? "#ff0000" : "#00ff00")
 				.textFont({ weight:'bold', size: '24px' })
 				.css({"text-align": "center"})
 				.css({cursor:'pointer'});
