@@ -2,6 +2,7 @@
 window.levels = {};
 
 window.levels.level1 = {
+	'name':'lvl 1',
 	'length': 120,
 	'events': {
 		'0': [{
