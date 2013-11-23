@@ -8,7 +8,7 @@ Crafty.c('Enemy', {
 	enemy: function( data ) {
 		var self = this;
 		this.enemyColorValue = window.color[data.color];
-
+		this.colorName = data.color;
 		this.attr({
 				alpha: 0,
 				x: data.coords[0],
