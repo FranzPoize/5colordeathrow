@@ -5,12 +5,16 @@ window.onload = function() {
 	var levelToLoad;
 
 	Crafty.scene('logoGameJam',function() {
-		Crafty.e('2D, DOM, Image, Delay')
+		var logo = Crafty.e('2D, DOM, Image, Delay,Mouse')
 			.attr({x:Crafty.DOM.window.width/2-140,y:Crafty.DOM.window.height/2-150})
 			.image('assets/logo_gdp.png')
 			.delay(function() {
 				Crafty.scene('menu');
 			},5000);
+
+		logo.bind('Click',function() {
+			Crafty.scene('menu');
+		})
 	});
 
 	Crafty.scene('menu',function() {
