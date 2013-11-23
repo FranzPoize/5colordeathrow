@@ -7,7 +7,14 @@ Crafty.c('PlayerCollision',{
 			score.text(+score.text()+1);
 			enemy.destroy();
 		} else {
-			score.text(+score.text()-1);
+			if (enemy.available) {
+				score.text(+score.text()-1);
+				enemy.delay(function() {
+					enemy.available = true;
+				},500);
+				enemy.available = false;
+			}
+
 		}
 	},
 
