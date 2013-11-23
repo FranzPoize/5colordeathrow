@@ -47,7 +47,7 @@ window.onload = function() {
 			.attr({x: Crafty.DOM.window.width / 2 - 250, y: 120, h:lvlHeight, w:500})
 			.text("Level Select")
 			.textColor("#000")
-			.textFont({ size: '42px' })
+			.textFont({ family: "No Color", size: '42px' })
 			.css({"text-align": "center"});
 		
 		_.each(window.levels,function(level,name) {
@@ -64,29 +64,32 @@ window.onload = function() {
 			// Level Name
 			Crafty.e('2D,DOM,Text,Color')
 				.attr({x: Crafty.DOM.window.width / 2 + ( index % nLevelsPerLine - 2 ) * (lvlWidth + nSpace) - lvlWidth / 2
-					, y: 182 + parseInt(index / nLevelsPerLine) * (lvlHeight + nSpace), h:lvlHeight, w:lvlWidth})
+					, y: 185 + parseInt(index / nLevelsPerLine) * (lvlHeight + nSpace), h:lvlHeight, w:lvlWidth})
 				.text(level.name)
 				.textColor(window.getColor(parseInt(index%nLevelsPerLine)))
-				.textFont({ size: '42px' })
-				.css({"text-align": "right"});
+				.textFont({ family: "No Color", size: '54px' })
+				.css({"text-align": "right"})
+				.css({cursor:'pointer'});
 			
 			// Level Duration
 			Crafty.e('2D,DOM,Text,Color')
 				.attr({x: Crafty.DOM.window.width / 2 + ( index % nLevelsPerLine - 2 ) * (lvlWidth + nSpace) - lvlWidth / 2
-					, y: 240 + parseInt(index / nLevelsPerLine) * (lvlHeight + nSpace), h:lvlHeight, w:lvlWidth})
+					, y: 245 + parseInt(index / nLevelsPerLine) * (lvlHeight + nSpace), h:lvlHeight, w:lvlWidth})
 				.text(window.getLevelDurationText(level.duration))
 				.textColor("#000")
-				.textFont({ size: '36px' })
-				.css({"text-align": "center"});
+				.textFont({ family: "No Color", size: '48px' })
+				.css({"text-align": "center"})
+				.css({cursor:'pointer'});
 			
 			// Level Score
 			Crafty.e('2D,DOM,Text,Color')
 				.attr({x: Crafty.DOM.window.width / 2 + ( index % nLevelsPerLine - 2 ) * (lvlWidth + nSpace) - lvlWidth / 2
-					, y: 270 + parseInt(index / nLevelsPerLine) * (lvlHeight + nSpace), h:lvlHeight, w:lvlWidth})
+					, y: 280 + parseInt(index / nLevelsPerLine) * (lvlHeight + nSpace), h:lvlHeight, w:lvlWidth})
 				.text(window.getScoreText(level.score))
 				.textColor("#000")
-				.textFont({ size: '20px' })
-				.css({"text-align": "center"});
+				.textFont({ family: "No Color", size: '20px' })
+				.css({"text-align": "center"})
+				.css({cursor:'pointer'});
 			
 			// Button
 			lvlBtn.bind('Click',function() {
@@ -141,6 +144,6 @@ window.onload = function() {
 		Crafty.e('FrameKeeper');
 	});
 
-	//Crafty.scene('logoGameJam');
+	// Crafty.scene('logoGameJam');
 	Crafty.scene('chooseLevel'); // Wow! Please!
 };
