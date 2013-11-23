@@ -4,17 +4,25 @@ Crafty.c('PlayerCollision',{
 		var score = Crafty('Score'),
 			enemy = event[0].obj;
 		if (enemy.color() == this.color()) {
-			score.text(+score.text()+1);
-			enemy.destroy();
-		} else {
 			if (enemy.available) {
-				score.text(+score.text()-1);
+				score.text(+score.text()+enemy.getScore(true));
 				enemy.delay(function() {
 					enemy.available = true;
 				},500);
 				enemy.available = false;
 			}
 
+			enemy.resolveCollision(true);
+		} else {
+			if (enemy.available) {
+				score.text(+score.text()+enemy.getScore(false));
+				enemy.delay(function() {
+					enemy.available = true;
+				},500);
+				enemy.available = false;
+			}
+
+			enemy.resolveCollision(false);
 		}
 	},
 

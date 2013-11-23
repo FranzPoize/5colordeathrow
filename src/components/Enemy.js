@@ -10,5 +10,6 @@ Crafty.c('Enemy', {
 				y: data.coords[1]
 			})
 			.color( window.color[ data.color ] );
+		this.requires(data.scoreType);
 	}
 });
