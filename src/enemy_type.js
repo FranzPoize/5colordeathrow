@@ -14,8 +14,22 @@ Crafty.c('NormalEnemy',{
 	},
 
 	resolveCollision: function(positive) {
-		if (positive)
+		if (positive) {
+			for (var i = 0;i< 15;i++) {
+				Crafty.e('Particle')
+					.particle(Math.random()*Math.PI*2,
+						3+Math.random()*7,
+						this.enemyColorValue,
+						this.x+this.w/2,
+						this.y+this.h/2,
+						Math.random()*20)
+			}
 			this.destroy();
+		}
+	},
+
+	collide: function () {
+		return this
 	}
 });
 
@@ -36,6 +50,10 @@ Crafty.c('DotEnemy',{
 
 	resolveCollision: function(positive) {
 		this.destroy();
+	},
+
+	collide: function () {
+		return this
 	}
 });
 
@@ -51,18 +69,21 @@ Crafty.c('ComboEnemy',{
 	getScore: function(positive) {
 		var score;
 		if(positive) {
-			this.replenish = false;
 			score = Math.floor(window.ScoreValues.normal.posScore*this.ratio);
-			this.ratio = 0.9 * this.ratio;
-
-			var replenish = this.delay(function() {
-				this.replenish = true;
-			},1000);
 		} else {
 			score =  window.ScoreValues.normal.negScore;
 		}
 
 		return score;
+	},
+
+	collide: function () {
+		this.ratio = 0.9 * this.ratio
+		this.replenish = false;
+		this.delay(function() {
+			this.replenish = true;
+		}, 1000);
+		return this
 	},
 
 	replenishRatio: function() {

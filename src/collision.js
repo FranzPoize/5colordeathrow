@@ -4,9 +4,13 @@ Crafty.c('PlayerCollision',{
 		var score = Crafty('Score'),
 			enemy = event[0].obj;
 		if (enemy.available) {
-			if (enemy.color() == this.color()) {
+			enemy.collide()
+			if (enemy.enemyColorValue == this.playerColorValue) {
 				Crafty.trigger('CollisionSameColor', {'enemy': enemy})
-				score.text(+score.text()+enemy.getScore(true));
+				console.log(Crafty('ProgressBar').currentProgress())
+				var progressBar = Crafty('ProgressBar')
+				var currP = Crafty('ProgressBar').currentProgress()
+				score.text(+score.text()+enemy.getScore(true) * (currP+1));
 				enemy.delay(function() {
 					enemy.available = true;
 				},500);
