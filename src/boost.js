@@ -15,12 +15,12 @@ Crafty.bind('SceneChange', function (data) {
 	};
 	l("HEYHO")
 	var progressBar = Crafty.e("2D, DOM, ProgressBar")
-    .attr({ x: 200, y : 200, w: 300, h: 25})
+    .attr({ x: 200, y : Crafty.DOM.window.height - 35, w: 300, h: 25})
     .progressBar(100, false, "blue", "green")
     .updateBarProgress(Score);
-    setInterval(1000, function () {
+    setInterval(function () {
     	l("BLORG")
     	Score += 10
     	progressBar.updateBarProgress(Score);
-    })
+    }, 1000)
 });
