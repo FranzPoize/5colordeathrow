@@ -66,16 +66,16 @@ window.onload = function() {
 
 		playArea._element.draggable = false;
 
-		Crafty.e('2D, DOM, Color, MoveTo, WiredHitBox,PlayerCollision,Player')
+		Crafty.e('2D, DOM, Image, MoveTo, WiredHitBox,PlayerCollision,Player')
 			.attr({x:0,y:0,h:40,w:40})
-			.color(color.five)
+			.playerColor(window.color.five,'orange')
 			.collision(new Crafty.polygon([0,0],[40,0],[40,40],[0,40]));
 
 		Crafty.e('Score')
-			.attr({x:100,y:Crafty.DOM.window.height-45,h:50,w:50})
+			.attr({x: Crafty.DOM.window.width-200,y:Crafty.DOM.window.height-80,h:50,w:50})
 			.text('0')
 			.textColor('#f00')
-			.textFont({ size: '40px', weight: 'bold' });
+			.textFont({ size: '40px', weight: 'bold','font-family':'NoColor'});
 
 		Crafty.e('Level')
 			.level( levelToLoad );

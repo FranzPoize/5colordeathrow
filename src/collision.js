@@ -4,7 +4,7 @@ Crafty.c('PlayerCollision',{
 		var score = Crafty('Score'),
 			enemy = event[0].obj;
 		if (enemy.available) {
-			if (enemy.color() == this.color()) {
+			if (enemy.enemyColorValue == this.playerColorValue) {
 				Crafty.trigger('CollisionSameColor', {'enemy': enemy})
 				score.text(+score.text()+enemy.getScore(true));
 				enemy.delay(function() {
