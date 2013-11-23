@@ -77,7 +77,7 @@ window.onload = function() {
 					, y: 245 + parseInt(index / nLevelsPerLine) * (lvlHeight + nSpace), h:lvlHeight, w:lvlWidth})
 				.text(window.getLevelDurationText(level.duration))
 				.textColor("#000")
-				.textFont({ family: "No Color", size: '48px' })
+				.textFont({ weight:'bold', size: '48px' })
 				.css({"text-align": "center"})
 				.css({cursor:'pointer'});
 			
@@ -87,7 +87,7 @@ window.onload = function() {
 					, y: 280 + parseInt(index / nLevelsPerLine) * (lvlHeight + nSpace), h:lvlHeight, w:lvlWidth})
 				.text(window.getScoreText(level.score))
 				.textColor("#000")
-				.textFont({ family: "No Color", size: '20px' })
+				.textFont({ weight:'bold', size: '20px' })
 				.css({"text-align": "center"})
 				.css({cursor:'pointer'});
 			
@@ -118,25 +118,31 @@ window.onload = function() {
 			.attr({x:0,y:0,h:40,w:40})
 			.playerColor(window.color.one,'red')
 			.collision(new Crafty.polygon([0,0],[40,0],[40,40],[0,40]));
-
+		
+		// HUD
+		// Background
+		Crafty.e('2D, DOM, Color')
+			.attr({x:0,y:Crafty.stage.elem.scrollHeight-48,z:9000,w:Crafty.stage.elem.scrollWidth,h:48})
+			.color('#fff');
+		
 		Crafty.e('Score')
-			.attr({x: Crafty.stage.elem.scrollWidth-650,y:Crafty.stage.elem.scrollHeight-80,h:50,w:400})
+			.attr({x: Crafty.stage.elem.scrollWidth-650,y:Crafty.stage.elem.scrollHeight-50,z:10000,h:50,w:400})
 			.text('0')
-			.textColor('#f00')
+			.textColor('#000000')
 			.css({'text-align':'right'})
-			.textFont({ size: '40px', weight: 'bold','family':'No Color'});
+			.textFont({ size: '40px', weight: 'bold'});
 
 		Crafty.e('Multiplier')
-			.attr({x: Crafty.stage.elem.scrollWidth-800,y:Crafty.stage.elem.scrollHeight-40,h:50,w:400})
-			.textColor('#f00')
+			.attr({x: Crafty.stage.elem.scrollWidth-800,y:Crafty.stage.elem.scrollHeight-50,z:10000,h:50,w:400})
+			.textColor('#000000')
 			.css({'text-align':'right'})
-			.textFont({ size: '40px', weight: 'bold','family':'No Color'});
+			.textFont({ size: '40px', weight: 'bold'});
 
 		Crafty.e('Timer, 2D, DOM, Text')
-			.attr({x: Crafty.stage.elem.scrollWidth - 200, y:Crafty.stage.elem.scrollHeight-80,h:50,w:50})
+			.attr({x: Crafty.stage.elem.scrollWidth - 200, y:Crafty.stage.elem.scrollHeight-50,z:10000,h:50,w:50})
 			.text( levelToLoad.duration + 's' )
-			.textColor('#f00')
-			.textFont({ size: '40px', weight: 'bold' ,'family':'No Color'})
+			.textColor('#000000')
+			.textFont({ size: '40px', weight: 'bold'})
 			.bind('TimeLeft', function( data ) {
 				this.text(data.timeleft.toFixed(2) + 's' );
 			})

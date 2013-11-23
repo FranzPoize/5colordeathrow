@@ -65,12 +65,14 @@ var initGUIScene = function () {
 
 	_.each(colorInit,function(button,name) {
 		var btn = Crafty.e('2D, DOM, Image, Mouse, Keyboard, Text, ColorButton')
-				.attr({x:button.x,y:Crafty.stage.elem.scrollHeight-button.h-button.y,h:button.h,w:button.w})
+				.attr({x:button.x,y:Crafty.stage.elem.scrollHeight-button.h-button.y,z:10000,h:button.h,w:button.w})
 				.image('assets/hud/'+name+'_input_01.PNG')
 				.text(button.key)
 				.textFont({ size: BTN_H*0.75+ "px", weight: 'bold' })
 				.unselectable()
-				.css({padding:'5px 0 0 15px'});
+				.css({padding:'2px 0 0 0px'})
+				.css({'text-align':'center'})
+				.css({cursor:'pointer'});
 		btn.bind('KeyDown', keyDownFor(button.key, im ,name));
 		btn.bind('DoubleClick', askBindingForButton(btn, im));
 		btn.gameColor = button.color;
