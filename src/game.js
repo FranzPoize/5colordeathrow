@@ -1,7 +1,11 @@
+'use strict';
+
 window.onload = function() {
 	Crafty.init(document.getElementById('game'));
 
 	Crafty.scene('game',function() {
+		var color = window.color;
+
 		Crafty.background('#999');
 
 		initGUIScene();
@@ -23,10 +27,13 @@ window.onload = function() {
 
 		Crafty.e('Score')
 			.attr({x:100,y:Crafty.DOM.window.height-45,h:50,w:50})
-			.text("0")
+			.text('0')
 			.textColor('#f00')
 			.textFont({ size: '40px', weight: 'bold' });
+
+		Crafty.e('Level')
+			.level( window.level1 );
 	});
 
 	Crafty.scene('game');
-}
+};

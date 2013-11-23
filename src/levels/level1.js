@@ -1,29 +1,40 @@
 'use strict';
 
-define({
+window.level1 = {
 	'length': 120,
 	'events': {
-		'15': [{
+		'0': [{
 			'type': 'dot',
-			'color': 'bleu',
-			'length': 20,
-			'position': [11,12]
+			'color': 'one',
+			'lifespan': 20,
+			'coords': [150,120],
+			'scoreType':'NormalEnemy'
+		}],
+		'5': [{
+			'type': 'dot',
+			'color': 'two',
+			'lifespan': 20,
+			'coords': [11,12],
+			'scoreType':'ComboEnemy'
 		}, {
-			'type': 'shape',
-			'color': 'bleu',
-			'length': 20,
-			'position': [11,12]
+			'type': 'dot',
+			'color': 'two',
+			'lifespan': 20,
+			'coords': [11,12],
+			'scoreType':'NormalEnemy'
 		}],
 		'55': [{
 			'type': 'dot',
-			'color': 'bleu',
-			'length': 20,
-			'position': [11,12]
+			'color': 'three',
+			'lifespan': 20,
+			'coords': [11,12],
+			'scoreType':'NormalEnemy'
 		}, {
 			'type': 'shape',
-			'color': 'bleu',
-			'length': 20,
-			'position': [11,12]
+			'color': 'four',
+			'lifespan': 20,
+			'coords': [11,12],
+			'scoreType':'NormalEnemy'
 		}]
 	}
-});
+};
