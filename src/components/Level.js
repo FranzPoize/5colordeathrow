@@ -56,7 +56,7 @@ Crafty.c('Level', {
 					ellapsedSeconds = ( frame.frame - this.firstFrame ) * 16.66667 / 1000,
 					currentEvent;
 
-				this.trigger('TimeLeft', data.duration - ellapsedSeconds );
+				Crafty.trigger('TimeLeft', {'timeleft': data.duration - ellapsedSeconds} );
 
 				if ( ellapsedSeconds > data.duration ) {
 					return this.trigger('LevelLand');
