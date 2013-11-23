@@ -1,7 +1,11 @@
+'use strict';
+
 window.onload = function() {
 	Crafty.init(500,350, document.getElementById('game'));
 
 	Crafty.scene('game',function() {
+		var color = window.color;
+
 		Crafty.background('#999');
 
 		initGUIScene();
@@ -21,8 +25,15 @@ window.onload = function() {
 			.color(color.five)
 			.collision(new Crafty.polygon([0,0],[40,0],[40,40],[0,40]));
 
-		Crafty.e('2D,Canvas, Score, Text').attr({x:100,y:200,h:50,w:50}).text(0).textColor('#f00').textFont({ size: '20px', weight: 'bold' });;
+		Crafty.e('2D,Canvas, Score, Text')
+			.attr({x:100,y:200,h:50,w:50})
+			.text(0)
+			.textColor('#f00')
+			.textFont({ size: '20px', weight: 'bold' });
+
+		Crafty.e('Level')
+			.level( window.level1 );
 	});
 
 	Crafty.scene('game');
-}
+};
