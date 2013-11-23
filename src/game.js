@@ -19,7 +19,7 @@ window.onload = function() {
 
 	Crafty.scene('menu',function() {
 		Crafty.e('2D, DOM, Image')
-			.attr({x:Crafty.stage.elem.scrollWidth/2-310,y:Crafty.stage.elem.scrollHeight/2-320})
+			.attr({x:Crafty.stage.elem.scrollWidth/2-217,y:Crafty.stage.elem.scrollHeight/2-250})
 			.image('assets/menus/title.png');
 		
 		var btn = Crafty.e('2D, DOM, Image, Mouse')
@@ -151,7 +151,7 @@ window.onload = function() {
 			.attr({x: Crafty.stage.elem.scrollWidth - 200, y:Crafty.stage.elem.scrollHeight-50,z:10000,h:50,w:50})
 			.text( levelToLoad.duration + 's' )
 			.textColor('#000000')
-			.textFont({ size: '40px', weight: 'bold'})
+			.textFont({ size: '40px', weight: 'bold', family:'No Color'})
 			.bind('TimeLeft', function( data ) {
 				this.text(data.timeleft.toFixed(2) + 's' );
 			})
