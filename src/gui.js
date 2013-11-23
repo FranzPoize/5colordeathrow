@@ -13,41 +13,67 @@ var l = function (a) {
 	};
 };
 
+var BTN_H = 100,
+	BTN_W = 100;
+
+var colorInit = {
+	redBtn: {
+		w:100,
+		h:100,
+		color:color.one,
+		key:'E',
+		x:50,
+		y:10
+	},
+	blueBtn: {
+		w:100,
+		h:100,
+		color:color.two,
+		key:'R',
+		x:50+BTN_W+50,
+		y:10
+	},
+	greenBtn: {
+		w:100,
+		h:100,
+		color:color.three,
+		key:'T',
+		x:50+2*(BTN_W+50),
+		y:10
+	},
+	yellowBtn: {
+		w:100,
+		h:100,
+		color:color.four,
+		key:'Y',
+		x:50+3*(BTN_W+50),
+		y:10
+	},
+	orangeBtn: {
+		w:100,
+		h:100,
+		color:color.five,
+		key:'SPACE',
+		x:50+4*(BTN_W+50),
+		y:10
+	}
+}
+
 var initGUIScene = function () {
 	l("initGUIScene start")
-	var BTN_W = 100
-	var BTN_H = 100
-	var COLOR1_BTN_X = 0
-	var COLOR1_BTN_Y = 0
-	var COLOR2_BTN_X = 0
-	var COLOR2_BTN_Y = BTN_H + 2
-	var COLOR1_BTN_COLOR = color.one
-	var COLOR2_BTN_COLOR = color.two
-	var COLOR1_BTN_KEY = 'R'
-	var COLOR2_BTN_KEY = 'E'
-	var COLOR1_BTN_INIT_ATTRIBUTES = {x: COLOR1_BTN_X, y: COLOR1_BTN_Y, w: BTN_W, h: BTN_H}
-	var COLOR2_BTN_INIT_ATTRIBUTES = {x: COLOR2_BTN_X, y: COLOR2_BTN_Y, w: BTN_W, h: BTN_H}
-	var PLAYER_COLOR_COLOR1 = COLOR1_BTN_COLOR
 	var im = new InputManager()
-	var redBtn = Crafty.e('2D, DOM, Color, Mouse, Keyboard, Text')
-		.attr(COLOR1_BTN_INIT_ATTRIBUTES)
-		.color(COLOR1_BTN_COLOR)
-		.text(COLOR1_BTN_KEY)
-		.textFont({ size: BTN_H*0.75 + "px", weight: 'bold' })
-		.unselectable()
-	redBtn.bind('KeyDown', keyDownFor(COLOR1_BTN_KEY, im));
-	redBtn.bind('DoubleClick', askBindingForButton(redBtn, im));
-	redBtn.gameColor = COLOR1_BTN_COLOR
 
-	var blueBtn = Crafty.e('2D, DOM, Color, Mouse, Keyboard, Text')
-		.attr(COLOR2_BTN_INIT_ATTRIBUTES)
-		.color(COLOR2_BTN_COLOR)
-		.text(COLOR2_BTN_KEY)
-		.textFont({ size: BTN_H*0.75 + "px", weight: 'bold' })
-		.unselectable()
-	blueBtn.bind('KeyDown', keyDownFor(COLOR2_BTN_KEY, im));
-	blueBtn.bind('DoubleClick', askBindingForButton(blueBtn, im));
-	blueBtn.gameColor = COLOR2_BTN_COLOR
+	_.each(colorInit,function(button) {
+		var btn = Crafty.e('2D, DOM, Color, Mouse, Keyboard, Text')
+				.attr({x:button.x,y:button.y,h:button.h,w:button.w})
+				.color(button.color)
+				.text(button.key)
+				.textFont({ size: BTN_H*0.75+ "px", weight: 'bold' })
+				.unselectable()
+		btn.bind('KeyDown', keyDownFor(button.key, im));
+		btn.bind('DoubleClick', askBindingForButton(btn, im));
+		btn.gameColor = button.color
+	});
 	l("initGUIScene end")
 };
 
