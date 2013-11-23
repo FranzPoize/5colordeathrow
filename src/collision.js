@@ -8,8 +8,9 @@ Crafty.c('PlayerCollision',{
 			if (enemy.color() == this.color()) {
 				Crafty.trigger('CollisionSameColor', {'enemy': enemy})
 				console.log(Crafty('ProgressBar').currentProgress())
+				var progressBar = Crafty('ProgressBar')
 				var currP = Crafty('ProgressBar').currentProgress()
-				score.text(+score.text()+enemy.getScore(true) * currP);
+				score.text(+score.text()+enemy.getScore(true) * (currP+1));
 				enemy.delay(function() {
 					enemy.available = true;
 				},500);
