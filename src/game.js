@@ -19,7 +19,7 @@ window.onload = function() {
 
 	Crafty.scene('menu',function() {
 		Crafty.e('2D, DOM, Image')
-			.attr({x:Crafty.stage.elem.scrollWidth/2-217,y:Crafty.stage.elem.scrollHeight/2-250})
+			.attr({x:Crafty.stage.elem.scrollWidth/2-250,y:Crafty.stage.elem.scrollHeight/2-217})
 			.image('assets/menus/title.png');
 		
 		var btn = Crafty.e('2D, DOM, Image, Mouse')

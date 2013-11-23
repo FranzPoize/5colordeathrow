@@ -26,6 +26,12 @@ Crafty.c('NormalEnemy',{
 			}
 			this.destroy();
 		}
+		if (!positive) {
+			var effect = Crafty.e('BadEffect')
+				.badEffect(this.colorName);
+
+			effect.remove();
+		}
 	},
 
 	collide: function () {
@@ -59,6 +65,7 @@ Crafty.c('DotEnemy',{
 	},
 
 	resolveCollision: function(positive) {
+
 		for (var i = 0;i< 15;i++) {
 			Crafty.e('Particle')
 				.particle(Math.random()*Math.PI*2,
@@ -67,6 +74,12 @@ Crafty.c('DotEnemy',{
 					this.x+this.w/2,
 					this.y+this.h/2,
 					Math.random()*20)
+		}
+		if (!positive) {
+			var effect = Crafty.e('BadEffect')
+				.badEffect(this.colorName);
+
+			effect.remove();
 		}
 		this.destroy();
 	},
@@ -120,6 +133,12 @@ Crafty.c('ComboEnemy',{
 					player.x+player.w/2,
 					player.y+player.h/2,
 					Math.random()*20)
+		}
+		if (!positive) {
+			var effect = Crafty.e('BadEffect')
+				.badEffect(this.colorName);
+
+			effect.remove();
 		}
 	}
 });
