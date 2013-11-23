@@ -1,15 +1,15 @@
 Crafty.c('NormalEnemy',{
 	init: function() {
 		this.requires('Enemy');
-		this.requires('Delay')
+		this.requires('Delay');
 		this.available = true;
 	},
 
 	getScore: function(positive) {
 		if(positive) {
-			return Score.normal.posScore;
+			return window.ScoreValues.normal.posScore;
 		} else {
-			return Score.normal.negScore;
+			return window.ScoreValues.normal.negScore;
 		}
 	},
 
@@ -21,30 +21,34 @@ Crafty.c('NormalEnemy',{
 
 Crafty.c('ComboEnemy',{
 	init: function() {
-		this.requires('Enemy');
-		this.requires('Delay');
+		this.requires('Enemy, Delay');
 		this.available = true;
 		this.ratio = 1;
 
-		// this.bind('EnterFrame',replenishRatio);
+		this.bind('EnterFrame',this.replenishRatio);
 	},
 
 	getScore: function(positive) {
 		var score;
 		if(positive) {
-			this.ratio = 0.9 * this.ratio;
 			this.replenish = false;
-			score = Score.normal.posScore*this.ratio;
+			score = Math.floor(window.ScoreValues.normal.posScore*this.ratio);
+			this.ratio = 0.9 * this.ratio;
 
 			var replenish = this.delay(function() {
-				this.replenish;
+				this.replenish = true;
 			},1000);
-			console.log(replenish);
 		} else {
-			score =  Score.normal.negScore;
+			score =  window.ScoreValues.normal.negScore;
 		}
 
 		return score;
+	},
+
+	replenishRatio: function() {
+		if (this.replenish && this.ratio <= 1) {
+			this.ratio+=0.002;
+		}
 	},
 
 	resolveCollision: function(positive) {
