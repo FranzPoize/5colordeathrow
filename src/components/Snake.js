@@ -66,11 +66,12 @@ Crafty.c('Snake', {
 		if (this.elems[0].y >= (this.maxH-this.elems[0].h) || this.elems[0].y < 0) {
 			this.speedY *= -1
 		}
+		var x = this.elems[0].x,
+			y = this.elems[0].y
 		this.elems[0].x += this.dx * this.speedX
 		this.elems[0].y += this.dy * this.speedY
+		var x_bak, y_bak
 		for (var i = 1; i < this.elems.length; i++) {
-			var x = this.elems[i].x - 20,
-				y = this.elems[i].y - 20
 			// speedX = this.speedX
 			// speedY = this.speedY
 			// if (this.elems[i].x > this.maxW || this.elems[i].x < 0) {
@@ -79,8 +80,12 @@ Crafty.c('Snake', {
 			// if (this.elems[i].y > this.maxH || this.elems[i].y < 0) {
 			// 	speedY *= -1
 			// }
-			this.elems[i].x = this.elems[i-1].x
-			this.elems[i].y = this.elems[i-1].y
+			x_bak = this.elems[i].x
+			y_bak = this.elems[i].y
+			this.elems[i].x = x
+			this.elems[i].y = y
+			x = x_bak
+			y = y_bak
 		};
 		return this;
 	}
