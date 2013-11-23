@@ -66,7 +66,7 @@ window.onload = function() {
 
 		playArea._element.draggable = false;
 
-		Crafty.e('2D, DOM, Image, MoveTo, WiredHitBox,PlayerCollision,Player')
+		Crafty.e('2D, DOM, Image, MoveTo,PlayerCollision,Player')
 			.attr({x:0,y:0,h:40,w:40})
 			.playerColor(window.color.five,'orange')
 			.collision(new Crafty.polygon([0,0],[40,0],[40,40],[0,40]));
@@ -96,6 +96,5 @@ window.onload = function() {
 		Crafty.e('FrameKeeper');
 	});
 
-	//Crafty.scene('logoGameJam');
-	Crafty.scene('chooseLevel'); // Wow! Please!
+	Crafty.scene('logoGameJam');
 };
