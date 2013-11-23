@@ -42,13 +42,18 @@ Crafty.c('Follower', {
 		var dx = (player.x - this.x)
 		var dy = (player.y - this.y)
 		var norm = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2))
-		var move_y = Math.ceil(dy/norm * this.speed)
-		var move_x = Math.ceil(dx/norm * this.speed)
-		if (Math.abs(move_x) > Math.abs(dx)) {
-			move_x = dx
-		}
-		if (Math.abs(move_y) > Math.abs(dy)) {
-			move_y = dy
+		if (norm === 0) {
+			var move_x = 0
+			var move_y = 0
+		} else {
+			var move_y = Math.ceil(dy/norm * this.speed)
+			var move_x = Math.ceil(dx/norm * this.speed)
+			if (Math.abs(move_x) > Math.abs(dx)) {
+				move_x = dx
+			}
+			if (Math.abs(move_y) > Math.abs(dy)) {
+				move_y = dy
+			}
 		}
 		this.y += move_y
 		this.x += move_x
