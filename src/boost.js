@@ -1,6 +1,6 @@
 "use strict"
 
-var PROGRESS_BAR_MAX_VALUE_AND_BOOST_THRESHOLD = 200
+var PROGRESS_BAR_MAX_VALUE_AND_BOOST_THRESHOLD = 2000
 
 var l = function (a) {
 	if (console && console.log) {
