@@ -186,7 +186,7 @@ window.onload = function() {
 
 		Crafty.e('Timer, 2D, DOM, Text')
 			.attr({x: Crafty.stage.elem.scrollWidth - 520, y:Crafty.stage.elem.scrollHeight-45,z:10000,h:50,w:50})
-			.unselectable()
+			.unselectable()	
 			.text(  window.formatLevelCountDown( levelToLoad.duration ) )
 			.textColor('#000000')
 			.textFont({ size: '40px', weight: 'bold'})
