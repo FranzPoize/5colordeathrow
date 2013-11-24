@@ -4,12 +4,12 @@ window.levels.level2 = {
 	id: 2,
 	name:'lvl 2',
 	duration: 20,
-	score: 350000,
+	score: 40000,
 	events: {
 		0: [{
 			type: 'shape',
 			color: 'one',
-			lifespan: 20,
+			lifespan: 25,
 			coords: [10,0],
 			width: 10,
 			height: 600,
@@ -21,7 +21,7 @@ window.levels.level2 = {
 		},{
 			type: 'shape',
 			color: 'two',
-			lifespan: 20,
+			lifespan: 25,
 			coords: [1230,0],
 			width: 10,
 			height: 600,
@@ -33,7 +33,7 @@ window.levels.level2 = {
 		},{
 			type: 'shape',
 			color: 'one',
-			lifespan: 20,
+			lifespan: 25,
 			coords: [0,300],
 			width: 1250,
 			height: 10,
@@ -43,28 +43,28 @@ window.levels.level2 = {
 		5: [{
 			type: 'dot',
 			color: 'one',
-			lifespan: 20,
+			lifespan: 7,
 			coords: [200,100],
 			scoreType:'DotEnemy',
 			behavior: {}
 		},{
 			type: 'dot',
 			color: 'two',
-			lifespan: 20,
+			lifespan: 7,
 			coords: [300,400],
 			scoreType:'DotEnemy',
 			behavior: {}
 		},{
 			type: 'dot',
 			color: 'one',
-			lifespan: 20,
+			lifespan: 7,
 			coords: [1050,100],
 			scoreType:'DotEnemy',
 			behavior: {}
 		},{
 			type: 'dot',
 			color: 'two',
-			lifespan: 20,
+			lifespan: 7,
 			coords: [950,400],
 			scoreType:'DotEnemy',
 			behavior: {}

@@ -3,7 +3,7 @@
 window.levels.level9 = {
 	id: 9, 
 	name:'lvl 9',
-	duration: 60,
+	duration: 25,
 	score: 260000, 
 	events: {
 		0: [{
