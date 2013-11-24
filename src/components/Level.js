@@ -193,9 +193,11 @@ Crafty.c('Level', {
 								Crafty.audio.play( wise ? 'voicewin' : 'voicelose', 1);
 							});
 
-						Crafty.e('2D, DOM,Image')
+						if(!wise) {
+							Crafty.e('2D, DOM,Image')
 							.image('assets/menus/youlose.png')
 							.attr({x:Crafty.stage.elem.scrollWidth-300,y:Crafty.stage.elem.scrollHeight-300})
+						}
 
 
 						debrief.bind('Click', function() {
