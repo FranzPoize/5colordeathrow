@@ -163,7 +163,7 @@ Crafty.c('Level', {
 							w: 400,
 							h: 40
 						})
-						.text( Crafty('Score')._text + ' / ' + levelData.score )
+						.text( Crafty('Score')._text)
 						.textColor('#111')
 						.textFont({ size: '40px', weight: 'bold'})
 						.queue([{
