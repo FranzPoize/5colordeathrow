@@ -4,7 +4,7 @@ window.levels.level8 = {
 	id: 8, 
 	name:'lvl 8',
 	duration: 60,
-	score: 750000, 
+	score: 200000, 
 	events: {
 		0: [
 			{ type:'dot', color:'one', lifespan:60, coords:[450,250], scoreType:'DotEnemy', behavior:{ type:'Follower' } }, 
