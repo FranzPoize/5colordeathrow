@@ -1,9 +1,9 @@
 'use strict';
 window.levels.level14 = {
-	id: 14, 
-	name:'lvl 14',
+	id: 10, 
+	name:'lvl 10',
 	duration: 25,
-	score: 300000, 
+	score: 35000, 
 	events: {
 		0: [{
 			type: 'snake',
