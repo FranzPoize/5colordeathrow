@@ -33,10 +33,10 @@ window.onload = function() {
 		Crafty.audio.play('bgm_title');
 
 		logo.bind('Click',function() {
-			if (stage.requestFullscreen) {
+			if ( stage.mozRequestFullScreen ) {
+				// firefox tu casses tout
+			} else if (stage.requestFullscreen) {
 			  stage.requestFullscreen();
-			} else if (stage.mozRequestFullScreen) {
-			  stage.mozRequestFullScreen();
 			} else if (stage.webkitRequestFullscreen) {
 			  stage.webkitRequestFullscreen();
 			}
