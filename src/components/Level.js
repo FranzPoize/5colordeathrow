@@ -12,6 +12,7 @@ Crafty.c('Level', {
 		this.data = levelData;
 
 		this.bind('LevelIgnite', function() {
+			Crafty('Score').maxScore = levelData.score
 			this.unbind('EnterFrame');
 			var self = this;
 			Crafty.audio.play('chrono',1,0.5);
@@ -172,7 +173,7 @@ Crafty.c('Level', {
 						}]);
 
 					setTimeout(function() {
-						var wise =  +Crafty('Score')._text > levelData.score;
+						var wise =  +Crafty('Score')._text.replace('/'+levelData.score, '') > levelData.score;
 
 						Crafty.e('2D, DOM, Text, TweenQueue')
 							.attr({
@@ -192,9 +193,11 @@ Crafty.c('Level', {
 								Crafty.audio.play( wise ? 'voicewin' : 'voicelose', 1);
 							});
 
-						Crafty.e('2D, DOM,Image')
+						if(!wise) {
+							Crafty.e('2D, DOM,Image')
 							.image('assets/menus/youlose.png')
 							.attr({x:Crafty.stage.elem.scrollWidth-300,y:Crafty.stage.elem.scrollHeight-300})
+						}
 
 
 						debrief.bind('Click', function() {

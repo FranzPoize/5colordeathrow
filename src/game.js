@@ -191,7 +191,7 @@ window.onload = function() {
 			.color('#fff');
 
 		Crafty.e('Score')
-			.attr({x: Crafty.stage.elem.scrollWidth-900,y:Crafty.stage.elem.scrollHeight-50,z:10000,h:50,w:400})
+			.attr({x: Crafty.stage.elem.scrollWidth-900,y:Crafty.stage.elem.scrollHeight-44,z:10000,h:50,w:400})
 			.unselectable()
 			.text('0')
 			.textColor('#000000')

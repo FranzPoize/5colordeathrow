@@ -1,7 +1,7 @@
 'use strict';
 
 window.levels.level1 = {
-	id: 2, 
+	id: 3, 
 	name:'lvl 3',
 	duration: 30,
 	score: 60000, 
