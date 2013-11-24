@@ -1,11 +1,10 @@
 'use strict';
-window.levels = {};
 
 window.levels.level1 = {
-	id: 1, 
-	name:'lvl 1',
+	id: 2, 
+	name:'lvl 3',
 	duration: 30,
-	score: 300000, 
+	score: 60000, 
 	events: {
 		0: [{
 			type: 'shape',
