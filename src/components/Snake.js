@@ -15,7 +15,6 @@ Crafty.c('SnakeChunk', {
 	}
 });
 
-var DETECTION_DISTANCE = 200
 Crafty.c('Snake', {
 	init: function() {
 		this.requires('ComboEnemy');
@@ -34,6 +33,7 @@ Crafty.c('Snake', {
 		this.color = data.color
 		this.chunkW = data.chunkW
 		this.chunkH = data.chunkH
+		this.detectionDistance = data.detectionDistance
 		this.elems.push(this.newElem())
 		this.elems[0].x = data.x
 		this.elems[0].y = data.y
@@ -57,7 +57,7 @@ Crafty.c('Snake', {
 	updatePos: function () {
 		// If there's the player in the area of detection, go get him!
 		var norm = window.distance(this.player, this.head)
-		if (norm < DETECTION_DISTANCE && this.player.playerColorValue != this.enemyColorValue) {
+		if (norm < this.detectionDistance && this.player.playerColorValue != this.enemyColorValue) {
 			if (norm === 0) {
 				var Dx = 0, Dy = 0
 			} else {

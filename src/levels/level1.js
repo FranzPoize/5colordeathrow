@@ -6,17 +6,20 @@ window.levels.level1 = {
 	duration: 30,
 	events: {
 		0: [{
-			type: 'shape',
+			type: 'snake',
 			color: 'one',
 			lifespan: 20,
 			coords: [0,0],
-			width: 1250,
+			width: 400,
 			height: 10,
-			scoreType:'ComboEnemy',
-			behavior: {
-				type:'Translation',
-				orient:'vert'
-			}
+			scoreType:'DotEnemy',
+			behavior: {},
+			chunkH: 30,
+			chunkW: 30,
+			detectionDistance: 200,
+			x: 900,
+			y: 500,	
+			chunksNumber: 10
 		}],
 		5: [{
 			type: 'dot',
