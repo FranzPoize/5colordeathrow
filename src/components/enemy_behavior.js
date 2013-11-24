@@ -60,14 +60,14 @@ Crafty.c('Follower', {
 				}
 				move_x = this.randomMove_x;
 				move_y = this.randomMove_y;
-				console.log('rmx: '+move_x);
-				console.log('rmy: '+move_y);
+				//console.log('rmx: '+move_x);
+				//console.log('rmy: '+move_y);
 			} else {
 				var move_y = Math.ceil(dy/norm * this.speed)
 				var move_x = Math.ceil(dx/norm * this.speed)
 				if (true) {};
 				if (player.playerColorValue == this.enemyColorValue) {
-					
+
 					move_x *= -1
 					move_y *= -1
 				} else {
