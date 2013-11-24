@@ -11,6 +11,8 @@ window.onload = function() {
 	Crafty.audio.add('dot_explo01','assets/sfx/sfx_dot_explo01.ogg');
 	Crafty.audio.add('dot_explo02','assets/sfx/sfx_dot_explo02.ogg');
 	Crafty.audio.add('finish','assets/sfx/sfx_finish.ogg');
+	Crafty.audio.add('wise','assets/sfx/sfx_wise.ogg');
+	Crafty.audio.add('loon','assets/sfx/sfx_loon.ogg');
 	Crafty.audio.add('multiplier_down','assets/sfx/sfx_multipl_down.ogg');
 	Crafty.audio.add('multiplier_up','assets/sfx/sfx_multipl_up.ogg');
 	Crafty.audio.add('multiplier_up_full','assets/sfx/sfx_multipl_up_full.ogg');
