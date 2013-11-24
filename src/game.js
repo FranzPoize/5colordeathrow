@@ -1,7 +1,8 @@
 'use strict';
 
 window.onload = function() {
-	Crafty.init(1250,600,document.getElementById('game'));
+	var stage = document.getElementById('game');
+	Crafty.init(1250,600,stage);
 	var levelToLoad;
 
 	Crafty.audio.add('chrono','assets/sfx/sfx_chrono.ogg');
@@ -32,6 +33,14 @@ window.onload = function() {
 		Crafty.audio.play('bgm_title');
 
 		logo.bind('Click',function() {
+			if (stage.requestFullscreen) {
+			  stage.requestFullscreen();
+			} else if (stage.mozRequestFullScreen) {
+			  stage.mozRequestFullScreen();
+			} else if (stage.webkitRequestFullscreen) {
+			  stage.webkitRequestFullscreen();
+			}
+
 			Crafty.audio.play('select01',1);
 			Crafty.scene('menu');
 		});
