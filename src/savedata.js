@@ -1,6 +1,6 @@
 "use strict"
 
-window.highscores = JSON.parse(sessionStorage.getItem("highscores"));
+window.highscores = JSON.parse(localStorage.getItem("highscores"));
 
 if( window.highscores === null )
 {
@@ -29,5 +29,5 @@ if( window.highscores === null )
 		20: 0
 	};
 	
-	sessionStorage.setItem("highscores", JSON.stringify(window.highscores));
+	localStorage.setItem("highscores", JSON.stringify(window.highscores));
 }
