@@ -2,7 +2,6 @@
 
 Crafty.c('Level', {
 	init: function() {
-		this.firstFrame = Crafty.frame();
 		this.lastEvent = -1;
 	},
 	level: function( levelData ) {
@@ -56,6 +55,8 @@ Crafty.c('Level', {
 		});
 
 		this.bind('LevelFire', function() {
+			this.firstFrame = Crafty.frame();
+
 			this.unbind('EnterFrame')
 				.bind('EnterFrame', function( frame ) {
 				var data = this.data,
@@ -177,7 +178,9 @@ Crafty.c('Level', {
 							.queue([{
 								y: Crafty.stage.elem.scrollHeight /2 + 30,
 								duration: 30
-							}]);
+							}], function() {
+								Crafty.audio.play('finish', 3);
+							});
 
 						debrief.bind('Click', function() {
 							level.trigger('LevelEnd');
