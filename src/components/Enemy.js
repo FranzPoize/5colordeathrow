@@ -40,7 +40,7 @@ Crafty.c('Enemy', {
 				break;
 			}
 
-			if ( data.lifespan !== undefined && false ) {
+			if ( data.lifespan !== undefined ) {
 				setTimeout(function() {
 					self.queue({
 						alpha: 0,

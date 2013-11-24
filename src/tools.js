@@ -41,3 +41,9 @@ window.getScoreText = function( nScore ) {
 
 	return sNewScore;
 };
+
+window.formatLevelCountDown = function( time ) {console.log(time);
+	var fixedTime = '00' + Math.max( time, 0 ).toFixed(2) + '00';
+
+	return fixedTime.slice( fixedTime.indexOf('.') - 3, fixedTime.indexOf('.') + 3 ) + 's';
+};
