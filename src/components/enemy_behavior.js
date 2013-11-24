@@ -29,15 +29,19 @@ var FOLLOWER_BASE_ACCELERATION = 1.001
 var FOLLOWER_MAX_SPEED = null
 Crafty.c('Follower', {
 	init: function () {
+		this.requires('Delay');
 		this.bind('EnterFrame', this.updatePos)
 		this.speed = FOLLOWER_BASE_SPEED
 		this.stageH = Crafty('PlayArea').h
 		this.stageW = Crafty('PlayArea').w
+		this.change = new Date().getTime();
+		this.randomMove_x = (Math.random()*2-1)*FOLLOWER_MAX_SPEED/Math.sqrt(2);
+		this.randomMove_y = (Math.random()*2-1)*FOLLOWER_MAX_SPEED/Math.sqrt(2);
 	},
 
 	updatePos: function () {
 		if (null == FOLLOWER_MAX_SPEED) {
-			FOLLOWER_MAX_SPEED = Crafty('MoveTo')._fMaxSpeed * 0.8 // Max speed of follower to 90% of max speed of player
+			FOLLOWER_MAX_SPEED = Crafty('MoveTo')._fMaxSpeed * 0.4 // Max speed of follower to 90% of max speed of player
 		}
 		player = Crafty('Player')
 		var dx = (player.x - this.x)
@@ -47,18 +51,32 @@ Crafty.c('Follower', {
 			var move_x = 0
 			var move_y = 0
 		} else {
-			var move_y = Math.ceil(dy/norm * this.speed)
-			var move_x = Math.ceil(dx/norm * this.speed)
-			if (true) {};
-			if (player.playerColorValue == this.enemyColorValue) {
-				move_x *= -1
-				move_y *= -1
-			} else {
-				if (Math.abs(move_x) > Math.abs(dx)) {
-					move_x = dx
+			if (norm > 250) {
+				var now = new Date().getTime();
+				if(now - this.change > 500) {
+					this.change = now;
+					this.randomMove_x = (Math.random()*2-1)*FOLLOWER_MAX_SPEED/Math.sqrt(2);
+					this.randomMove_y = (Math.random()*2-1)*FOLLOWER_MAX_SPEED/Math.sqrt(2);
 				}
-				if (Math.abs(move_y) > Math.abs(dy)) {
-					move_y = dy
+				move_x = this.randomMove_x;
+				move_y = this.randomMove_y;
+				console.log('rmx: '+move_x);
+				console.log('rmy: '+move_y);
+			} else {
+				var move_y = Math.ceil(dy/norm * this.speed)
+				var move_x = Math.ceil(dx/norm * this.speed)
+				if (true) {};
+				if (player.playerColorValue == this.enemyColorValue) {
+					
+					move_x *= -1
+					move_y *= -1
+				} else {
+					if (Math.abs(move_x) > Math.abs(dx)) {
+						move_x = dx
+					}
+					if (Math.abs(move_y) > Math.abs(dy)) {
+						move_y = dy
+					}
 				}
 			}
 		}
