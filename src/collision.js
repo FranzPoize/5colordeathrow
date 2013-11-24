@@ -4,13 +4,16 @@ Crafty.c('PlayerCollision',{
 		console.log("PLAYER HANDLE COLLISION")
 		var score = Crafty('Score'),
 			enemy = event[0].obj;
+		if (enemy.has('Snake')) {
+			return
+		};
 		if (enemy.available) {
 			enemy.collide()
 			if (enemy.enemyColorValue == this.playerColorValue) {
 				Crafty.trigger('CollisionSameColor', {'enemy': enemy})
 				var progressBar = Crafty('ProgressBar')
-				var currP = Crafty('ProgressBar').currentProgress()
-				score.text(Math.ceil(score.text()+enemy.getScore(true) * (currP+1)));
+				var multi = Crafty('ProgressBar').getLoopedTimes()
+				score.text(Math.ceil(score.text()+enemy.getScore(true) * (multi+1)));
 				enemy.delay(function() {
 					enemy.available = true;
 				},500);

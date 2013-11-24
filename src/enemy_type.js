@@ -50,9 +50,9 @@ Crafty.c('DotEnemy',{
 
 	getScore: function(positive) {
 		if(positive) {
-			return window.ScoreValues.normal.posScore;
+			return window.ScoreValues.dot.posScore;
 		} else {
-			return window.ScoreValues.normal.negScore;
+			return window.ScoreValues.dot.negScore;
 		}
 		for (var i = 0;i< 15;i++) {
 			Crafty.e('Particle')
@@ -94,6 +94,51 @@ Crafty.c('DotEnemy',{
 	}
 });
 
+Crafty.c('SnakeEnemy',{
+	init: function() {
+		this.requires('Enemy');
+		this.requires('Delay');
+		this.available = true;
+	},
+
+	getScore: function(positive) {
+		if(positive) {
+			return window.ScoreValues.normal.posScore;
+		} else {
+			return window.ScoreValues.normal.negScore;
+		}
+		this.parentSnake.destroy()
+	},
+	
+	resolveCollision: function(positive) {
+
+		for (var i = 0;i< 15;i++) {
+			Crafty.e('Particle')
+				.particle(Math.random()*Math.PI*2,
+					3+Math.random()*7,
+					this.enemyColorValue,
+					this.x+this.w/2,
+					this.y+this.h/2,
+					Math.random()*20)
+		}
+		if (!positive) {
+			var effect = Crafty.e('BadEffect')
+				.badEffect(this.colorName);
+
+			effect.remove();
+			Crafty.audio.play('neg_contact',1);
+		} else {
+			Crafty.audio.play('pos_contact',1);
+		}
+		this.destroy();
+	},
+
+	collide: function () {
+		return this
+	}
+
+});
+
 Crafty.c('ComboEnemy',{
 	init: function() {
 		this.requires('Enemy, Delay');
@@ -106,9 +151,9 @@ Crafty.c('ComboEnemy',{
 	getScore: function(positive) {
 		var score;
 		if(positive) {
-			score = Math.floor(window.ScoreValues.normal.posScore*this.ratio);
+			score = Math.floor(window.ScoreValues.combo.posScore*this.ratio);
 		} else {
-			score =  window.ScoreValues.normal.negScore;
+			score =  window.ScoreValues.combo.negScore;
 		}
 
 		return score;

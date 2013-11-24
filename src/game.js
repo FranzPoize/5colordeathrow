@@ -22,6 +22,15 @@ window.onload = function() {
 	Crafty.audio.add('select02','assets/sfx/sfx_select02.ogg');
 	Crafty.audio.add('select03','assets/sfx/sfx_select03.ogg');
 	Crafty.audio.add('toasty','assets/toasties/toasty.mp3');
+	Crafty.audio.add('one','assets/sfx/1.ogg');
+	Crafty.audio.add('two','assets/sfx/2.ogg');
+	Crafty.audio.add('three','assets/sfx/3.ogg');
+	Crafty.audio.add('go','assets/sfx/go.ogg');
+	Crafty.audio.add('voicewin','assets/sfx/youwin.ogg');
+	Crafty.audio.add('voicelose','assets/sfx/youlose.ogg');
+	Crafty.audio.add('gdp','assets/sfx/gdp.ogg');
+	Crafty.audio.add('finish','assets/sfx/finish.ogg');
+	Crafty.audio.add('welcome','assets/sfx/welcome.ogg');
 
 	Crafty.scene('logoGameJam',function() {
 		var logo = Crafty.e('2D, DOM, Image, Delay,Mouse')
@@ -31,6 +40,7 @@ window.onload = function() {
 				Crafty.scene('menu');
 			},5000);
 		Crafty.audio.play('bgm_title');
+		Crafty.audio.play('gdp');
 
 		logo.bind('Click',function() {
 			if ( stage.mozRequestFullScreen ) {
@@ -41,8 +51,10 @@ window.onload = function() {
 			  stage.webkitRequestFullscreen();
 			}
 
+			Crafty.audio.remove('gdp');
 			Crafty.audio.play('select01',1);
 			Crafty.scene('menu');
+			Crafty.audio.play('welcome');
 		});
 	});
 

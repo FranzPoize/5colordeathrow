@@ -4,29 +4,13 @@ window.levels.level6 = {
 	id: 6, 
 	name:'lvl 6',
 	duration: 40,
-	score: 400000, 
+	score: 260000, 
 	events: {
 		0: [{
-			type: 'shape',
-			color: 'two',
-			coords: [160,0],
-			width: 100,
-			height: 600,
-			scoreType:'ComboEnemy',
-			behavior: {}
-		},{
 			type: 'shape',
 			color: 'one',
 			coords: [120,0],
 			width: 10,
-			height: 600,
-			scoreType:'ComboEnemy',
-			behavior: {}
-		},{
-			type: 'shape',
-			color: 'two',
-			coords: [950,0],
-			width: 100,
 			height: 600,
 			scoreType:'ComboEnemy',
 			behavior: {}
@@ -175,28 +159,28 @@ window.levels.level6 = {
 		},{
 			type: 'dot',
 			color: 'four',
-			coords: [950,100],
+			coords: [900,100],
 			scoreType:'DotEnemy',
 			behavior: {
 				type:'Follower'}
 		},{
 			type: 'dot',
 			color: 'three',
-			coords: [950,200],
+			coords: [900,200],
 			scoreType:'DotEnemy',
 			behavior: {
 				type:'Follower'}
 		},{
 			type: 'dot',
 			color: 'three',
-			coords: [950,300],
+			coords: [900,300],
 			scoreType:'DotEnemy',
 			behavior: {
 				type:'Follower'}
 		},{
 			type: 'dot',
 			color: 'four',
-			coords: [950,400],
+			coords: [900,400],
 			scoreType:'DotEnemy',
 			behavior: {
 				type:'Follower'}

@@ -2,40 +2,35 @@
 
 Crafty.c('SnakeChunk', {
 	init: function() {
-		this.requires('2D, DOM, Image, SnakeCollision, ComboEnemy');
+		this.requires('2D, DOM, Image, SnakeCollision, SnakeEnemy');
 		this.parentSnake = null
 		this.bind('Remove', this.onDestroy)
 		return this
 	},
 	snakeChunk: function( parentSnake ) {
 		this.parentSnake = parentSnake
+		this.collision(
+			new Crafty.polygon(
+				  [0,0]
+				, [this.parentSnake.chunkW, 0]
+				, [this.parentSnake.chunkW, this.parentSnake.chunkH]
+				, [0, this.parentSnake.chunkH]
+			)
+		);
+		this.enemyColorValue = this.parentSnake.enemyColorValue
 		this.image(window.enemyColorAsset['snake'][parentSnake.color])
 		return this;
 	},
 
 	onDestroy: function () {
-		for (var i = 0;i< 15;i++) {
-			Crafty.e('Particle')
-				.particle(Math.random()*Math.PI*2,
-					3+Math.random()*7,
-					this.parentSnake.enemyColorValue,
-					this.x+this.w/2,
-					this.y+this.h/2,
-					Math.random()*20)
-		}
 	}
 });
 
 Crafty.c('SnakeCollision', {
 	init: function () {
 		this.requires('Collision')
-		this.collision(new Crafty.polygon([0,0],[40,0],[40,40],[0,40]));
 		this.onHit('DotEnemy', this.handleDotCollision)
-		this.onHit('Player', this.handlePlayerCollision)
-	},
-
-	handlePlayerCollision: function (event) {
-		this.parentSnake.destroy()
+		// this.onHit('Player', this.handlePlayerCollision)
 	},
 
 	handleDotCollision: function (event) {
@@ -50,7 +45,7 @@ Crafty.c('SnakeCollision', {
 
 Crafty.c('Snake', {
 	init: function() {
-		this.requires('ComboEnemy');
+		this.requires('Enemy');
 		this.elems = []
 		this.dx = Math.random()
 		this.dy = Math.random()
@@ -73,14 +68,17 @@ Crafty.c('Snake', {
 	snake: function( data ) {
 		this.image("404.blank") // We do not want any image
 		this.color = data.color
+		// The "Snake" enemy y itself is not supposed to be on the screen, only its chunks
+		this.x = -1
+		this.y = -1
 		this.chunkW = data.chunkW
 		this.chunkH = data.chunkH
 		this.speedX = data.speedX
 		this.speedY = data.speedY
 		this.detectionDistance = data.detectionDistance
 		this.elems.push(this.newElem())
-		this.elems[0].x = data.x
-		this.elems[0].y = data.y
+		this.elems[0].x = data.coords[0]
+		this.elems[0].y = data.coords[0]
 		this.head = this.elems[0]
 		for (var i = 1; i <= data.chunksNumber; i++) {
 			this.elems.push(this.newElem())
