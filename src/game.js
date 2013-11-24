@@ -63,7 +63,7 @@ window.onload = function() {
 			.image('assets/menus/title_very_small.png');
 
 		Crafty.e('2D,DOM,Text,Color')
-			.attr({x: Crafty.stage.elem.scrollWidth / 2 - 250, y: 120, h:lvlHeight, w:500})
+			.attr({x: Crafty.stage.elem.scrollWidth / 2 - 250, y: 120, h:0, w:500})
 			.unselectable()
 			.text("Level Select")
 			.textColor("#000")
@@ -85,7 +85,7 @@ window.onload = function() {
 			// Level Name
 			Crafty.e('2D,DOM,Text,Color')
 				.attr({x: Crafty.stage.elem.scrollWidth / 2 + ( index % nLevelsPerLine - 2 ) * (lvlWidth + nSpace) - lvlWidth / 2
-					, y: 185 + parseInt(index / nLevelsPerLine) * (lvlHeight + nSpace), h:lvlHeight, w:lvlWidth})
+					, y: 185 + parseInt(index / nLevelsPerLine) * (lvlHeight + nSpace), h:0, w:lvlWidth})
 				.unselectable()
 				.text(level.name)
 				.textColor(window.getColor(parseInt(index%nLevelsPerLine)))
@@ -96,7 +96,7 @@ window.onload = function() {
 			// Level Duration
 			Crafty.e('2D,DOM,Text,Color')
 				.attr({x: Crafty.stage.elem.scrollWidth / 2 + ( index % nLevelsPerLine - 2 ) * (lvlWidth + nSpace) - lvlWidth / 2
-					, y: 235 + parseInt(index / nLevelsPerLine) * (lvlHeight + nSpace), h:lvlHeight, w:lvlWidth})
+					, y: 235 + parseInt(index / nLevelsPerLine) * (lvlHeight + nSpace), h:0, w:lvlWidth})
 				.unselectable()
 				.text(window.getLevelDurationText(level.duration))
 				.textColor("#000")
@@ -107,7 +107,7 @@ window.onload = function() {
 			// Level Score
 			Crafty.e('2D,DOM,Text,Color')
 				.attr({x: Crafty.stage.elem.scrollWidth / 2 + ( index % nLevelsPerLine - 2 ) * (lvlWidth + nSpace) - lvlWidth / 2
-					, y: 260 + parseInt(index / nLevelsPerLine) * (lvlHeight + nSpace), h:lvlHeight, w:lvlWidth})
+					, y: 260 + parseInt(index / nLevelsPerLine) * (lvlHeight + nSpace), h:0, w:lvlWidth})
 				.unselectable()
 				.text(window.getScoreText(level.score))
 				.textColor("#000")
@@ -118,7 +118,7 @@ window.onload = function() {
 			// Level Highscore
 			Crafty.e('2D,DOM,Text,Color')
 				.attr({x: Crafty.stage.elem.scrollWidth / 2 + ( index % nLevelsPerLine - 2 ) * (lvlWidth + nSpace) - lvlWidth / 2
-					, y: 290 + parseInt(index / nLevelsPerLine) * (lvlHeight + nSpace), h:lvlHeight, w:lvlWidth})
+					, y: 290 + parseInt(index / nLevelsPerLine) * (lvlHeight + nSpace), h:0, w:lvlWidth})
 				.unselectable()
 				.text(window.getScoreText(window.highscores[index+1]))
 				.textColor( level.score > window.highscores[index+1] ? "#ff0000" : "#00ff00")
@@ -186,7 +186,7 @@ window.onload = function() {
 
 		Crafty.e('Timer, 2D, DOM, Text')
 			.attr({x: Crafty.stage.elem.scrollWidth - 520, y:Crafty.stage.elem.scrollHeight-45,z:10000,h:50,w:50})
-			.unselectable()
+			.unselectable()	
 			.text(  window.formatLevelCountDown( levelToLoad.duration ) )
 			.textColor('#000000')
 			.textFont({ size: '40px', weight: 'bold'})
