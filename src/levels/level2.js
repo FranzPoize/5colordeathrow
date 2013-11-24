@@ -5,7 +5,7 @@ window.levels.level2 = {
 	id: 1,
 	name:'lvl 1',
 	duration: 20,
-	score: 40000,
+	score: 32000,
 	events: {
 		0: [{
 			type: 'shape',
