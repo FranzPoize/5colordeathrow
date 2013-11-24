@@ -4,7 +4,8 @@ Crafty.c('Dot', {
 	init: function() {
 		var self = this;
 
-		this.requires('Enemy');
+		this.requires('Enemy,Collision');
+		this.collision(new Crafty.polygon([4,4],[30,4],[30,30],[4,30]));
 		this.attr({
 			w: 34,
 			h: 34
