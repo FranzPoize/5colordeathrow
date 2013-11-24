@@ -1,6 +1,7 @@
 Crafty.c('PlayerCollision',{
 
 	handlePlayerCollision: function(event) {
+		console.log("PLAYER HANDLE COLLISION")
 		var score = Crafty('Score'),
 			enemy = event[0].obj;
 		if (enemy.available) {
