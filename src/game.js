@@ -42,15 +42,15 @@ window.onload = function() {
 		Crafty.audio.play('gdp');
 
 		logo.bind('Click',function() {
-
-			Crafty.audio.remove('gdp');
-			if (stage.requestFullscreen) {
+			if ( stage.mozRequestFullScreen ) {
+				// firefox tu casses tout
+			} else if (stage.requestFullscreen) {
 			  stage.requestFullscreen();
-			} else if (stage.mozRequestFullScreen) {
-			  stage.mozRequestFullScreen();
 			} else if (stage.webkitRequestFullscreen) {
 			  stage.webkitRequestFullscreen();
 			}
+
+			Crafty.audio.remove('gdp');
 			Crafty.audio.play('select01',1);
 			Crafty.scene('menu');
 		});
