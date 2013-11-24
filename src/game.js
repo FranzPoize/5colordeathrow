@@ -203,10 +203,10 @@ window.onload = function() {
 				Crafty.audio.play('finish',1);
 				Crafty.scene('chooseLevel');
 			});
-
-		Crafty.e('FrameKeeper');
 	});
 
 	Crafty.scene('logoGameJam');
+
+	Crafty.e('FrameKeeper');
 	//Crafty.scene('chooseLevel'); // Wow! Please!
 };
