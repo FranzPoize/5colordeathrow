@@ -41,7 +41,7 @@ Crafty.c('Level', {
 					alpha: 0,
 					duration: 30,
 					callback: function() {
-						this.text('Pan!')
+						this.text('GO!')
 							.attr({alpha: 1, x: this._x - 80});
 						Crafty('Player').canMove = true;
 					}
