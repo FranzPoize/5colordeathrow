@@ -160,7 +160,7 @@ window.onload = function() {
 		var player = Crafty.e('2D, DOM, Image, MoveTo,PlayerCollision,Player')
 			.attr({x: w/2 - PLAYER_W/2, y: h/2 - PLAYER_H/2, h:PLAYER_H, w:PLAYER_W})
 			.playerColor(window.color.one,'red')
-			.collision(new Crafty.polygon([0,0],[40,0],[40,40],[0,40]));
+			.collision(new Crafty.polygon([5,5],[27,5],[27,27],[5,27]));
 		player.canMove = false; // So that it does not move during the countdown
 
 		// HUD
