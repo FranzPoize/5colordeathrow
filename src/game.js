@@ -105,8 +105,8 @@ window.onload = function() {
 
 			// Level Name
 			Crafty.e('2D,DOM,Text,Color')
-				.attr({x: Crafty.stage.elem.scrollWidth / 2 + ( index % nLevelsPerLine - 2 ) * (lvlWidth + nSpace) - lvlWidth / 2
-					, y: 185 + parseInt(index / nLevelsPerLine) * (lvlHeight + nSpace), h:0, w:200})
+				.attr({x: Crafty.stage.elem.scrollWidth / 2 + ( index % nLevelsPerLine - 2 ) * (lvlWidth + nSpace) - lvlWidth / 2 - 7
+					, y: 187 + parseInt(index / nLevelsPerLine) * (lvlHeight + nSpace), h:0, w:200})
 				.unselectable()
 				.text(level.name)
 				.textColor(window.getColor(parseInt(index%nLevelsPerLine)))
