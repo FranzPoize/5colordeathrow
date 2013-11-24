@@ -2,36 +2,33 @@
 window.levels = {};
 
 window.levels.level1 = {
+	id: 1, 
 	name:'lvl 1',
 	duration: 30,
+	score: 1337, 
 	events: {
 		0: [{
-			type: 'snake',
+			type: 'shape',
 			color: 'one',
-			lifespan: 20,
-			coords: [0,0],
-			width: 400,
+			coords: [0,10],
+			width: 1250,
 			height: 10,
-			scoreType:'DotEnemy',
-			behavior: {},
-			chunkH: 30,
-			chunkW: 30,
-			detectionDistance: 200,
-			x: 900,
-			y: 500,	
-			chunksNumber: 10
+			scoreType:'ComboEnemy',
+			behavior: {
+				type:'Translation',
+				orient:'vert'
+			}
 		}],
 		5: [{
 			type: 'dot',
 			color: 'three',
-			lifespan: 20,
+			lifespan: 9,
 			coords: [1000,400],
 			scoreType:'DotEnemy',
 			behavior: {}
 		},{
 			type: 'shape',
 			color: 'two',
-			lifespan: 20,
 			coords: [0,0],
 			width: 10,
 			height: 600,
@@ -43,7 +40,6 @@ window.levels.level1 = {
 		},{
 			type: 'shape',
 			color: 'two',
-			lifespan: 20,
 			coords: [500,0],
 			width: 10,
 			height: 600,
@@ -55,21 +51,20 @@ window.levels.level1 = {
 		}, {
 			type: 'dot',
 			color: 'two',
-			lifespan: 20,
+			lifespan: 9,
 			coords: [200,100],
 			scoreType:'DotEnemy',
 			behavior: {}
 		},{
 			type: 'dot',
 			color: 'one',
-			lifespan: 20,
+			lifespan: 9,
 			coords: [1000,100],
 			scoreType:'DotEnemy',
 			behavior: {}
 		},{
 			type: 'shape',
 			color: 'two',
-			lifespan: 20,
 			coords: [1000,0],
 			width: 10,
 			height: 600,
@@ -81,7 +76,7 @@ window.levels.level1 = {
 		}, {
 			type: 'dot',
 			color: 'three',
-			lifespan: 20,
+			lifespan: 9,
 			coords: [200,400],
 			scoreType:'DotEnemy',
 			behavior: {}
@@ -90,7 +85,7 @@ window.levels.level1 = {
 			type: 'dot',
 			color: 'three',
 			lifespan: 20,
-			coords: [700,200],
+			coords: [800,100],
 			scoreType:'DotEnemy',
 			behavior: {}
 		},{
@@ -104,13 +99,12 @@ window.levels.level1 = {
 			type: 'dot',
 			color: 'two',
 			lifespan: 20,
-			coords: [200,300],
+			coords: [100,400],
 			scoreType:'DotEnemy',
 			behavior: {}
 		},{
 			type: 'shape',
 			color: 'three',
-			lifespan: 20,
 			coords: [0,100],
 			width: 1250,
 			height: 10,
@@ -136,7 +130,7 @@ window.levels.level1 = {
 			type: 'dot',
 			color: 'one',
 			lifespan: 20,
-			coords: [200,200],
+			coords: [300,100],
 			scoreType:'DotEnemy',
 			behavior: {}
 		},{
@@ -147,9 +141,15 @@ window.levels.level1 = {
 			scoreType:'DotEnemy',
 			behavior: {}
 		},{
+			type: 'dot',
+			color: 'two',
+			lifespan: 20,
+			coords: [1000,500],
+			scoreType:'DotEnemy',
+			behavior: {}
+		},{
 			type: 'shape',
 			color: 'one',
-			lifespan: 20,
 			coords: [525,0],
 			width: 200,
 			height: 400,
