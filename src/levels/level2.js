@@ -69,7 +69,7 @@ window.levels.level2 = {
 			scoreType:'DotEnemy',
 			behavior: {}
 		}],
-		10: [{
+		8: [{
 			type: 'shape',
 			color: 'two',
 			lifespan: 20,

@@ -126,6 +126,49 @@ window.levels.level9 = {
 			scoreType:'DotEnemy',
 			behavior: {}
 		
+		}],
+		12: [{
+			type: 'dot',
+			color: 'one',
+			coords: [100,250],
+			scoreType:'DotEnemy',
+			behavior: {}
+		
+		},{
+			type: 'dot',
+			color: 'two',
+			coords: [300,250],
+			scoreType:'DotEnemy',
+			behavior: {}
+		
+		},{
+			type: 'dot',
+			color: 'one',
+			coords: [500,250],
+			scoreType:'DotEnemy',
+			behavior: {}
+		
+		},{
+			type: 'dot',
+			color: 'two',
+			coords: [700,250],
+			scoreType:'DotEnemy',
+			behavior: {}
+		
+		},{
+			type: 'dot',
+			color: 'one',
+			coords: [900,250],
+			scoreType:'DotEnemy',
+			behavior: {}
+		
+		},{
+			type: 'dot',
+			color: 'two',
+			coords: [1100,250],
+			scoreType:'DotEnemy',
+			behavior: {}
+		
 		}]
 		
 	}
