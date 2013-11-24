@@ -181,7 +181,7 @@ Crafty.c('Level', {
 								w: 300,
 								h: 60
 							})
-							.text( wise ? 'YOU WISE!' : 'YOU LOON!' )
+							.text( wise ? 'YOU WIN!' : 'YOU LOSE!' )
 							.textColor('#111')
 							.textFont({ size: '50px', weight: 'bold'})
 							.queue([{
@@ -191,6 +191,11 @@ Crafty.c('Level', {
 							}], function() {
 								Crafty.audio.play( wise ? 'voicewin' : 'voicelose', 1);
 							});
+
+						Crafty.e('2D, DOM,Image')
+							.image('assets/menus/youlose.png')
+							.attr({x:Crafty.stage.elem.scrollWidth-300,y:Crafty.stage.elem.scrollHeight-300})
+
 
 						debrief.bind('Click', function() {
 							level.trigger('LevelEnd');
