@@ -161,7 +161,7 @@ window.onload = function() {
 			.attr({x: w/2 - PLAYER_W/2, y: h/2 - PLAYER_H/2, h:PLAYER_H, w:PLAYER_W})
 			.playerColor(window.color.one,'red')
 			.collision(new Crafty.polygon([0,0],[40,0],[40,40],[0,40]));
-		player.canMove = false // So that it does not move during the countdown
+		player.canMove = false; // So that it does not move during the countdown
 
 		// HUD
 		// Background
@@ -185,13 +185,13 @@ window.onload = function() {
 			.textFont({ size: '30px', weight: 'bold'});
 
 		Crafty.e('Timer, 2D, DOM, Text')
-			.attr({x: Crafty.stage.elem.scrollWidth - 500, y:Crafty.stage.elem.scrollHeight-45,z:10000,h:50,w:50})
+			.attr({x: Crafty.stage.elem.scrollWidth - 520, y:Crafty.stage.elem.scrollHeight-45,z:10000,h:50,w:50})
 			.unselectable()
-			.text( levelToLoad.duration + 's' )
+			.text(  window.formatLevelCountDown( levelToLoad.duration ) )
 			.textColor('#000000')
 			.textFont({ size: '40px', weight: 'bold'})
 			.bind('TimeLeft', function( data ) {
-				this.text( Math.max( data.timeleft.toFixed(2), 0 ) + 's' );
+				this.text( window.formatLevelCountDown( data.timeleft ) );
 			})
 			.firstFrame = Crafty.frame();
 
