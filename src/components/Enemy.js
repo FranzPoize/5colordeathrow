@@ -8,7 +8,7 @@ Crafty.c('Enemy', {
 	enemy: function( data ) {
 		var self = this;
 		this.enemyColorValue = window.color[data.color];
-
+		this.colorName = data.color;
 		this.attr({
 				alpha: 0,
 				x: data.coords[0],
@@ -16,6 +16,7 @@ Crafty.c('Enemy', {
 			})
 
 			.image( window.enemyColorAsset[ data.type ][data.color],window.enemyColorAsset[ data.type ].repeat )
+			//.color( window.color[ data.color ] )
 
 			// type specific init
 			[data.type]( data )
@@ -29,7 +30,7 @@ Crafty.c('Enemy', {
 				this.addComponent('Translation').translation(data.behavior.orient);
 				break;
 			case 'Follower':
-				this.addComponent('Follower')
+				this.addComponent('Follower');
 				break;
 			case 'RandomTranslation':
 				this.addComponent('RandomTranslation').randomTranslation(
@@ -37,6 +38,18 @@ Crafty.c('Enemy', {
 					data.behavior.velocityY
 				);
 				break;
+			}
+
+			if ( data.lifespan !== undefined && false ) {
+				setTimeout(function() {
+					self.queue({
+						alpha: 0,
+						duration: 15
+					}, function() {
+						self.destroy();
+					});
+
+				}, data.lifespan * 1E3 );
 			}
 		});
 

@@ -5,14 +5,15 @@
 		font-family: "No Color";
 		src: url(assets/No_Color.ttf) format("truetype");
 	}
-	p.customfont { 
-		font-family: "No Color", Verdana, Tahoma;
+	*,
+	p.customfont {
+		font-family: "Courier New", "Liberation Mono", "No Color", Verdana, Tahoma;
 	}
 	#game {
 		margin:auto;
 	}
 	</style>
-	
+
 	<script src="lib/crafty.js"></script>
 
 	<script src="lib/lodash.js"></script>
@@ -20,9 +21,12 @@
 	<script src="src/color_enum.js"></script>
 	<script src="src/enemy_type.js"></script>
 	<script src="src/gui.js"></script>
+	<script src="src/savedata.js"></script>
 
 	<script src="src/levels/level1.js"></script>
 	<script src="src/levels/level2.js"></script>
+	<script src="src/levels/level3.js"></script>
+	<script src="src/levels/level4.js"></script>
 
 	<!-- Components -->
 	<script src="src/components/Level.js"></script>
@@ -35,7 +39,8 @@
 	<script src="src/components/enemy_behavior.js"></script>
 	<script src="src/components/player.js"></script>
 	<script src="src/components/particles.js"></script>
-	<script src="src/components/multiplier	.js"></script>
+	<script src="src/components/multiplier.js"></script>
+	<script src="src/components/bad_effect.js"></script>
 
 	<script src="src/game.js"></script>
 	<script src="src/collision.js"></script>
