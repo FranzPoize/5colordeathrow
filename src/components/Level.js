@@ -12,6 +12,7 @@ Crafty.c('Level', {
 		this.data = levelData;
 
 		this.bind('LevelIgnite', function() {
+			Crafty('Score').maxScore = levelData.score
 			this.unbind('EnterFrame');
 			var self = this;
 			Crafty.audio.play('chrono',1,0.5);
@@ -146,7 +147,7 @@ Crafty.c('Level', {
 							w: 200,
 							h: 40
 						})
-						.text( levelName + ' / ' + Math.floor( levelDuration / 60 ) + ':' + levelDuration % 60 )
+						.text( levelName + ' | ' + Math.floor( levelDuration / 60 ) + ':' + levelDuration % 60 )
 						.textColor('#111')
 						.textFont({ size: '40px', weight: 'bold'})
 						.queue([{
@@ -159,14 +160,14 @@ Crafty.c('Level', {
 						.attr({
 							x: Crafty.stage.elem.scrollWidth,
 							y: Crafty.stage.elem.scrollHeight /2 - 50 - 30,
-							w: 100,
+							w: 400,
 							h: 40
 						})
-						.text( Crafty('Score')._text )
+						.text( Crafty('Score')._text + ' / ' + levelData.score )
 						.textColor('#111')
 						.textFont({ size: '40px', weight: 'bold'})
 						.queue([{
-							x: Crafty.stage.elem.scrollWidth /2 - ( ( Crafty('Score')._text + '' ).length * 10 ),
+							x: Crafty.stage.elem.scrollWidth /2 - ( ( this._text + '' ).length * 12 ),
 							rotation: -360,
 							duration: 30
 						}]);
