@@ -1,17 +1,17 @@
 'use strict';
 window.levels.level14 = {
-	id: 1, 
+	id: 14, 
 	name:'lvl 14',
-	duration: 30,
+	duration: 25,
 	score: 300000, 
 	events: {
 		0: [{
 			type: 'snake',
 			color: 'two',
 			coords: [200,100],
-			chunksNumber: 4,
-			chunkH: 30,
-			chunkW: 30,
+			chunksNumber: 2,
+			chunkH: 32,
+			chunkW: 32,
 			speedX: 2,
 			speedY: 2,
 			detectionDistance: 200,
@@ -47,6 +47,18 @@ window.levels.level14 = {
 			behavior: {}
 		}],
 		15: [{
+			type: 'snake',
+			color: 'two',
+			coords: [200,100],
+			chunksNumber: 7,
+			chunkH: 30,
+			chunkW: 30,
+			speedX: 7,
+			speedY: 7,
+			detectionDistance: 200,
+			scoreType:'SnakeEnemy',
+			behavior: {}
+		}, {
 			type: 'dot',
 			color: 'three',
 			lifespan: 20,
