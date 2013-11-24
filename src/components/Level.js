@@ -12,7 +12,7 @@ Crafty.c('Level', {
 		this.totalFrames = levelData.duration * 60 * 1000;
 		this.data = levelData;
 
-		this.bind('LevelIgnite', function() {//console.log('LevelIgnite');
+		this.bind('LevelIgnite', function() {
 			this.unbind('EnterFrame');
 			var self = this;
 			Crafty.audio.play('chrono',1);
@@ -81,7 +81,7 @@ Crafty.c('Level', {
 					}
 				}
 
-				if ( currentEvent !== undefined ) {console.log(currentEvent);
+				if ( currentEvent !== undefined ) {
 					currentEvent.forEach(function( enemyData ) {
 						var componentName = enemyData.type.replace(/^./, function( $0 ) { return $0.toUpperCase(); });
 
@@ -131,6 +131,8 @@ Crafty.c('Level', {
 					h: Crafty.stage.elem.scrollHeight /2,
 					duration: 30
 				}], function() {
+					var debrief = this;
+
 					Crafty.e('2D, DOM, Text, TweenQueue')
 						.attr({
 							x: -100,
@@ -161,10 +163,6 @@ Crafty.c('Level', {
 							duration: 30
 						}]);
 
-					this.bind('Click', function() {
-						level.trigger('LevelEnd');
-					});
-
 					setTimeout(function() {
 						Crafty.e('2D, DOM, Text, TweenQueue')
 							.attr({
@@ -180,6 +178,10 @@ Crafty.c('Level', {
 								y: Crafty.stage.elem.scrollHeight /2 + 30,
 								duration: 30
 							}]);
+
+						debrief.bind('Click', function() {
+							level.trigger('LevelEnd');
+						});
 					}, 500);
 				});
 		});

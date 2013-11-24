@@ -32,7 +32,7 @@ Crafty.c('TweenQueue', {
 			}
 		});
 	},
-	queue: function( args, callback ) {//console.log(args)
+	queue: function( args, callback ) {
 		var wasEmpty = this._tweenQueue.length === 0,
 			tweens = args.constructor === Array ? args : [args],
 			lastTween = tweens[ tweens.length -1 ],

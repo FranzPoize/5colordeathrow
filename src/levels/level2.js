@@ -108,7 +108,7 @@ window.levels.level2 = {
 			type: 'dot',
 			color: 'one',
 			lifespan: 20,
-			coords: [525,550],
+			coords: [525,450],
 			scoreType:'DotEnemy',
 			behavior: {}
 		},{
@@ -129,7 +129,7 @@ window.levels.level2 = {
 			type: 'dot',
 			color: 'two',
 			lifespan: 20,
-			coords: [725,550],
+			coords: [725,450],
 			scoreType:'DotEnemy',
 			behavior: {}
 		}]
