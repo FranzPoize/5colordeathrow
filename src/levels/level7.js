@@ -6,7 +6,7 @@ function c() {
 }
 
 window.levels.level7 = {
-	id: 7,
+	id: 10,
 	name:'lvl 10',
 	duration: 30,
 	score: 1000,
