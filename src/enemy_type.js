@@ -50,9 +50,9 @@ Crafty.c('DotEnemy',{
 
 	getScore: function(positive) {
 		if(positive) {
-			return window.ScoreValues.normal.posScore;
+			return window.ScoreValues.dot.posScore;
 		} else {
-			return window.ScoreValues.normal.negScore;
+			return window.ScoreValues.dot.negScore;
 		}
 		for (var i = 0;i< 15;i++) {
 			Crafty.e('Particle')
@@ -151,9 +151,9 @@ Crafty.c('ComboEnemy',{
 	getScore: function(positive) {
 		var score;
 		if(positive) {
-			score = Math.floor(window.ScoreValues.normal.posScore*this.ratio);
+			score = Math.floor(window.ScoreValues.combo.posScore*this.ratio);
 		} else {
-			score =  window.ScoreValues.normal.negScore;
+			score =  window.ScoreValues.combo.negScore;
 		}
 
 		return score;
