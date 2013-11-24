@@ -86,7 +86,7 @@ Crafty.c('Level', {
 					currentEvent.forEach(function( enemyData ) {
 						var componentName = enemyData.type.replace(/^./, function( $0 ) { return $0.toUpperCase(); });
 
-						var e = Crafty.e( componentName )
+						var e = Crafty.e( componentName || '' )
 						e.enemy( enemyData );
 					});
 				}
