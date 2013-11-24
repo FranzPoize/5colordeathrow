@@ -1,8 +1,10 @@
 'use strict';
 
 window.levels.level2 = {
+	id: 2,
 	name:'lvl 2',
-	duration: 30,
+	duration: 20,
+	score: 350000,
 	events: {
 		0: [{
 			type: 'shape',
@@ -90,7 +92,7 @@ window.levels.level2 = {
 				type:'Translation',
 				orient:'horiz'}
 		}],
-		15: [{
+		12: [{
 			type: 'dot',
 			color: 'one',
 			lifespan: 20,
@@ -108,7 +110,7 @@ window.levels.level2 = {
 			type: 'dot',
 			color: 'one',
 			lifespan: 20,
-			coords: [525,550],
+			coords: [525,350],
 			scoreType:'DotEnemy',
 			behavior: {}
 		},{
@@ -122,14 +124,14 @@ window.levels.level2 = {
 			type: 'dot',
 			color: 'one',
 			lifespan: 20,
-			coords: [1000,225],
+			coords: [775,225],
 			scoreType:'DotEnemy',
 			behavior: {}
 		},{
 			type: 'dot',
 			color: 'two',
 			lifespan: 20,
-			coords: [725,550],
+			coords: [725,350],
 			scoreType:'DotEnemy',
 			behavior: {}
 		}]

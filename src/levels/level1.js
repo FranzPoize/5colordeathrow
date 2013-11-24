@@ -8,17 +8,20 @@ window.levels.level1 = {
 	score: 300000, 
 	events: {
 		0: [{
-			type: 'shape',
+			type: 'snake',
 			color: 'one',
 			lifespan: 20,
-			coords: [0,10],
-			width: 1250,
+			coords: [0,0],
+			width: 400,
 			height: 10,
-			scoreType:'ComboEnemy',
-			behavior: {
-				type:'Translation',
-				orient:'vert'
-			}
+			scoreType:'DotEnemy',
+			behavior: {},
+			chunkH: 30,
+			chunkW: 30,
+			detectionDistance: 200,
+			x: 900,
+			y: 500,	
+			chunksNumber: 10
 		}],
 		5: [{
 			type: 'dot',
@@ -89,7 +92,7 @@ window.levels.level1 = {
 			type: 'dot',
 			color: 'three',
 			lifespan: 20,
-			coords: [800,100],
+			coords: [700,200],
 			scoreType:'DotEnemy',
 			behavior: {}
 		},{
@@ -103,7 +106,7 @@ window.levels.level1 = {
 			type: 'dot',
 			color: 'two',
 			lifespan: 20,
-			coords: [100,400],
+			coords: [200,300],
 			scoreType:'DotEnemy',
 			behavior: {}
 		},{
@@ -135,7 +138,7 @@ window.levels.level1 = {
 			type: 'dot',
 			color: 'one',
 			lifespan: 20,
-			coords: [300,100],
+			coords: [200,200],
 			scoreType:'DotEnemy',
 			behavior: {}
 		},{
@@ -143,13 +146,6 @@ window.levels.level1 = {
 			color: 'three',
 			lifespan: 20,
 			coords: [300,300],
-			scoreType:'DotEnemy',
-			behavior: {}
-		},{
-			type: 'dot',
-			color: 'two',
-			lifespan: 20,
-			coords: [1000,500],
 			scoreType:'DotEnemy',
 			behavior: {}
 		},{

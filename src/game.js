@@ -155,9 +155,7 @@ window.onload = function() {
 		playArea._element.draggable = false;
 
 		var w = Crafty('PlayArea').w,
-			h = Crafty('PlayArea').h
-
-		console.log(h/2 - PLAYER_H/2)
+			h = Crafty('PlayArea').h;
 
 		var player = Crafty.e('2D, DOM, Image, MoveTo,PlayerCollision,Player')
 			.attr({x: w/2 - PLAYER_W/2, y: h/2 - PLAYER_H/2, h:PLAYER_H, w:PLAYER_W})

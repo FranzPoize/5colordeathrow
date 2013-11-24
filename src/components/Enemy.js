@@ -5,7 +5,7 @@ Crafty.c('Enemy', {
 		this.requires('2D, DOM, Image, TweenQueue');
 		this._element.draggable = false;
 	},
-	enemy: function( data ) {console.log(data)
+	enemy: function( data ) {
 		var self = this;
 		this.enemyColorValue = window.color[data.color];
 		this.colorName = data.color;
@@ -16,6 +16,7 @@ Crafty.c('Enemy', {
 			})
 
 			.image( window.enemyColorAsset[ data.type ][data.color],window.enemyColorAsset[ data.type ].repeat )
+			//.color( window.color[ data.color ] )
 
 			// type specific init
 			[data.type]( data )
@@ -39,7 +40,7 @@ Crafty.c('Enemy', {
 				break;
 			}
 
-			if ( data.lifespan !== undefined ) {
+			if ( data.lifespan !== undefined && false ) {
 				setTimeout(function() {
 					self.queue({
 						alpha: 0,

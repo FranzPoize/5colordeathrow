@@ -1,8 +1,10 @@
 'use strict';
 
 window.levels.level3 = {
+	id: 3, 
 	name:'lvl 3',
-	duration: 60,
+	duration: 70,
+	score: 500000, 
 	events: {
 		0: [
 			// LEFTY LEFT LEFT
