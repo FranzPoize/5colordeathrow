@@ -29,7 +29,7 @@ Crafty.c('Enemy', {
 				this.addComponent('Translation').translation(data.behavior.orient);
 				break;
 			case 'Follower':
-				this.addComponent('Follower')
+				this.addComponent('Follower');
 				break;
 			case 'RandomTranslation':
 				this.addComponent('RandomTranslation').randomTranslation(
@@ -37,6 +37,18 @@ Crafty.c('Enemy', {
 					data.behavior.velocityY
 				);
 				break;
+			}
+
+			if ( data.lifespan !== undefined ) {
+				setTimeout(function() {
+					self.queue({
+						alpha: 0,
+						duration: 15
+					}, function() {
+						self.destroy();
+					});
+
+				}, data.lifespan * 1E3 );
 			}
 		});
 

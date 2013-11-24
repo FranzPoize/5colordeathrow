@@ -6,6 +6,6 @@ Crafty.c('Multiplier',{
 	},
 	updateMultiplier: function() {
 		this.textFont({size:(30+2*Crafty('ProgressBar').getLoopedTimes())+'px'});
-		this.text('x '+(Crafty('ProgressBar').getLoopedTimes()+1));
+		this.text('x '+(Crafty('ProgressBar').getLoopedTimes()+2));
 	}
 });
