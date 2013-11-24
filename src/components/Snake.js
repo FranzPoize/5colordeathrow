@@ -16,16 +16,18 @@ Crafty.c('SnakeChunk', {
 	}
 });
 
+var DETECTION_DISTANCE = 200
 Crafty.c('Snake', {
 	init: function() {
 		this.requires('ComboEnemy');
 		this.elems = []
-		this.dx = 1
-		this.dy = 1
-		this.speedX = 2
-		this.speedY = 2
+		this.dx = Math.random()
+		this.dy = Math.random()
+		this.speedX = 5
+		this.speedY = 5
 		this.maxW = Crafty('PlayArea').w
 		this.maxH = Crafty('PlayArea').h
+		this.player = Crafty('Player')
 		this.bind('EnterFrame', this.updatePos)
 		return this
 	},
@@ -35,6 +37,7 @@ Crafty.c('Snake', {
 		this.elems.push(this.newElem())
 		this.elems[0].x = data.x
 		this.elems[0].y = data.y
+		this.head = this.elems[0]
 		for (var i = 0; i <= data.chunksNumber; i++) {
 			this.elems.push(this.newElem())
 			this.elems[this.elems.length-1].x = this.elems[this.elems.length-2].x - this.chunkW
@@ -52,25 +55,52 @@ Crafty.c('Snake', {
 	},
 
 	updatePos: function () {
-		console.log("Meeh, updatePos() of Snake")
-		var speedX = this.speedX
-		var speedY = this.speedY
-		// console.log(this.elems[0])
-		// console.log(this.elems[0].x)
-		if (this.elems[0].x >= (this.maxW-this.elems[0].w) || this.elems[0].x < 0) {
-			this.speedX *= -1
+		// If there's the player in the area of detection, go get him!
+		var norm = window.distance(this.player, this.head)
+		if (norm < DETECTION_DISTANCE) {
+			if (norm === 0) {
+				var Dx = 0, Dy = 0
+			} else {
+				var player_dx = (this.player.x - this.head.x)
+				var player_dy = (this.player.y - this.head.y)
+				this.dx = player_dx / norm
+				this.dy = player_dy / norm
+				var Dx = this.dx * this.speedX
+				var Dy = this.dy * this.speedY
+				if (Math.abs(Dx) > Math.abs(player_dx)) {
+					Dx = player_dx
+				}
+				if (Math.abs(Dy) > Math.abs(player_dy)) {
+					Dy = player_dy
+				}
+			}
+		} else {
+			if (this.head.x >= (this.maxW-this.head.w) || this.head.x < 0) {
+				this.dx *= -1
+			}
+			if (this.head.y >= (this.maxH-this.head.h) || this.head.y < 0) {
+				this.dy *= -1
+			}
+			var Dx = this.dx * this.speedX
+			var Dy = this.dy * this.speedY
 		}
-		if (this.elems[0].y >= (this.maxH-this.elems[0].h) || this.elems[0].y < 0) {
-			this.speedY *= -1
-		}
-		var x = this.elems[0].x,
-			y = this.elems[0].y
-		this.elems[0].x += this.dx * this.speedX
-		this.elems[0].y += this.dy * this.speedY
+		this.head.x += Dx
+		this.head.y += Dy
 		// var x_bak, y_bak
 		for (var i = 1; i < this.elems.length; i++) {
-			var dx = this.elems[i-1].x - this.elems[i].x
-			var dy = this.elems[i-1].y - this.elems[i].y
+			norm = window.distance(this.elems[i], this.elems[i-1])
+			var dx = (this.elems[i-1].x - this.elems[i].x)/norm*(norm-this.chunkW/2)
+			var dy = (this.elems[i-1].y - this.elems[i].y)/norm*(norm-this.chunkW/2)
+			// if (dx < 0) {
+			// 	dx = -1 * Math.abs(dx) - this.chunkW/2
+			// } else {
+			// 	dx = dx - this.chunkW/2
+			// }
+			// if (dy < 0) {
+			// 	dy = -1 * Math.abs(dy) - this.chunkH/2
+			// } else {
+			// 	dy = dy - this.chunkH/2
+			// }
 			// var norm = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2))
 			// if (norm != 0) {
 			// 	dx = dx / norm * this.elems[i].w
@@ -86,8 +116,9 @@ Crafty.c('Snake', {
 			// }
 			// x_bak = this.elems[i].x
 			// y_bak = this.elems[i].y
-			this.elems[i].x += dx * 0.1
-			this.elems[i].y += dy * 0.1
+			
+			this.elems[i].x += dx
+			this.elems[i].y += dy
 			// x = x_bak
 			// y = y_bak
 		};
