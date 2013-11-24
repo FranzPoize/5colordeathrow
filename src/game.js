@@ -11,6 +11,8 @@ window.onload = function() {
 	Crafty.audio.add('dot_explo01','assets/sfx/sfx_dot_explo01.ogg');
 	Crafty.audio.add('dot_explo02','assets/sfx/sfx_dot_explo02.ogg');
 	Crafty.audio.add('finish','assets/sfx/sfx_finish.ogg');
+	Crafty.audio.add('wise','assets/sfx/sfx_wise.ogg');
+	Crafty.audio.add('loon','assets/sfx/sfx_loon.ogg');
 	Crafty.audio.add('multiplier_down','assets/sfx/sfx_multipl_down.ogg');
 	Crafty.audio.add('multiplier_up','assets/sfx/sfx_multipl_up.ogg');
 	Crafty.audio.add('multiplier_up_full','assets/sfx/sfx_multipl_up_full.ogg');
@@ -160,7 +162,7 @@ window.onload = function() {
 		var player = Crafty.e('2D, DOM, Image, MoveTo,PlayerCollision,Player')
 			.attr({x: w/2 - PLAYER_W/2, y: h/2 - PLAYER_H/2, h:PLAYER_H, w:PLAYER_W})
 			.playerColor(window.color.one,'red')
-			.collision(new Crafty.polygon([0,0],[40,0],[40,40],[0,40]));
+			.collision(new Crafty.polygon([5,5],[27,5],[27,27],[5,27]));
 		player.canMove = false; // So that it does not move during the countdown
 
 		// HUD
@@ -201,10 +203,10 @@ window.onload = function() {
 				Crafty.audio.play('finish',1);
 				Crafty.scene('chooseLevel');
 			});
-
-		Crafty.e('FrameKeeper');
 	});
 
 	Crafty.scene('logoGameJam');
+
+	Crafty.e('FrameKeeper');
 	//Crafty.scene('chooseLevel'); // Wow! Please!
 };
