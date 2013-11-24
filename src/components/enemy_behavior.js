@@ -25,20 +25,21 @@ Crafty.c('Translation', {
 });
 
 var FOLLOWER_BASE_SPEED = 2
-var FOLLOWER_BASE_ACCELERATION = 1.02
+var FOLLOWER_BASE_ACCELERATION = 1.001
+var FOLLOWER_MAX_SPEED = null
 Crafty.c('Follower', {
 	init: function () {
-		console.log("HEYHOHOHO")
 		this.bind('EnterFrame', this.updatePos)
 		this.speed = FOLLOWER_BASE_SPEED
+		this.stageH = Crafty('PlayArea').h
+		this.stageW = Crafty('PlayArea').w
 	},
 
 	updatePos: function () {
-		console.log("HEYHOHOHO updatePos")
-		player = Crafty('Player')
-		if (player.playerColorValue == this.enemyColorValue) {
-			return
+		if (null == FOLLOWER_MAX_SPEED) {
+			FOLLOWER_MAX_SPEED = Crafty('MoveTo')._fMaxSpeed * 0.8 // Max speed of follower to 90% of max speed of player
 		}
+		player = Crafty('Player')
 		var dx = (player.x - this.x)
 		var dy = (player.y - this.y)
 		var norm = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2))
@@ -48,17 +49,36 @@ Crafty.c('Follower', {
 		} else {
 			var move_y = Math.ceil(dy/norm * this.speed)
 			var move_x = Math.ceil(dx/norm * this.speed)
-			if (Math.abs(move_x) > Math.abs(dx)) {
-				move_x = dx
-			}
-			if (Math.abs(move_y) > Math.abs(dy)) {
-				move_y = dy
+			if (true) {};
+			if (player.playerColorValue == this.enemyColorValue) {
+				move_x *= -1
+				move_y *= -1
+			} else {
+				if (Math.abs(move_x) > Math.abs(dx)) {
+					move_x = dx
+				}
+				if (Math.abs(move_y) > Math.abs(dy)) {
+					move_y = dy
+				}
 			}
 		}
 		this.y += move_y
 		this.x += move_x
+		if (this.y > this.stageH) {
+			this.y = this.stageH - this.h
+		} else if (this.y < 0) {
+			this.y = 0
+		}
+
+		if (this.x > this.stageW) {
+			this.x = this.stageW - this.w
+		} else if (this.x < 0) {
+			this.x = 0
+		}
 		this.speed = FOLLOWER_BASE_ACCELERATION * this.speed
-		console.log([this.x, this.y])
+		if (this.speed > FOLLOWER_MAX_SPEED) {
+			this.speed = FOLLOWER_MAX_SPEED
+		};
 	}
 })
 

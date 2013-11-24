@@ -5,10 +5,10 @@ Crafty.c('Enemy', {
 		this.requires('2D, DOM, Image, TweenQueue');
 		this._element.draggable = false;
 	},
-	enemy: function( data ) {
+	enemy: function( data ) {console.log(data)
 		var self = this;
 		this.enemyColorValue = window.color[data.color];
-
+		this.colorName = data.color;
 		this.attr({
 				alpha: 0,
 				x: data.coords[0],

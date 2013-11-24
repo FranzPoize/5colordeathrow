@@ -15,7 +15,7 @@ Crafty.c('Level', {
 		this.bind('LevelIgnite', function() {//console.log('LevelIgnite');
 			this.unbind('EnterFrame');
 			var self = this;
-
+			Crafty.audio.play('chrono',1);
 			Crafty.e('2D, DOM, Color, Text, TweenQueue')
 				.attr({alpha: 1, x: Crafty.stage.elem.scrollWidth /2 - 32, y: Crafty.stage.elem.scrollHeight /2 - 30, w: 200, h: 100})
 				.text('3')
@@ -27,6 +27,7 @@ Crafty.c('Level', {
 					callback: function() {
 						this.text('2')
 							.attr({alpha: 1});
+						Crafty.audio.play('chrono',1);
 					}
 				}, {
 					alpha: 0,
@@ -34,6 +35,7 @@ Crafty.c('Level', {
 					callback: function() {
 						this.text('1')
 							.attr({alpha: 1});
+						Crafty.audio.play('chrono',1);
 					}
 				}, {
 					alpha: 0,
@@ -79,7 +81,7 @@ Crafty.c('Level', {
 					}
 				}
 
-				if ( currentEvent !== undefined ) {
+				if ( currentEvent !== undefined ) {console.log(currentEvent);
 					currentEvent.forEach(function( enemyData ) {
 						var componentName = enemyData.type.replace(/^./, function( $0 ) { return $0.toUpperCase(); });
 
@@ -107,6 +109,11 @@ Crafty.c('Level', {
 					.removeComponent('PlayerCollision')
 					.unbind('EnterFrame');
 			});
+
+			if ( parseInt(Crafty('Score').text()) > window.highscores[this.data.id] ) {
+				window.highscores[this.data.id] = parseInt(Crafty('Score').text());
+				sessionStorage.setItem("highscores", JSON.stringify(window.highscores));
+			}
 
 			Crafty.e('2D, DOM, Color, Mouse, TweenQueue')
 				.attr({

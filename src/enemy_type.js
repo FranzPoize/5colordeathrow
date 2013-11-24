@@ -25,7 +25,15 @@ Crafty.c('NormalEnemy',{
 						Math.random()*20)
 			}
 			this.destroy();
+			Crafty.audio.play('pos_contact',1);
 		}
+		if (!positive) {
+			var effect = Crafty.e('BadEffect')
+				.badEffect(this.colorName);
+
+			effect.remove();
+			Crafty.audio.play('neg_contact',1);
+		} 
 	},
 
 	collide: function () {
@@ -59,6 +67,7 @@ Crafty.c('DotEnemy',{
 	},
 
 	resolveCollision: function(positive) {
+
 		for (var i = 0;i< 15;i++) {
 			Crafty.e('Particle')
 				.particle(Math.random()*Math.PI*2,
@@ -67,6 +76,15 @@ Crafty.c('DotEnemy',{
 					this.x+this.w/2,
 					this.y+this.h/2,
 					Math.random()*20)
+		}
+		if (!positive) {
+			var effect = Crafty.e('BadEffect')
+				.badEffect(this.colorName);
+
+			effect.remove();
+			Crafty.audio.play('neg_contact',1);
+		} else {
+			Crafty.audio.play('pos_contact',1);
 		}
 		this.destroy();
 	},
@@ -120,6 +138,15 @@ Crafty.c('ComboEnemy',{
 					player.x+player.w/2,
 					player.y+player.h/2,
 					Math.random()*20)
+		}
+		if (!positive) {
+			var effect = Crafty.e('BadEffect')
+				.badEffect(this.colorName);
+
+			effect.remove();
+			Crafty.audio.play('neg_contact',1);
+		} else {
+			Crafty.audio.play('pos_contact',1);
 		}
 	}
 });
