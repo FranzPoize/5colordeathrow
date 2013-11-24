@@ -26,12 +26,12 @@ window.enemyColorAsset = {
 		five:'assets/enemies/orange_square.png'
 	},
 	snake: {
-		repeat:'repeat',
-		one:'assets/enemies/red_square.png',
-		two:'assets/enemies/yellow_square.png',
-		three:'assets/enemies/blue_square.png',
-		four:'assets/enemies/green_square.png',
-		five:'assets/enemies/orange_square.png'
+		repeat:'no-repeat',
+		one:'assets/enemies/red_dot.png',
+		two:'assets/enemies/yellow_dot.png',
+		three:'assets/enemies/blue_dot.png',
+		four:'assets/enemies/green_dot.png',
+		five:'assets/enemies/orange_dot.png'
 	},
 	dot: {
 		repeat:'no-repeat',

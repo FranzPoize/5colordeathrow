@@ -1,13 +1,12 @@
 Crafty.c('SnakeChunk', {
 	init: function() {
 		this.requires('2D, DOM, Image');
-		console.log("image() with " + window.enemyColorAsset['snake']['five'])
-		this.image(window.enemyColorAsset['snake']['one'])
 		this.parent = null
 		return this
 	},
 	snakeChunk: function( parent ) {
 		this.parent = parent
+		this.image(window.enemyColorAsset['snake'][parent.color])
 		return this;
 	},
 
@@ -32,6 +31,7 @@ Crafty.c('Snake', {
 		return this
 	},
 	snake: function( data ) {
+		this.color = data.color
 		this.chunkW = data.chunkW
 		this.chunkH = data.chunkH
 		this.elems.push(this.newElem())
@@ -57,7 +57,7 @@ Crafty.c('Snake', {
 	updatePos: function () {
 		// If there's the player in the area of detection, go get him!
 		var norm = window.distance(this.player, this.head)
-		if (norm < DETECTION_DISTANCE) {
+		if (norm < DETECTION_DISTANCE && this.player.playerColorValue != this.enemyColorValue) {
 			if (norm === 0) {
 				var Dx = 0, Dy = 0
 			} else {
@@ -89,8 +89,8 @@ Crafty.c('Snake', {
 		// var x_bak, y_bak
 		for (var i = 1; i < this.elems.length; i++) {
 			norm = window.distance(this.elems[i], this.elems[i-1])
-			var dx = (this.elems[i-1].x - this.elems[i].x)/norm*(norm-this.chunkW/2)
-			var dy = (this.elems[i-1].y - this.elems[i].y)/norm*(norm-this.chunkW/2)
+			var dx = (this.elems[i-1].x - this.elems[i].x)/norm*(norm-this.chunkW)
+			var dy = (this.elems[i-1].y - this.elems[i].y)/norm*(norm-this.chunkW)
 			// if (dx < 0) {
 			// 	dx = -1 * Math.abs(dx) - this.chunkW/2
 			// } else {
