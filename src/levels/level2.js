@@ -1,8 +1,10 @@
 'use strict';
 
 window.levels.level2 = {
+	id: 2,
 	name:'lvl 2',
 	duration: 30,
+	score: 2000,
 	events: {
 		0: [{
 			type: 'shape',
