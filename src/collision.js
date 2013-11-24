@@ -4,6 +4,9 @@ Crafty.c('PlayerCollision',{
 		console.log("PLAYER HANDLE COLLISION")
 		var score = Crafty('Score'),
 			enemy = event[0].obj;
+		if (enemy.has('Snake')) {
+			return
+		};
 		if (enemy.available) {
 			enemy.collide()
 			if (enemy.enemyColorValue == this.playerColorValue) {

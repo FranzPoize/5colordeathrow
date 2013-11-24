@@ -68,14 +68,17 @@ Crafty.c('Snake', {
 	snake: function( data ) {
 		this.image("404.blank") // We do not want any image
 		this.color = data.color
+		// The "Snake" enemy y itself is not supposed to be on the screen, only its chunks
+		this.x = -1
+		this.y = -1
 		this.chunkW = data.chunkW
 		this.chunkH = data.chunkH
 		this.speedX = data.speedX
 		this.speedY = data.speedY
 		this.detectionDistance = data.detectionDistance
 		this.elems.push(this.newElem())
-		this.elems[0].x = data.x
-		this.elems[0].y = data.y
+		this.elems[0].x = data.coords[0]
+		this.elems[0].y = data.coords[0]
 		this.head = this.elems[0]
 		for (var i = 1; i <= data.chunksNumber; i++) {
 			this.elems.push(this.newElem())
