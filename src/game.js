@@ -30,7 +30,6 @@ window.onload = function() {
 	Crafty.audio.add('voicelose','assets/sfx/youlose.ogg');
 	Crafty.audio.add('gdp','assets/sfx/gdp.ogg');
 	Crafty.audio.add('finish','assets/sfx/finish.ogg');
-	Crafty.audio.add('welcome','assets/sfx/welcome.ogg');
 
 	Crafty.scene('logoGameJam',function() {
 		var logo = Crafty.e('2D, DOM, Image, Delay,Mouse')
@@ -54,7 +53,6 @@ window.onload = function() {
 			Crafty.audio.remove('gdp');
 			Crafty.audio.play('select01',1);
 			Crafty.scene('menu');
-			Crafty.audio.play('welcome');
 		});
 	});
 
@@ -108,7 +106,7 @@ window.onload = function() {
 			// Level Name
 			Crafty.e('2D,DOM,Text,Color')
 				.attr({x: Crafty.stage.elem.scrollWidth / 2 + ( index % nLevelsPerLine - 2 ) * (lvlWidth + nSpace) - lvlWidth / 2
-					, y: 185 + parseInt(index / nLevelsPerLine) * (lvlHeight + nSpace), h:0, w:lvlWidth})
+					, y: 185 + parseInt(index / nLevelsPerLine) * (lvlHeight + nSpace), h:0, w:200})
 				.unselectable()
 				.text(level.name)
 				.textColor(window.getColor(parseInt(index%nLevelsPerLine)))
