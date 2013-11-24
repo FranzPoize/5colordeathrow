@@ -143,11 +143,11 @@ Crafty.c('Level', {
 						.attr({
 							x: -100,
 							y: Crafty.stage.elem.scrollHeight /2 - 110 - 30,
-							w: 200,
+							w: 300,
 							h: 40
 						})
 						.text( levelName + ' | ' + Math.floor( levelDuration / 60 ) + ':' + levelDuration % 60 )
-						.textColor('#111')
+						.textColor('#44aa00')
 						.textFont({ size: '40px', weight: 'bold'})
 						.queue([{
 							x: Crafty.stage.elem.scrollWidth /2 - 90,
@@ -163,7 +163,7 @@ Crafty.c('Level', {
 							h: 40
 						})
 						.text( Crafty('Score')._text + ' / ' + levelData.score )
-						.textColor('#111')
+						.textColor('#ff6600')
 						.textFont({ size: '40px', weight: 'bold'})
 						.queue([{
 							x: Crafty.stage.elem.scrollWidth /2 - ( ( this._text + '' ).length * 12 ),
@@ -182,7 +182,7 @@ Crafty.c('Level', {
 								h: 60
 							})
 							.text( wise ? 'YOU WIN!' : 'YOU LOSE!' )
-							.textColor('#111')
+							.textColor('#800080')
 							.textFont({ size: '50px', weight: 'bold'})
 							.queue([{
 								y: Crafty.stage.elem.scrollHeight /2 + 30 - 30,
