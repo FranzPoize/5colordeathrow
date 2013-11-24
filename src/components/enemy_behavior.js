@@ -35,13 +35,13 @@ Crafty.c('Follower', {
 		this.stageH = Crafty('PlayArea').h
 		this.stageW = Crafty('PlayArea').w
 		this.change = new Date().getTime();
-		this.randomMove_x = (Math.random()*2-1)*FOLLOWER_MAX_SPEED/Math.sqrt(2);
-		this.randomMove_y = (Math.random()*2-1)*FOLLOWER_MAX_SPEED/Math.sqrt(2);
+		this.randomMove_x = (Math.random()*2-1)*FOLLOWER_MAX_SPEED/(Math.sqrt(2)*2);
+		this.randomMove_y = (Math.random()*2-1)*FOLLOWER_MAX_SPEED/(Math.sqrt(2)*2);
 	},
 
 	updatePos: function () {
 		if (null == FOLLOWER_MAX_SPEED) {
-			FOLLOWER_MAX_SPEED = Crafty('MoveTo')._fMaxSpeed * 0.4 // Max speed of follower to 90% of max speed of player
+			FOLLOWER_MAX_SPEED = Crafty('MoveTo')._fMaxSpeed * 0.2 // Max speed of follower to 90% of max speed of player
 		}
 		player = Crafty('Player')
 		var dx = (player.x - this.x)
@@ -55,8 +55,8 @@ Crafty.c('Follower', {
 				var now = new Date().getTime();
 				if(now - this.change > 500) {
 					this.change = now;
-					this.randomMove_x = (Math.random()*2-1)*FOLLOWER_MAX_SPEED/Math.sqrt(2);
-					this.randomMove_y = (Math.random()*2-1)*FOLLOWER_MAX_SPEED/Math.sqrt(2);
+					this.randomMove_x = (Math.random()*2-1)*FOLLOWER_MAX_SPEED/(Math.sqrt(2)*2);
+					this.randomMove_y = (Math.random()*2-1)*FOLLOWER_MAX_SPEED/(Math.sqrt(2)*2);
 				}
 				move_x = this.randomMove_x;
 				move_y = this.randomMove_y;
