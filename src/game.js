@@ -30,7 +30,6 @@ window.onload = function() {
 	Crafty.audio.add('voicelose','assets/sfx/youlose.ogg');
 	Crafty.audio.add('gdp','assets/sfx/gdp.ogg');
 	Crafty.audio.add('finish','assets/sfx/finish.ogg');
-	Crafty.audio.add('welcome','assets/sfx/welcome.ogg');
 
 	Crafty.scene('logoGameJam',function() {
 		var logo = Crafty.e('2D, DOM, Image, Delay,Mouse')
@@ -54,7 +53,6 @@ window.onload = function() {
 			}
 			Crafty.audio.play('select01',1);
 			Crafty.scene('menu');
-			Crafty.audio.play('welcome');
 		});
 	});
 
