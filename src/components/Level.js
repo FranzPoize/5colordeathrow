@@ -112,7 +112,7 @@ Crafty.c('Level', {
 
 			if ( parseInt(Crafty('Score').text()) > window.highscores[this.data.id] ) {
 				window.highscores[this.data.id] = parseInt(Crafty('Score').text());
-				sessionStorage.setItem("highscores", JSON.stringify(window.highscores));
+				localStorage.setItem("highscores", JSON.stringify(window.highscores));
 			}
 
 			Crafty.e('2D, DOM, Color, Mouse, TweenQueue')

@@ -1,10 +1,8 @@
 'use strict';
 
-window.levels.level2 = {
-	id: 2,
-	name:'lvl 2',
-	duration: 30,
-	score: 2000,
+window.levels.level3 = {
+	name:'lvl 3',
+	duration: 60,
 	events: {
 		0: [{
 			type: 'shape',
@@ -110,7 +108,7 @@ window.levels.level2 = {
 			type: 'dot',
 			color: 'one',
 			lifespan: 20,
-			coords: [525,450],
+			coords: [525,550],
 			scoreType:'DotEnemy',
 			behavior: {}
 		},{
@@ -131,7 +129,7 @@ window.levels.level2 = {
 			type: 'dot',
 			color: 'two',
 			lifespan: 20,
-			coords: [725,450],
+			coords: [725,550],
 			scoreType:'DotEnemy',
 			behavior: {}
 		}]

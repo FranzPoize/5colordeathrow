@@ -18,6 +18,7 @@ window.onload = function() {
 	Crafty.audio.add('select01','assets/sfx/sfx_select01.ogg');
 	Crafty.audio.add('select02','assets/sfx/sfx_select02.ogg');
 	Crafty.audio.add('select03','assets/sfx/sfx_select03.ogg');
+	Crafty.audio.add('toasty','assets/toasties/toasty.mp3');
 
 	Crafty.scene('logoGameJam',function() {
 		var logo = Crafty.e('2D, DOM, Image, Delay,Mouse')
