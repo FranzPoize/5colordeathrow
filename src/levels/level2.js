@@ -1,165 +1,136 @@
 'use strict';
-window.levels = {};
 
-window.levels.level1 = {
-	id: 1, 
-	name:'lvl 1',
+window.levels.level2 = {
+	name:'lvl 2',
 	duration: 30,
-	score: 1337, 
 	events: {
 		0: [{
 			type: 'shape',
 			color: 'one',
 			lifespan: 20,
-			coords: [0,10],
+			coords: [10,0],
+			width: 10,
+			height: 600,
+			scoreType:'ComboEnemy',
+			behavior: {
+				type:'Translation',
+				orient:'horiz'
+			}
+		},{
+			type: 'shape',
+			color: 'two',
+			lifespan: 20,
+			coords: [1230,0],
+			width: 10,
+			height: 600,
+			scoreType:'ComboEnemy',
+			behavior: {
+				type:'Translation',
+				orient:'horiz'
+			}
+		},{
+			type: 'shape',
+			color: 'one',
+			lifespan: 20,
+			coords: [0,300],
 			width: 1250,
 			height: 10,
 			scoreType:'ComboEnemy',
-			behavior: {
-				type:'Translation',
-				orient:'vert'
-			}
+			behavior: {},
 		}],
 		5: [{
 			type: 'dot',
-			color: 'three',
-			lifespan: 20,
-			coords: [1000,400],
-			scoreType:'DotEnemy',
-			behavior: {}
-		},{
-			type: 'shape',
-			color: 'two',
-			lifespan: 20,
-			coords: [0,0],
-			width: 10,
-			height: 600,
-			scoreType:'ComboEnemy',
-			behavior: {
-				type:'Translation',
-				orient:'horiz'
-			}
-		},{
-			type: 'shape',
-			color: 'two',
-			lifespan: 20,
-			coords: [500,0],
-			width: 10,
-			height: 600,
-			scoreType:'ComboEnemy',
-			behavior: {
-				type:'Translation',
-				orient:'horiz'
-			}
-		}, {
-			type: 'dot',
-			color: 'two',
+			color: 'one',
 			lifespan: 20,
 			coords: [200,100],
 			scoreType:'DotEnemy',
 			behavior: {}
 		},{
 			type: 'dot',
-			color: 'one',
+			color: 'two',
 			lifespan: 20,
-			coords: [1000,100],
+			coords: [300,400],
 			scoreType:'DotEnemy',
 			behavior: {}
 		},{
+			type: 'dot',
+			color: 'one',
+			lifespan: 20,
+			coords: [1050,100],
+			scoreType:'DotEnemy',
+			behavior: {}
+		},{
+			type: 'dot',
+			color: 'two',
+			lifespan: 20,
+			coords: [950,400],
+			scoreType:'DotEnemy',
+			behavior: {}
+		}],
+		10: [{
 			type: 'shape',
 			color: 'two',
 			lifespan: 20,
-			coords: [1000,0],
+			coords: [1230,0],
 			width: 10,
 			height: 600,
 			scoreType:'ComboEnemy',
 			behavior: {
 				type:'Translation',
-				orient:'horiz'
-			}
-		}, {
-			type: 'dot',
-			color: 'three',
-			lifespan: 20,
-			coords: [200,400],
-			scoreType:'DotEnemy',
-			behavior: {}
-		}],
-		15: [{
-			type: 'dot',
-			color: 'three',
-			lifespan: 20,
-			coords: [800,100],
-			scoreType:'DotEnemy',
-			behavior: {}
-		},{
-			type: 'dot',
-			color: 'one',
-			lifespan: 20,
-			coords: [900,400],
-			scoreType:'DotEnemy',
-			behavior: {}
-		},{
-			type: 'dot',
-			color: 'two',
-			lifespan: 20,
-			coords: [100,400],
-			scoreType:'DotEnemy',
-			behavior: {}
+				orient:'horiz'}
 		},{
 			type: 'shape',
-			color: 'three',
+			color: 'one',
 			lifespan: 20,
-			coords: [0,100],
-			width: 1250,
-			height: 10,
+			coords: [10,0],
+			width: 10,
+			height: 600,
 			scoreType:'ComboEnemy',
 			behavior: {
 				type:'Translation',
-				orient:'vert'}
-		},{
+				orient:'horiz'}
+		}],
+		15: [{
 			type: 'dot',
 			color: 'one',
 			lifespan: 20,
-			coords: [1000,200],
+			coords: [525,100],
 			scoreType:'DotEnemy',
 			behavior: {}
 		},{
 			type: 'dot',
 			color: 'two',
 			lifespan: 20,
-			coords: [400,200],
+			coords: [475,225],
 			scoreType:'DotEnemy',
 			behavior: {}
 		},{
 			type: 'dot',
 			color: 'one',
 			lifespan: 20,
-			coords: [300,100],
-			scoreType:'DotEnemy',
-			behavior: {}
-		},{
-			type: 'dot',
-			color: 'three',
-			lifespan: 20,
-			coords: [300,300],
+			coords: [525,550],
 			scoreType:'DotEnemy',
 			behavior: {}
 		},{
 			type: 'dot',
 			color: 'two',
 			lifespan: 20,
-			coords: [1000,500],
+			coords: [725,100],
 			scoreType:'DotEnemy',
 			behavior: {}
 		},{
-			type: 'shape',
+			type: 'dot',
 			color: 'one',
 			lifespan: 20,
-			coords: [525,0],
-			width: 200,
-			height: 400,
-			scoreType:'ComboEnemy',
+			coords: [1000,225],
+			scoreType:'DotEnemy',
+			behavior: {}
+		},{
+			type: 'dot',
+			color: 'two',
+			lifespan: 20,
+			coords: [725,550],
+			scoreType:'DotEnemy',
 			behavior: {}
 		}]
 	}

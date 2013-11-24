@@ -63,9 +63,11 @@ window.onload = function() {
 		
 		Crafty.e('2D,DOM,Text,Color')
 			.attr({x: Crafty.stage.elem.scrollWidth / 2 - 250, y: 120, h:lvlHeight, w:500})
+			.unselectable()
 			.text("Level Select")
 			.textColor("#000")
 			.textFont({ family: "No Color", size: '42px' })
+			.css({ "user-select": "none" })
 			.css({"text-align": "center"});
 		
 		_.each(window.levels,function(level,name) {
@@ -83,29 +85,43 @@ window.onload = function() {
 			Crafty.e('2D,DOM,Text,Color')
 				.attr({x: Crafty.stage.elem.scrollWidth / 2 + ( index % nLevelsPerLine - 2 ) * (lvlWidth + nSpace) - lvlWidth / 2
 					, y: 185 + parseInt(index / nLevelsPerLine) * (lvlHeight + nSpace), h:lvlHeight, w:lvlWidth})
+				.unselectable()
 				.text(level.name)
 				.textColor(window.getColor(parseInt(index%nLevelsPerLine)))
-				.textFont({ family: "No Color", size: '54px' })
-				.css({"text-align": "right"})
+				.textFont({ family: "No Color", size: '52px' })
+				.css({"text-align": "center"})
 				.css({cursor:'pointer'});
 			
 			// Level Duration
 			Crafty.e('2D,DOM,Text,Color')
 				.attr({x: Crafty.stage.elem.scrollWidth / 2 + ( index % nLevelsPerLine - 2 ) * (lvlWidth + nSpace) - lvlWidth / 2
-					, y: 245 + parseInt(index / nLevelsPerLine) * (lvlHeight + nSpace), h:lvlHeight, w:lvlWidth})
+					, y: 235 + parseInt(index / nLevelsPerLine) * (lvlHeight + nSpace), h:lvlHeight, w:lvlWidth})
+				.unselectable()
 				.text(window.getLevelDurationText(level.duration))
 				.textColor("#000")
-				.textFont({ weight:'bold', size: '48px' })
+				.textFont({ weight:'bold', size: '40px' })
 				.css({"text-align": "center"})
 				.css({cursor:'pointer'});
 			
 			// Level Score
 			Crafty.e('2D,DOM,Text,Color')
 				.attr({x: Crafty.stage.elem.scrollWidth / 2 + ( index % nLevelsPerLine - 2 ) * (lvlWidth + nSpace) - lvlWidth / 2
-					, y: 280 + parseInt(index / nLevelsPerLine) * (lvlHeight + nSpace), h:lvlHeight, w:lvlWidth})
+					, y: 260 + parseInt(index / nLevelsPerLine) * (lvlHeight + nSpace), h:lvlHeight, w:lvlWidth})
+				.unselectable()
 				.text(window.getScoreText(level.score))
 				.textColor("#000")
-				.textFont({ weight:'bold', size: '20px' })
+				.textFont({ weight:'bold', size: '18px' })
+				.css({"text-align": "center"})
+				.css({cursor:'pointer'});
+			
+			// Level Highscore
+			Crafty.e('2D,DOM,Text,Color')
+				.attr({x: Crafty.stage.elem.scrollWidth / 2 + ( index % nLevelsPerLine - 2 ) * (lvlWidth + nSpace) - lvlWidth / 2
+					, y: 290 + parseInt(index / nLevelsPerLine) * (lvlHeight + nSpace), h:lvlHeight, w:lvlWidth})
+				.unselectable()
+				.text(window.getScoreText(window.highscores[index+1]))
+				.textColor( level.score > window.highscores[index+1] ? "#ff0000" : "#00ff00")
+				.textFont({ weight:'bold', size: '24px' })
 				.css({"text-align": "center"})
 				.css({cursor:'pointer'});
 			
@@ -156,6 +172,7 @@ window.onload = function() {
 		
 		Crafty.e('Score')
 			.attr({x: Crafty.stage.elem.scrollWidth-900,y:Crafty.stage.elem.scrollHeight-50,z:10000,h:50,w:400})
+			.unselectable()
 			.text('0')
 			.textColor('#000000')
 			.css({'text-align':'center'})
@@ -163,15 +180,17 @@ window.onload = function() {
 
 		Crafty.e('Multiplier')
 			.attr({x: Crafty.stage.elem.scrollWidth-400,y:Crafty.stage.elem.scrollHeight-50,z:10000,h:50,w:400})
+			.unselectable()
 			.textColor('#000000')
 			.css({'text-align':'right'})
 			.textFont({ size: '40px', weight: 'bold'});
 
 		Crafty.e('Timer, 2D, DOM, Text')
 			.attr({x: Crafty.stage.elem.scrollWidth - 500, y:Crafty.stage.elem.scrollHeight-50,z:10000,h:50,w:50})
+			.unselectable()
 			.text( levelToLoad.duration + 's' )
 			.textColor('#000000')
-			.textFont({ size: '40px', weight: 'bold', family:'No Color'})
+			.textFont({ size: '40px', weight: 'bold'})
 			.bind('TimeLeft', function( data ) {
 				this.text(data.timeleft.toFixed(2) + 's' );
 			})
