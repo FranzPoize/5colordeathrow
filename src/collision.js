@@ -9,8 +9,8 @@ Crafty.c('PlayerCollision',{
 			if (enemy.enemyColorValue == this.playerColorValue) {
 				Crafty.trigger('CollisionSameColor', {'enemy': enemy})
 				var progressBar = Crafty('ProgressBar')
-				var currP = Crafty('ProgressBar').currentProgress()
-				score.text(Math.ceil(score.text()+enemy.getScore(true) * (currP+1)));
+				var multi = Crafty('ProgressBar').getLoopedTimes()
+				score.text(Math.ceil(score.text()+enemy.getScore(true) * (multi+1)));
 				enemy.delay(function() {
 					enemy.available = true;
 				},500);
