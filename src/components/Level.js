@@ -12,6 +12,7 @@ Crafty.c('Level', {
 		this.data = levelData;
 
 		this.bind('LevelIgnite', function() {
+			Crafty('Score').maxScore = levelData.score
 			this.unbind('EnterFrame');
 			var self = this;
 			Crafty.audio.play('chrono',1,0.5);
