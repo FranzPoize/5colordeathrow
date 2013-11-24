@@ -173,7 +173,7 @@ Crafty.c('Level', {
 						}]);
 
 					setTimeout(function() {
-						var wise =  +Crafty('Score')._text > levelData.score;
+						var wise =  +Crafty('Score')._text.replace('/'+levelData.score, '') > levelData.score;
 
 						Crafty.e('2D, DOM, Text, TweenQueue')
 							.attr({
