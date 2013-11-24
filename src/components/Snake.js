@@ -1,12 +1,14 @@
+"use strict"
+
 Crafty.c('SnakeChunk', {
 	init: function() {
 		this.requires('2D, DOM, Image');
-		this.parent = null
+		this.parentSnake = null
 		return this
 	},
-	snakeChunk: function( parent ) {
-		this.parent = parent
-		this.image(window.enemyColorAsset['snake'][parent.color])
+	snakeChunk: function( parentSnake ) {
+		this.parentSnake = parentSnake
+		this.image(window.enemyColorAsset['snake'][parentSnake.color])
 		return this;
 	},
 
@@ -33,6 +35,8 @@ Crafty.c('Snake', {
 		this.color = data.color
 		this.chunkW = data.chunkW
 		this.chunkH = data.chunkH
+		this.speedX = data.speedX
+		this.speedY = data.speedY
 		this.detectionDistance = data.detectionDistance
 		this.elems.push(this.newElem())
 		this.elems[0].x = data.x
@@ -43,7 +47,30 @@ Crafty.c('Snake', {
 			this.elems[this.elems.length-1].x = this.elems[this.elems.length-2].x - this.chunkW
 			this.elems[this.elems.length-1].y = this.elems[this.elems.length-2].y - this.chunkH
 		}
+
+		var self = this
+		setInterval(function () {
+			self.chaseDots()
+		}, 150)
 		return this;
+	},
+
+	chaseDots: function () {
+		var dots = Crafty('DotEnemy')
+		if (this.target != null) {
+			return // We already have a current target !
+		};
+		for (var i = 0; i < dots.length; i++) {
+			var dot = Crafty(dots[i])
+			var dist = window.distance(dot, this.head)
+			if (dist < this.detectionDistance) {
+				this.setTarget(dot)
+			};
+		};
+	},
+
+	setTarget: function (target) {
+		this.target = target
 	},
 
 	newElem: function () {
@@ -56,22 +83,37 @@ Crafty.c('Snake', {
 
 	updatePos: function () {
 		// If there's the player in the area of detection, go get him!
-		var norm = window.distance(this.player, this.head)
-		if (norm < this.detectionDistance && this.player.playerColorValue != this.enemyColorValue) {
-			if (norm === 0) {
+		var distance_player = window.distance(this.player, this.head)
+		if (distance_player < this.detectionDistance && this.player.playerColorValue != this.enemyColorValue) {
+			this.setTarget(this.player)
+		} else if(this.target === this.player) {
+			// If the target was the player but the player
+			// is not in range anymore, set target to null
+			this.setTarget(null)
+		}
+
+		if (this.target != null) {
+			var distance_target = window.distance(this.target, this.head)
+			if (distance_target === 0) {
 				var Dx = 0, Dy = 0
 			} else {
-				var player_dx = (this.player.x - this.head.x)
-				var player_dy = (this.player.y - this.head.y)
-				this.dx = player_dx / norm
-				this.dy = player_dy / norm
+				var target_dx = (this.target.x - this.head.x)
+				var target_dy = (this.target.y - this.head.y)
+				this.dx = target_dx / distance_target
+				this.dy = target_dy / distance_target
 				var Dx = this.dx * this.speedX
 				var Dy = this.dy * this.speedY
-				if (Math.abs(Dx) > Math.abs(player_dx)) {
-					Dx = player_dx
+				if (Math.abs(Dx) > Math.abs(target_dx)) {
+					Dx = target_dx
+					if (this.target !== this.player) {
+						this.setTarget(null) // For targets other than player, we reached it, stop chasing it
+					};
 				}
-				if (Math.abs(Dy) > Math.abs(player_dy)) {
-					Dy = player_dy
+				if (Math.abs(Dy) > Math.abs(target_dy)) {
+					Dy = target_dy
+					if (this.target !== this.player) {
+						this.setTarget(null) // For targets other than player, we reached it, stop chasing it
+					};
 				}
 			}
 		} else {
@@ -88,7 +130,7 @@ Crafty.c('Snake', {
 		this.head.y += Dy
 		// var x_bak, y_bak
 		for (var i = 1; i < this.elems.length; i++) {
-			norm = window.distance(this.elems[i], this.elems[i-1])
+			var norm = window.distance(this.elems[i], this.elems[i-1])
 			var dx = (this.elems[i-1].x - this.elems[i].x)/norm*(norm-this.chunkW)
 			var dy = (this.elems[i-1].y - this.elems[i].y)/norm*(norm-this.chunkW)
 			// if (dx < 0) {
