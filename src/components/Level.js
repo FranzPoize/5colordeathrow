@@ -172,14 +172,14 @@ Crafty.c('Level', {
 								w: 300,
 								h: 60
 							})
-							.text( 'YOU WISE!' )
+							.text( +Crafty('Score')._text > levelData.score ? 'YOU WISE!' : 'YOU LOON!' )
 							.textColor('#111')
 							.textFont({ size: '50px', weight: 'bold'})
 							.queue([{
 								y: Crafty.stage.elem.scrollHeight /2 + 30,
 								duration: 30
 							}], function() {
-								Crafty.audio.play('finish', 3);
+								Crafty.audio.play('finish', 1);
 							});
 
 						debrief.bind('Click', function() {
