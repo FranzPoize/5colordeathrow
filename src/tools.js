@@ -15,8 +15,13 @@ window.getColor = function(n) {
 	}
 };
 
-window.getLevelDurationText = function( nDuration ) {
-	return Math.floor( nDuration / 60 ) + ':' + nDuration % 60;
+window.getLevelDurationText = function( nDuration )
+{
+	var sSeconds = "" + nDuration % 60;
+	while( sSeconds.length < 2 )
+		sSeconds = "0" + sSeconds;
+		
+	return Math.floor( nDuration / 60 ) + ':' + sSeconds;
 };
 
 window.getScoreText = function( nScore ) {
