@@ -120,14 +120,14 @@ Crafty.c('Level', {
 				.attr({
 					alpha: 0.8,
 					x: Crafty.stage.elem.scrollWidth /2,
-					y: Crafty.stage.elem.scrollHeight /2,
+					y: Crafty.stage.elem.scrollHeight /2 - 30,
 					w:1,
 					h:1
 				})
 				.color('#FEFEFE')
 				.queue([{
 					x: Crafty.stage.elem.scrollWidth /4,
-					y: Crafty.stage.elem.scrollHeight /4,
+					y: Crafty.stage.elem.scrollHeight /4 - 30,
 					w: Crafty.stage.elem.scrollWidth /2,
 					h: Crafty.stage.elem.scrollHeight /2,
 					duration: 30
@@ -137,7 +137,7 @@ Crafty.c('Level', {
 					Crafty.e('2D, DOM, Text, TweenQueue')
 						.attr({
 							x: -100,
-							y: Crafty.stage.elem.scrollHeight /2 - 110,
+							y: Crafty.stage.elem.scrollHeight /2 - 110 - 30,
 							w: 200,
 							h: 40
 						})
@@ -146,13 +146,14 @@ Crafty.c('Level', {
 						.textFont({ size: '40px', weight: 'bold'})
 						.queue([{
 							x: Crafty.stage.elem.scrollWidth /2 - 90,
+							rotation: -360,
 							duration: 30
 						}]);
 
 					Crafty.e('2D, DOM, Text, TweenQueue')
 						.attr({
 							x: Crafty.stage.elem.scrollWidth,
-							y: Crafty.stage.elem.scrollHeight /2 - 50,
+							y: Crafty.stage.elem.scrollHeight /2 - 50 - 30,
 							w: 100,
 							h: 40
 						})
@@ -161,10 +162,13 @@ Crafty.c('Level', {
 						.textFont({ size: '40px', weight: 'bold'})
 						.queue([{
 							x: Crafty.stage.elem.scrollWidth /2 - ( ( Crafty('Score')._text + '' ).length * 10 ),
+							rotation: -360,
 							duration: 30
 						}]);
 
 					setTimeout(function() {
+						var wise =  +Crafty('Score')._text > levelData.score;
+
 						Crafty.e('2D, DOM, Text, TweenQueue')
 							.attr({
 								x: Crafty.stage.elem.scrollWidth /2 - 135,
@@ -172,14 +176,15 @@ Crafty.c('Level', {
 								w: 300,
 								h: 60
 							})
-							.text( +Crafty('Score')._text > levelData.score ? 'YOU WISE!' : 'YOU LOON!' )
+							.text( wise ? 'YOU WISE!' : 'YOU LOON!' )
 							.textColor('#111')
 							.textFont({ size: '50px', weight: 'bold'})
 							.queue([{
-								y: Crafty.stage.elem.scrollHeight /2 + 30,
+								y: Crafty.stage.elem.scrollHeight /2 + 30 - 30,
+								rotation: 720,
 								duration: 30
 							}], function() {
-								Crafty.audio.play('finish', 1);
+								Crafty.audio.play( wise ? 'wise' : 'loon', 1);
 							});
 
 						debrief.bind('Click', function() {
