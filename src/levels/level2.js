@@ -1,8 +1,9 @@
 'use strict';
+window.levels = {};
 
 window.levels.level2 = {
 	id: 2,
-	name:'lvl 2',
+	name:'lvl 1',
 	duration: 20,
 	score: 40000,
 	events: {
