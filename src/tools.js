@@ -20,7 +20,7 @@ window.getLevelDurationText = function( nDuration )
 	var sSeconds = "" + nDuration % 60;
 	while( sSeconds.length < 2 )
 		sSeconds = "0" + sSeconds;
-		
+
 	return Math.floor( nDuration / 60 ) + ':' + sSeconds;
 };
 
@@ -42,8 +42,12 @@ window.getScoreText = function( nScore ) {
 	return sNewScore;
 };
 
-window.formatLevelCountDown = function( time ) {console.log(time);
+window.formatLevelCountDown = function( time ) {
 	var fixedTime = '00' + Math.max( time, 0 ).toFixed(2) + '00';
 
 	return fixedTime.slice( fixedTime.indexOf('.') - 3, fixedTime.indexOf('.') + 3 ) + 's';
+};
+
+window.distance = function (a, b) {
+	return Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2));
 };
