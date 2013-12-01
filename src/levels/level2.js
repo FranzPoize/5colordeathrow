@@ -4,7 +4,7 @@ window.levels = {};
 window.levels.level2 = {
 	id: 1,
 	name:'lvl 1',
-	duration: 20,
+	duration: 30,
 	score: 32000,
 	events: {
 		0: [{

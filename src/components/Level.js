@@ -55,6 +55,7 @@ Crafty.c('Level', {
 					callback: function() {
 						this.destroy();
 						self.trigger('LevelFire');
+						Crafty.trigger('FireReplay');
 					}
 				}]);
 		});

@@ -74,6 +74,7 @@ var initGUIScene = function () {
 				.css({'text-align':'center'})
 				.css({cursor:'pointer'});
 		btn.bind('KeyDown', keyDownFor(button.key, im ,name));
+		btn.keyBound = button.key;
 		btn.bind('DoubleClick', askBindingForButton(btn, im));
 		btn.gameColor = button.color;
 		btn.defaultIcon = function() {
@@ -85,6 +86,7 @@ var initGUIScene = function () {
 };
 
 var keyDownFor = function (key, im,name) {
+
 	return function (e) {
 		if (e.key == Crafty.keys[key]) {
 			im.setPlayerColor(this.gameColor,name);

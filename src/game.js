@@ -163,7 +163,8 @@ window.onload = function() {
 
 	Crafty.scene('game',function() {
 		Crafty.audio.remove('bgm_title');
-		var color = window.color;
+		var color = window.color,
+			recorder;
 
 		Crafty.background('#fff');
 
@@ -221,7 +222,13 @@ window.onload = function() {
 			.bind('LevelEnd', function() {
 				Crafty.audio.play('finish',1);
 				Crafty.scene('chooseLevel');
+				// recorder.printReplay();
+				// recorder.destroy();
+				player.destroy();
 			});
+
+		// recorder = Crafty.e('ReplayRecorder');
+		player = Crafty.e('BotPlayer').botPlayer(window.testReplay);
 	});
 
 	Crafty.scene('logoGameJam');
