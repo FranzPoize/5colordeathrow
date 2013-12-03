@@ -21,7 +21,7 @@ window.getLevelDurationText = function( nDuration )
 	while( sSeconds.length < 2 )
 		sSeconds = "0" + sSeconds;
 
-	return Math.floor( nDuration / 60 ) + ':' + sSeconds;
+	return Math.floor( nDuration / 60 ) + '.' + sSeconds;
 };
 
 window.getScoreText = function( nScore ) {

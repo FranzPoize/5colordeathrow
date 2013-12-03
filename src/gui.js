@@ -14,7 +14,7 @@ var l = function (a) {
 };
 
 var BTN_H = 38,
-	BTN_W = 38;
+	BTN_W = 30;
 
 var colorInit = {
 	red: {
@@ -22,7 +22,7 @@ var colorInit = {
 		h:BTN_H,
 		color:color.one,
 		key:'E',
-		x:10,
+		x:7,
 		y:5
 	},
 	yellow: {
@@ -30,7 +30,7 @@ var colorInit = {
 		h:BTN_H,
 		color:color.two,
 		key:'R',
-		x:10+BTN_W+10,
+		x:7+BTN_W+10,
 		y:5
 	},
 	blue: {
@@ -38,7 +38,7 @@ var colorInit = {
 		h:BTN_H,
 		color:color.three,
 		key:'T',
-		x:10+2*(BTN_W+10),
+		x:7+2*(BTN_W+10),
 		y:5
 	},
 	green: {
@@ -46,7 +46,7 @@ var colorInit = {
 		h:BTN_H,
 		color:color.four,
 		key:'Y',
-		x:10+3*(BTN_W+10),
+		x:7+3*(BTN_W+10),
 		y:5
 	},
 	orange: {
@@ -54,7 +54,7 @@ var colorInit = {
 		h:BTN_H,
 		color:color.five,
 		key:'SPACE',
-		x:10+4*(BTN_W+10),
+		x:7+4*(BTN_W+10),
 		y:5
 	}
 }
@@ -67,14 +67,13 @@ var initGUIScene = function () {
 		var btn = Crafty.e('2D, DOM, Image, Mouse, Keyboard, Text, ColorButton')
 				.attr({x:button.x,y:Crafty.stage.elem.scrollHeight-button.h-button.y,z:10000,h:button.h,w:button.w})
 				.image('assets/hud/'+name+'_input_01.PNG')
-				.text(button.key)
 				.textFont({ size: BTN_H*0.75+ "px", weight: 'bold' })
 				.unselectable()
 				.css({padding:'2px 0 0 0px'})
 				.css({'text-align':'center'})
 				.css({cursor:'pointer'});
 		btn.bind('KeyDown', keyDownFor(button.key, im ,name));
-		btn.bind('DoubleClick', askBindingForButton(btn, im));
+		// btn.bind('DoubleClick', askBindingForButton(btn, im));
 		btn.gameColor = button.color;
 		btn.defaultIcon = function() {
 			btn.image('assets/hud/'+name+'_input_01.PNG');

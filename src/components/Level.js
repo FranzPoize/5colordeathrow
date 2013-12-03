@@ -18,10 +18,10 @@ Crafty.c('Level', {
 			Crafty.audio.play('chrono',1,0.5);
 			Crafty.audio.play('three',1);
 			Crafty.e('2D, DOM, Color, Text, TweenQueue')
-				.attr({alpha: 1, x: Crafty.stage.elem.scrollWidth /2 - 32, y: Crafty.stage.elem.scrollHeight /2 - 30, w: 200, h: 100})
+				.attr({alpha: 1, x: Crafty.stage.elem.scrollWidth /2 - 32, y: Crafty.stage.elem.scrollHeight /2 - 90, w: 200, h: 100})
 				.text('3')
 				.textColor('#ffffff')
-				.textFont({ size: '100px', weight: 'bold'})
+				.textFont({ family: "No Color", size: '100px', weight: 'bold'})
 				.queue([{
 					alpha: 0,
 					duration: 30,
@@ -147,11 +147,11 @@ Crafty.c('Level', {
 							w: 300,
 							h: 40
 						})
-						.text( levelName + ' | ' + Math.floor( levelDuration / 60 ) + ':' + levelDuration % 60 )
+						.text( levelName + ': ' + Math.floor( levelDuration / 60 ) + '.' + levelDuration % 60 )
 						.textColor('#44aa00')
-						.textFont({ size: '40px', weight: 'bold'})
+						.textFont({ family: "No Color", size: '40px', weight: 'bold'})
 						.queue([{
-							x: Crafty.stage.elem.scrollWidth /2 - 90,
+							x: Crafty.stage.elem.scrollWidth /2 - 120,
 							rotation: -360,
 							duration: 30
 						}]);
@@ -159,7 +159,7 @@ Crafty.c('Level', {
 					Crafty.e('2D, DOM, Text, TweenQueue')
 						.attr({
 							x: Crafty.stage.elem.scrollWidth,
-							y: Crafty.stage.elem.scrollHeight /2 - 50 - 30,
+							y: Crafty.stage.elem.scrollHeight /2 - 25,
 							w: 400,
 							h: 40
 						})
@@ -167,7 +167,7 @@ Crafty.c('Level', {
 						.textColor('#ff6600')
 						.textFont({ size: '40px', weight: 'bold'})
 						.queue([{
-							x: Crafty.stage.elem.scrollWidth /2 - ( ( this._text + '' ).length * 12 ),
+							x: Crafty.stage.elem.scrollWidth / 2 - ( ( this._text + '' ).length * 13 ),
 							rotation: -360,
 							duration: 30
 						}]);
@@ -177,16 +177,16 @@ Crafty.c('Level', {
 
 						Crafty.e('2D, DOM, Text, TweenQueue')
 							.attr({
-								x: Crafty.stage.elem.scrollWidth /2 - 135,
+								x: Crafty.stage.elem.scrollWidth /2 - 130,
 								y: Crafty.stage.elem.scrollHeight,
 								w: 300,
 								h: 60
 							})
 							.text( wise ? 'YOU WIN!' : 'YOU LOSE!' )
 							.textColor('#800080')
-							.textFont({ size: '50px', weight: 'bold'})
+							.textFont({ family: "No Color", size: '50px', weight: 'bold'})
 							.queue([{
-								y: Crafty.stage.elem.scrollHeight /2 + 30 - 30,
+								y: Crafty.stage.elem.scrollHeight /2,
 								rotation: 720,
 								duration: 30
 							}], function() {

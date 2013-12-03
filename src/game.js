@@ -35,6 +35,7 @@ window.onload = function() {
 		var logo = Crafty.e('2D, DOM, Image, Delay,Mouse')
 			.attr({x:Crafty.stage.elem.scrollWidth/2-140,y:Crafty.stage.elem.scrollHeight/2-150})
 			.image('assets/logo_gdp.png')
+			.css({cursor:'pointer'})
 			.delay(function() {
 				Crafty.scene('menu');
 			},5000);
@@ -57,18 +58,34 @@ window.onload = function() {
 	});
 
 	Crafty.scene('menu',function() {
-		Crafty.e('2D, DOM, Image')
-			.attr({x:Crafty.stage.elem.scrollWidth/2-250,y:Crafty.stage.elem.scrollHeight/2-217})
-			.image('assets/menus/title.png');
-
-		var btn = Crafty.e('2D, DOM, Image, Mouse')
-			.attr({x:Crafty.stage.elem.scrollWidth/2-172,y:Crafty.stage.elem.scrollHeight/2+230})
-			.image('assets/menus/press_start.png')
+		var btnSelectLevel = Crafty.e('2D, DOM, Mouse, Image')
+			.attr({x:Crafty.stage.elem.scrollWidth/2-250,y:Crafty.stage.elem.scrollHeight/2-300})
+			.image('assets/menus/title.png')
 			.css({cursor:'pointer'});
 
-		btn.bind('Click', function() {
+		btnSelectLevel.bind('Click', function() {
 			Crafty.audio.play('select01',1);
 			Crafty.scene('chooseLevel');
+		});
+
+		var btnCredits = Crafty.e('2D, DOM, Image, Mouse')
+			.attr({x:Crafty.stage.elem.scrollWidth/2-125,y:Crafty.stage.elem.scrollHeight/2+160})
+			.image('assets/menus/credits.png')
+			.css({cursor:'pointer'});
+
+		btnCredits.bind('Click', function() {
+			Crafty.audio.play('select01',1);
+			Crafty.scene('credits');
+		});
+
+		var btnHowToPlay = Crafty.e('2D, DOM, Image, Mouse')
+			.attr({x:Crafty.stage.elem.scrollWidth/2-170,y:Crafty.stage.elem.scrollHeight/2+230})
+			.image('assets/menus/how_to_play.png')
+			.css({cursor:'pointer'});
+
+		btnHowToPlay.bind('Click', function() {
+			Crafty.audio.play('select01',1);
+			Crafty.scene('howToPlay');
 		});
 	});
 
@@ -155,6 +172,30 @@ window.onload = function() {
 			});
 
 			index++;
+		});
+	});
+
+	Crafty.scene('credits',function() {
+		var btn = Crafty.e('2D, DOM, Mouse, Image')
+			.attr({x:0,y:Crafty.stage.elem.scrollHeight/2-280})
+			.image('assets/menus/credits_screen.png')
+			.css({cursor:'pointer'});
+
+		btn.bind('Click', function() {
+			Crafty.audio.play('select01',1);
+			Crafty.scene('menu');
+		});
+	});
+
+	Crafty.scene('howToPlay',function() {
+		var btn = Crafty.e('2D, DOM, Mouse, Image')
+			.attr({x:0,y:Crafty.stage.elem.scrollHeight/2-300})
+			.image('assets/menus/how_to_play_screen.png')
+			.css({cursor:'pointer'});
+
+		btn.bind('Click', function() {
+			Crafty.audio.play('select01',1);
+			Crafty.scene('menu');
 		});
 	});
 
