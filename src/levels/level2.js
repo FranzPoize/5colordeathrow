@@ -1,140 +1,165 @@
 'use strict';
-window.levels = {};
+
 
 window.levels.level2 = {
-	id: 1,
-	name:'lvl 1',
-	duration: 20,
-	score: 32000,
+	id: 2,
+	name:'lvl 2',
+	duration: 40,
+	score: 70000,
 	events: {
 		0: [{
 			type: 'shape',
 			color: 'one',
-			lifespan: 25,
-			coords: [10,0],
+			coords: [250,0],
 			width: 10,
 			height: 600,
 			scoreType:'ComboEnemy',
-			behavior: {
-				type:'Translation',
-				orient:'horiz'
-			}
-		},{
-			type: 'shape',
-			color: 'two',
-			lifespan: 25,
-			coords: [1230,0],
-			width: 10,
-			height: 600,
-			scoreType:'ComboEnemy',
-			behavior: {
-				type:'Translation',
-				orient:'horiz'
-			}
+			behavior: {}
 		},{
 			type: 'shape',
 			color: 'one',
-			lifespan: 25,
-			coords: [0,300],
+			coords: [990,0],
+			width: 10,
+			height: 600,
+			scoreType:'ComboEnemy',
+			behavior: {}
+		}],
+		4:[{
+			type: 'shape',
+			color: 'two',
+			coords: [0,20],
 			width: 1250,
 			height: 10,
 			scoreType:'ComboEnemy',
-			behavior: {},
-		}],
-		5: [{
-			type: 'dot',
-			color: 'one',
-			lifespan: 7,
-			coords: [200,100],
-			scoreType:'DotEnemy',
-			behavior: {}
+			behavior: {
+				type:'Translation',
+				orient:'vert'}
 		},{
-			type: 'dot',
-			color: 'two',
-			lifespan: 7,
-			coords: [300,400],
-			scoreType:'DotEnemy',
-			behavior: {}
-		},{
-			type: 'dot',
-			color: 'one',
-			lifespan: 7,
-			coords: [1050,100],
-			scoreType:'DotEnemy',
-			behavior: {}
-		},{
-			type: 'dot',
-			color: 'two',
-			lifespan: 7,
-			coords: [950,400],
-			scoreType:'DotEnemy',
-			behavior: {}
-		}],
-		8: [{
 			type: 'shape',
 			color: 'two',
-			lifespan: 20,
-			coords: [1230,0],
-			width: 10,
-			height: 600,
+			coords: [0,520],
+			width: 1250,
+			height: 10,
 			scoreType:'ComboEnemy',
 			behavior: {
 				type:'Translation',
-				orient:'horiz'}
-		},{
-			type: 'shape',
-			color: 'one',
-			lifespan: 20,
-			coords: [10,0],
-			width: 10,
-			height: 600,
-			scoreType:'ComboEnemy',
-			behavior: {
-				type:'Translation',
-				orient:'horiz'}
+				orient:'vert'}
 		}],
-		12: [{
+		7: [{
 			type: 'dot',
 			color: 'one',
-			lifespan: 20,
-			coords: [525,100],
-			scoreType:'DotEnemy',
-			behavior: {}
-		},{
-			type: 'dot',
-			color: 'two',
-			lifespan: 20,
-			coords: [475,225],
+			lifespan: 8,
+			coords: [105,255],
 			scoreType:'DotEnemy',
 			behavior: {}
 		},{
 			type: 'dot',
 			color: 'one',
-			lifespan: 20,
-			coords: [525,350],
+			lifespan: 8,
+			coords: [1095,255],
 			scoreType:'DotEnemy',
 			behavior: {}
 		},{
 			type: 'dot',
+			color: 'one',
+			lifespan: 8,
+			coords: [605,100],
+			scoreType:'DotEnemy',
+			behavior: {}
+		},{
+			type: 'dot',
+			color: 'one',
+			lifespan: 8,
+			coords: [605,410],
+			scoreType:'DotEnemy',
+			behavior: {}
+		}],
+		13: [{
+			type: 'dot',
 			color: 'two',
-			lifespan: 20,
+			lifespan: 8,
+			coords: [105,350],
+			scoreType:'DotEnemy',
+			behavior: {}
+		},{
+			type: 'dot',
+			color: 'one',
+			lifespan: 8,
 			coords: [725,100],
 			scoreType:'DotEnemy',
 			behavior: {}
 		},{
 			type: 'dot',
 			color: 'one',
-			lifespan: 20,
-			coords: [775,225],
+			lifespan: 8,
+			coords: [505,350],
 			scoreType:'DotEnemy',
 			behavior: {}
 		},{
 			type: 'dot',
 			color: 'two',
-			lifespan: 20,
+			lifespan: 8,
+			coords: [1095,350],
+			scoreType:'DotEnemy',
+			behavior: {}
+		}],
+		22: [{
+			type: 'dot',
+			color: 'two',
+			lifespan: 8,
+			coords: [105,350],
+			scoreType:'DotEnemy',
+			behavior: {}
+		},{
+			type: 'dot',
+			color: 'one',
+			lifespan: 8,
 			coords: [725,350],
 			scoreType:'DotEnemy',
 			behavior: {}
-		}]
+		},{
+			type: 'dot',
+			color: 'one',
+			lifespan: 8,
+			coords: [505,100],
+			scoreType:'DotEnemy',
+			behavior: {}
+		},{
+			type: 'dot',
+			color: 'two',
+			lifespan: 8,
+			coords: [1095,100],
+			scoreType:'DotEnemy',
+			behavior: {}
+		}],
+		31: [{
+			type: 'dot',
+			color: 'two',
+			lifespan: 8,
+			coords: [105,350],
+			scoreType:'DotEnemy',
+			behavior: {}
+		},{
+			type: 'dot',
+			color: 'one',
+			lifespan: 8,
+			coords: [725,100],
+			scoreType:'DotEnemy',
+			behavior: {}
+		},{
+			type: 'dot',
+			color: 'one',
+			lifespan: 8,
+			coords: [505,350],
+			scoreType:'DotEnemy',
+			behavior: {}
+		},{
+			type: 'dot',
+			color: 'two',
+			lifespan: 8,
+			coords: [1095,350],
+			scoreType:'DotEnemy',
+			behavior: {}
+		}],
 	}
 };

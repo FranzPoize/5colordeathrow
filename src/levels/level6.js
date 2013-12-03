@@ -1,10 +1,10 @@
 'use strict';
 
 window.levels.level6 = {
-	id: 7, 
-	name:'lvl 7',
+	id: 6, 
+	name:'lvl 6',
 	duration: 40,
-	score: 260000, 
+	score: 60000, 
 	events: {
 		0: [{
 			type: 'shape',
@@ -25,7 +25,7 @@ window.levels.level6 = {
 		}],
 		2: [{
 			type: 'shape',
-			color: 'three',
+			color: 'one',
 			coords: [0,0],
 			width: 10,
 			height: 600,
@@ -35,7 +35,7 @@ window.levels.level6 = {
 				orient:'horiz'}
 		},{
 			type: 'shape',
-			color: 'four',
+			color: 'one',
 			coords: [1230,0],
 			width: 10,
 			height: 600,
@@ -46,84 +46,84 @@ window.levels.level6 = {
 		}],
 		4: [{
 			type: 'dot',
-			color: 'five',
+			color: 'two',
 			coords: [625,100],
 			scoreType:'DotEnemy',
 			behavior: {
 				type:'RandomTranslation'}
 		},{
 			type: 'dot',
-			color: 'four',
+			color: 'three',
 			coords: [625,200],
 			scoreType:'DotEnemy',
 			behavior: {
 				type:'RandomTranslation'}
 		},{
 			type: 'dot',
-			color: 'four',
+			color: 'three',
 			coords: [625,300],
 			scoreType:'DotEnemy',
 			behavior: {
 				type:'RandomTranslation'}
 		},{
 			type: 'dot',
-			color: 'five',
+			color: 'two',
 			coords: [625,400],
 			scoreType:'DotEnemy',
 			behavior: {
 				type:'RandomTranslation'}
 		},{
 			type: 'dot',
-			color: 'five',
+			color: 'three',
 			coords: [75,100],
 			scoreType:'DotEnemy',
 			behavior: {
 				type:'RandomTranslation'}
 		},{
 			type: 'dot',
-			color: 'four',
+			color: 'two',
 			coords: [75,200],
 			scoreType:'DotEnemy',
 			behavior: {
 				type:'RandomTranslation'}
 		},{
 			type: 'dot',
-			color: 'four',
+			color: 'two',
 			coords: [75,300],
 			scoreType:'DotEnemy',
 			behavior: {
 				type:'RandomTranslation'}
 		},{
 			type: 'dot',
-			color: 'five',
+			color: 'three',
 			coords: [75,400],
 			scoreType:'DotEnemy',
 			behavior: {
 				type:'RandomTranslation'}
 		},{
 			type: 'dot',
-			color: 'five',
+			color: 'three',
 			coords: [1175,100],
 			scoreType:'DotEnemy',
 			behavior: {
 				type:'RandomTranslation'}
 		},{
 			type: 'dot',
-			color: 'four',
+			color: 'two',
 			coords: [1175,200],
 			scoreType:'DotEnemy',
 			behavior: {
 				type:'RandomTranslation'}
 		},{
 			type: 'dot',
-			color: 'four',
+			color: 'two',
 			coords: [1175,300],
 			scoreType:'DotEnemy',
 			behavior: {
 				type:'RandomTranslation'}
 		},{
 			type: 'dot',
-			color: 'five',
+			color: 'three',
 			coords: [1175,400],
 			scoreType:'DotEnemy',
 			behavior: {
@@ -137,14 +137,14 @@ window.levels.level6 = {
 				type:'Follower'}
 		},{
 			type: 'dot',
-			color: 'three',
+			color: 'four',
 			coords: [300,200],
 			scoreType:'DotEnemy',
 			behavior: {
 				type:'Follower'}
 		},{
 			type: 'dot',
-			color: 'three',
+			color: 'four',
 			coords: [300,300],
 			scoreType:'DotEnemy',
 			behavior: {
@@ -165,14 +165,14 @@ window.levels.level6 = {
 				type:'Follower'}
 		},{
 			type: 'dot',
-			color: 'three',
+			color: 'four',
 			coords: [900,200],
 			scoreType:'DotEnemy',
 			behavior: {
 				type:'Follower'}
 		},{
 			type: 'dot',
-			color: 'three',
+			color: 'four',
 			coords: [900,300],
 			scoreType:'DotEnemy',
 			behavior: {
