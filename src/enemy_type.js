@@ -25,14 +25,14 @@ Crafty.c('NormalEnemy',{
 						Math.random()*20)
 			}
 			this.destroy();
-			Crafty.audio.play('pos_contact',1);
+			Crafty.audio.play('pos_contact0' + Crafty.math.randomInt(1, 8),1);
 		}
 		if (!positive) {
 			var effect = Crafty.e('BadEffect')
 				.badEffect(this.colorName);
 
 			effect.remove();
-			Crafty.audio.play('neg_contact',1);
+			Crafty.audio.play('neg_contact0' + Crafty.math.randomInt(1, 8),1);
 		} 
 	},
 
@@ -82,9 +82,9 @@ Crafty.c('DotEnemy',{
 				.badEffect(this.colorName);
 
 			effect.remove();
-			Crafty.audio.play('neg_contact',1);
+			Crafty.audio.play('neg_contact0' + Crafty.math.randomInt(1, 8),1);
 		} else {
-			Crafty.audio.play('pos_contact',1);
+			Crafty.audio.play('pos_contact0' + Crafty.math.randomInt(1, 8),1);
 		}
 		this.destroy();
 	},
@@ -126,9 +126,9 @@ Crafty.c('SnakeEnemy',{
 				.badEffect(this.colorName);
 
 			effect.remove();
-			Crafty.audio.play('neg_contact',1);
+			Crafty.audio.play('neg_contact0' + Crafty.math.randomInt(1, 8),1);
 		} else {
-			Crafty.audio.play('pos_contact',1);
+			Crafty.audio.play('pos_contact0' + Crafty.math.randomInt(1, 8),1);
 		}
 		this.destroy();
 	},
@@ -189,9 +189,9 @@ Crafty.c('ComboEnemy',{
 				.badEffect(this.colorName);
 
 			effect.remove();
-			Crafty.audio.play('neg_contact',1);
+			Crafty.audio.play('neg_contact0' + Crafty.math.randomInt(1, 8),1);
 		} else {
-			Crafty.audio.play('pos_contact',1);
+			Crafty.audio.play('pos_contact0' + Crafty.math.randomInt(1, 8),1);
 		}
 	}
 });

@@ -5,31 +5,60 @@ window.onload = function() {
 	Crafty.init(1250,600,stage);
 	var levelToLoad;
 
-	Crafty.audio.add('chrono','assets/sfx/sfx_chrono.ogg');
-	Crafty.audio.add('bgm_title','assets/sfx/bgm_title_select.ogg');
-	Crafty.audio.add('neg_contact','assets/sfx/sfx_contact_negatif.ogg');
-	Crafty.audio.add('pos_contact','assets/sfx/sfx_contact_positif.ogg');
-	Crafty.audio.add('dot_explo01','assets/sfx/sfx_dot_explo01.ogg');
-	Crafty.audio.add('dot_explo02','assets/sfx/sfx_dot_explo02.ogg');
-	Crafty.audio.add('finish','assets/sfx/sfx_finish.ogg');
-	Crafty.audio.add('wise','assets/sfx/sfx_wise.ogg');
-	Crafty.audio.add('loon','assets/sfx/sfx_loon.ogg');
+	Crafty.audio.add('bgm_title','assets/sfx/bgm_menu.ogg');
+	Crafty.audio.add('bgm_game01','assets/sfx/bgm_game01.ogg');
+	Crafty.audio.add('bgm_game02','assets/sfx/bgm_game02.ogg');
+	Crafty.audio.add('bgm_game03','assets/sfx/bgm_game03.ogg');
+	Crafty.audio.add('bgm_game04','assets/sfx/bgm_game04.ogg');
+
+	Crafty.audio.add('title','assets/sfx/sfx_title.ogg');
+
+	Crafty.audio.add('select01','assets/sfx/sfx_click01.ogg');
+	Crafty.audio.add('select02','assets/sfx/sfx_click02.ogg');
+	Crafty.audio.add('select03','assets/sfx/sfx_click03.ogg');
+	Crafty.audio.add('select04','assets/sfx/sfx_click04.ogg');
+	Crafty.audio.add('select05','assets/sfx/sfx_click05.ogg');
+	Crafty.audio.add('select06','assets/sfx/sfx_click06.ogg');
+
+	Crafty.audio.add('321Go','assets/sfx/sfx_321Go.ogg');
+	Crafty.audio.add('finish01','assets/sfx/sfx_finish01.ogg');
+	Crafty.audio.add('finish02','assets/sfx/sfx_finish02.ogg');
+	Crafty.audio.add('voicewin','assets/sfx/sfx_win.ogg');
+	Crafty.audio.add('voicelose','assets/sfx/sfx_loose.ogg');
+
+	Crafty.audio.add('pos_contact01','assets/sfx/sfx_contact_pos01.ogg');
+	Crafty.audio.add('pos_contact02','assets/sfx/sfx_contact_pos02.ogg');
+	Crafty.audio.add('pos_contact03','assets/sfx/sfx_contact_pos03.ogg');
+	Crafty.audio.add('pos_contact04','assets/sfx/sfx_contact_pos04.ogg');
+	Crafty.audio.add('pos_contact05','assets/sfx/sfx_contact_pos05.ogg');
+	Crafty.audio.add('pos_contact06','assets/sfx/sfx_contact_pos06.ogg');
+	Crafty.audio.add('pos_contact07','assets/sfx/sfx_contact_pos07.ogg');
+	Crafty.audio.add('pos_contact08','assets/sfx/sfx_contact_pos08.ogg');
+
+	Crafty.audio.add('neg_contact01','assets/sfx/sfx_contact_neg01.ogg');
+	Crafty.audio.add('neg_contact02','assets/sfx/sfx_contact_neg02.ogg');
+	Crafty.audio.add('neg_contact03','assets/sfx/sfx_contact_neg03.ogg');
+	Crafty.audio.add('neg_contact04','assets/sfx/sfx_contact_neg04.ogg');
+	Crafty.audio.add('neg_contact05','assets/sfx/sfx_contact_neg05.ogg');
+	Crafty.audio.add('neg_contact06','assets/sfx/sfx_contact_neg06.ogg');
+	Crafty.audio.add('neg_contact07','assets/sfx/sfx_contact_neg07.ogg');
+	Crafty.audio.add('neg_contact08','assets/sfx/sfx_contact_neg08.ogg');
+
+	Crafty.audio.add('player_bounce','assets/sfx/sfx_player_bounce.ogg');
 	Crafty.audio.add('multiplier_down','assets/sfx/sfx_multipl_down.ogg');
 	Crafty.audio.add('multiplier_up','assets/sfx/sfx_multipl_up.ogg');
 	Crafty.audio.add('multiplier_up_full','assets/sfx/sfx_multipl_up_full.ogg');
-	Crafty.audio.add('player_bounce','assets/sfx/sfx_player_bounce.ogg');
-	Crafty.audio.add('select01','assets/sfx/sfx_select01.ogg');
-	Crafty.audio.add('select02','assets/sfx/sfx_select02.ogg');
-	Crafty.audio.add('select03','assets/sfx/sfx_select03.ogg');
+
 	Crafty.audio.add('toasty','assets/toasties/toasty.mp3');
-	Crafty.audio.add('one','assets/sfx/1.ogg');
-	Crafty.audio.add('two','assets/sfx/2.ogg');
-	Crafty.audio.add('three','assets/sfx/3.ogg');
-	Crafty.audio.add('go','assets/sfx/go.ogg');
-	Crafty.audio.add('voicewin','assets/sfx/youwin.ogg');
-	Crafty.audio.add('voicelose','assets/sfx/youlose.ogg');
-	Crafty.audio.add('gdp','assets/sfx/gdp.ogg');
-	Crafty.audio.add('finish','assets/sfx/finish.ogg');
+
+	// Crafty.audio.add('gdp','assets/sfx/gdp.ogg');
+	// Crafty.audio.add('bgm_title','assets/sfx/bgm_title_select.ogg');
+	// Crafty.audio.add('chrono','assets/sfx/sfx_chrono.ogg');
+	// Crafty.audio.add('dot_explo01','assets/sfx/sfx_dot_explo01.ogg');
+	// Crafty.audio.add('dot_explo02','assets/sfx/sfx_dot_explo02.ogg');
+	// Crafty.audio.add('finish','assets/sfx/finish.ogg');
+	// Crafty.audio.add('wise','assets/sfx/sfx_wise.ogg');
+	// Crafty.audio.add('loon','assets/sfx/sfx_loon.ogg');
 
 	Crafty.scene('logoGameJam',function() {
 		var logo = Crafty.e('2D, DOM, Image, Delay,Mouse')
@@ -39,8 +68,8 @@ window.onload = function() {
 			.delay(function() {
 				Crafty.scene('menu');
 			},5000);
-		Crafty.audio.play('bgm_title');
-		Crafty.audio.play('gdp');
+		Crafty.audio.play('bgm_title', -1, 0.75);
+		// Crafty.audio.play('gdp', 1);
 
 		logo.bind('Click',function() {
 			if ( stage.mozRequestFullScreen ) {
@@ -51,8 +80,10 @@ window.onload = function() {
 			  stage.webkitRequestFullscreen();
 			}
 
-			Crafty.audio.remove('gdp');
-			Crafty.audio.play('select01',1);
+			// Crafty.audio.remove('gdp');
+			// Crafty.audio.add('gdp','assets/sfx/gdp.ogg');
+			Crafty.audio.play('title', 1);
+			Crafty.audio.play('select0' + Crafty.math.randomInt(1, 6),1);
 			Crafty.scene('menu');
 		});
 	});
@@ -64,7 +95,9 @@ window.onload = function() {
 			.css({cursor:'pointer'});
 
 		btnSelectLevel.bind('Click', function() {
-			Crafty.audio.play('select01',1);
+			Crafty.audio.play('select0' + Crafty.math.randomInt(1, 6),1);
+			Crafty.audio.remove('title');
+			Crafty.audio.add('title','assets/sfx/sfx_title.ogg');
 			Crafty.scene('chooseLevel');
 		});
 
@@ -74,7 +107,7 @@ window.onload = function() {
 			.css({cursor:'pointer'});
 
 		btnCredits.bind('Click', function() {
-			Crafty.audio.play('select01',1);
+			Crafty.audio.play('select0' + Crafty.math.randomInt(1, 6),1);
 			Crafty.scene('credits');
 		});
 
@@ -84,7 +117,7 @@ window.onload = function() {
 			.css({cursor:'pointer'});
 
 		btnHowToPlay.bind('Click', function() {
-			Crafty.audio.play('select01',1);
+			Crafty.audio.play('select0' + Crafty.math.randomInt(1, 6),1);
 			Crafty.scene('howToPlay');
 		});
 	});
@@ -96,9 +129,16 @@ window.onload = function() {
 			nLevelsPerLine = 5,
 			nSpace = 10;
 
-		Crafty.e('2D, DOM, Image')
+		var btnTitle = Crafty.e('2D, DOM, Image, Mouse')
 			.attr({x:0, y:0})
-			.image('assets/menus/title_very_small.png');
+			.image('assets/menus/title_very_small.png')
+			.css({cursor:'pointer'});
+
+		btnTitle.bind('Click', function() {
+			Crafty.audio.play('select0' + Crafty.math.randomInt(1, 6),1);
+			Crafty.audio.play('title', 1);
+			Crafty.scene('menu');
+		});
 
 		Crafty.e('2D,DOM,Text,Color')
 			.attr({x: Crafty.stage.elem.scrollWidth / 2 - 250, y: 120, h:0, w:500})
@@ -166,7 +206,7 @@ window.onload = function() {
 
 			// Button
 			lvlBtn.bind('Click',function() {
-				Crafty.audio.play('select01',1);
+				Crafty.audio.play('select0' + Crafty.math.randomInt(1, 6),1);
 				levelToLoad = window.levels[name];
 				Crafty.scene('game');
 			});
@@ -182,7 +222,7 @@ window.onload = function() {
 			.css({cursor:'pointer'});
 
 		btn.bind('Click', function() {
-			Crafty.audio.play('select01',1);
+			Crafty.audio.play('select0' + Crafty.math.randomInt(1, 6),1);
 			Crafty.scene('menu');
 		});
 	});
@@ -194,7 +234,7 @@ window.onload = function() {
 			.css({cursor:'pointer'});
 
 		btn.bind('Click', function() {
-			Crafty.audio.play('select01',1);
+			Crafty.audio.play('select0' + Crafty.math.randomInt(1, 6),1);
 			Crafty.scene('menu');
 		});
 	});
@@ -204,6 +244,8 @@ window.onload = function() {
 
 	Crafty.scene('game',function() {
 		Crafty.audio.remove('bgm_title');
+		Crafty.audio.add('bgm_title', 'assets/sfx/bgm_menu.ogg');
+		Crafty.audio.play('bgm_game0' + Crafty.math.randomInt(1, 4), -1, 0.75);
 		var color = window.color;
 
 		Crafty.background('#fff');
@@ -260,7 +302,16 @@ window.onload = function() {
 		Crafty.e('Level')
 			.level( levelToLoad )
 			.bind('LevelEnd', function() {
-				Crafty.audio.play('finish',1);
+				// Crafty.audio.play('finish',1);
+				Crafty.audio.remove('bgm_game01');
+				Crafty.audio.remove('bgm_game02');
+				Crafty.audio.remove('bgm_game03');
+				Crafty.audio.remove('bgm_game04');
+				Crafty.audio.add('bgm_game01','assets/sfx/bgm_game01.ogg');
+				Crafty.audio.add('bgm_game02','assets/sfx/bgm_game02.ogg');
+				Crafty.audio.add('bgm_game03','assets/sfx/bgm_game03.ogg');
+				Crafty.audio.add('bgm_game04','assets/sfx/bgm_game04.ogg');
+				Crafty.audio.play('bgm_title', -1, 0.75);
 				Crafty.scene('chooseLevel');
 			});
 	});

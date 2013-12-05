@@ -15,8 +15,8 @@ Crafty.c('Level', {
 			Crafty('Score').maxScore = levelData.score
 			this.unbind('EnterFrame');
 			var self = this;
-			Crafty.audio.play('chrono',1,0.5);
-			Crafty.audio.play('three',1);
+			// Crafty.audio.play('chrono',1,0.5);
+			Crafty.audio.play('321Go',1);
 			Crafty.e('2D, DOM, Color, Text, TweenQueue')
 				.attr({alpha: 1, x: Crafty.stage.elem.scrollWidth /2 - 32, y: Crafty.stage.elem.scrollHeight /2 - 90, w: 200, h: 100})
 				.text('3')
@@ -24,34 +24,31 @@ Crafty.c('Level', {
 				.textFont({ family: "No Color", size: '100px', weight: 'bold'})
 				.queue([{
 					alpha: 0,
-					duration: 30,
+					duration: 40,
 					callback: function() {
 						this.text('2')
 							.attr({alpha: 1});
-						Crafty.audio.play('chrono',1,0.5);
-						Crafty.audio.play('two',1);
+						// Crafty.audio.play('chrono',1,0.5);
 					}
 				}, {
 					alpha: 0,
-					duration: 30,
+					duration: 40,
 					callback: function() {
 						this.text('1')
 							.attr({alpha: 1});
-						Crafty.audio.play('chrono',1,0.5);
-						Crafty.audio.play('one',1);
+						// Crafty.audio.play('chrono',1,0.5);
 					}
 				}, {
 					alpha: 0,
-					duration: 30,
+					duration: 40,
 					callback: function() {
 						this.text('GO!')
 							.attr({alpha: 1, x: this._x - 80});
 						Crafty('Player').canMove = true;
-						Crafty.audio.play('go',1);
 					}
 				}, {
 					alpha: 0,
-					duration: 30,
+					duration: 40,
 					callback: function() {
 						this.destroy();
 						self.trigger('LevelFire');
@@ -100,7 +97,7 @@ Crafty.c('Level', {
 
 		this.bind('LevelLand', function() {
 			this.unbind('EnterFrame');
-			Crafty.audio.play('finish')
+			Crafty.audio.play('finish0' + Crafty.math.randomInt(1, 2))
 			// guys, stop moving please
 			Crafty('Enemy').each(function() {
 				this.removeComponent('Enemy')
