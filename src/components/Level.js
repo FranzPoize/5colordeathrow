@@ -43,7 +43,8 @@ Crafty.c('Level', {
 					duration: 40,
 					callback: function() {
 						this.text('GO!')
-							.attr({alpha: 1, x: this._x - 80});
+							.attr({alpha: 1, x: this._x - 80})
+							.textFont({ family: "No Color", size: '52px' });
 						Crafty('Player').canMove = true;
 					}
 				}, {
@@ -144,7 +145,8 @@ Crafty.c('Level', {
 							w: 300,
 							h: 40
 						})
-						.text( levelName + ': ' + Math.floor( levelDuration / 60 ) + '.' + levelDuration % 60 )
+						.text( levelName + ' | ' + Math.floor( levelDuration / 60 ) + ':' + levelDuration % 60 )
+						.textFont({ family: "No Color", size: '52px' })
 						.textColor('#44aa00')
 						.textFont({ family: "No Color", size: '40px', weight: 'bold'})
 						.queue([{
@@ -180,6 +182,7 @@ Crafty.c('Level', {
 								h: 60
 							})
 							.text( wise ? 'YOU WIN!' : 'YOU LOSE!' )
+							.textFont({ family: "No Color", size: '52px' })
 							.textColor('#800080')
 							.textFont({ family: "No Color", size: '50px', weight: 'bold'})
 							.queue([{
